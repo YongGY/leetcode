@@ -19,23 +19,23 @@ public class E66_PlusOne {
 
 	public static int[] plusOne(int[] digits) {
 		for (int i = digits.length - 1; i >= 0; i--) {
-			if (digits[i] != 9) {
+ 			if (digits[i] != 9) {
 				digits[i]++;
 				return digits;
 			} else {
 				digits[i] = 0;
 			}
 		}
+ 
+		int[] R = new int[digits.length + 1];
+		R[0] = 1;
 
-		int[] re = new int[digits.length + 1];
-		re[0] = 1;
-
-		return re;
+		return R;
 	}
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(Arrays.toString(plusOne(new int[] {3,2,9})));
+		System.out.println(Arrays.toString(plusOne(new int[] {9})));
 	}
 
 }
