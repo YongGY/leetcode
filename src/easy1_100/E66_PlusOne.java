@@ -18,6 +18,7 @@ import java.util.Arrays;
 public class E66_PlusOne {
 
 	public static int[] plusOne(int[] digits) {
+		
 		for (int i = digits.length - 1; i >= 0; i--) {
  			if (digits[i] != 9) {
 				digits[i]++;
@@ -35,7 +36,7 @@ public class E66_PlusOne {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(Arrays.toString(plusOne(new int[] {9})));
+		System.out.println(Arrays.toString(plusOne(new int[] {9,9,1})));
 	}
 
 }
