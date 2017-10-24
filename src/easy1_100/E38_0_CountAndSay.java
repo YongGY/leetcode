@@ -26,7 +26,7 @@ package easy1_100;
  * @author yongguo
  *
  */
-public class E38_CountAndSay {
+public class E38_0_CountAndSay {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

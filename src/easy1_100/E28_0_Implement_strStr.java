@@ -10,7 +10,7 @@ package easy1_100;
  * @author yongguo
  *
  */
-public class E28_Implement_strStr {
+public class E28_0_Implement_strStr {
 
 	
     public int strStr(String haystack, String needle) {
