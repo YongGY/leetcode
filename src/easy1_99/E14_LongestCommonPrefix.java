@@ -1,4 +1,4 @@
-package easy1_100;
+package easy1_99;
 
 /**
  * Write a function to find the longest common prefix string amongst an array of

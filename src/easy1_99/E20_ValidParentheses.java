@@ -1,4 +1,4 @@
-package easy1_100;
+package easy1_99;
 
 import java.util.Stack;
 

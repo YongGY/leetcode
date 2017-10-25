@@ -1,4 +1,4 @@
-package easy1_100;
+package easy1_99;
 
 /**
  * Merge two sorted linked lists and return it as a new list. The new list

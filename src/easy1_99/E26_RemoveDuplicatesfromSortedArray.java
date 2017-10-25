@@ -1,4 +1,4 @@
-package easy1_100;
+package easy1_99;
 
 /**
  * Given a sorted array, remove the duplicates in place such that each element

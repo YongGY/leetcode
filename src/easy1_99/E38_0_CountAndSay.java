@@ -1,4 +1,4 @@
-package easy1_100;
+package easy1_99;
 
 /**
  * The count-and-say sequence is the sequence of integers with the first five

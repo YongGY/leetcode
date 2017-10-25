@@ -1,4 +1,4 @@
-package easy1_100;
+package easy1_99;
 
 /**
  * Find the contiguous subarray within an array (containing at least one number)

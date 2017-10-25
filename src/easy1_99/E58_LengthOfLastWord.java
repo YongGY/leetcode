@@ -1,4 +1,4 @@
-package easy1_100;
+package easy1_99;
 
 /**
  * Given a string s consists of upper/lower-case alphabets and empty space

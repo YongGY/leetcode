@@ -1,4 +1,4 @@
-package easy1_100;
+package easy1_99;
 
 /**
  * Given an array and a value, remove all instances of that value in place and

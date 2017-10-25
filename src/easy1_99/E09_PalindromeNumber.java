@@ -1,4 +1,4 @@
-package easy1_100;
+package easy1_99;
 
 /**
  * Determine whether an integer is a palindrome. Do this without extra space.
