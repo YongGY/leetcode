@@ -1,5 +1,8 @@
 package medium1_99;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Given a string, find the length of the longest substring without repeating
  * characters.
@@ -18,14 +21,28 @@ package medium1_99;
  */
 public class M03_LongestSubstringWithoutRepeatingCharacters {
 
-	public int lengthOfLongestSubstring(String s) {
-		return 0;
-
+	public static int lengthOfLongestSubstring(String s) {
+		int max = 0;
+		int start = 0;
+		int end = 0;
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (map.containsKey(c) && map.get(c) >= start) {
+				start = map.get(c) + 1;
+			}
+			map.put(c, i);
+			end = i;
+			max = Math.max(max, end - start + 1);
+		}
+		return max;
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+//		System.out.println(lengthOfLongestSubstring("abcabcbb"));
+//		System.out.println(lengthOfLongestSubstring("bbbb"));
+		System.out.println(lengthOfLongestSubstring("pwwkew"));
 	}
 
 }
