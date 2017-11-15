@@ -48,7 +48,7 @@ public class M02_AddTwoNumbers {
 			int num2 = (l2 == null ? 0 : l2.val);
 			sum = num1 + num2 + carry;  // 如果之前有进位，carry = 1；沒有的话carry = 0
 			curr.next = new ListNode(sum % 10); //取余 ，相加如果超过9，只能留下个位数放入結果list，十位数的地方进位
-			curr = curr.next;  // list指标向后
+			curr = curr.next;  // list指针向后
 			carry = sum / 10;  //取商后结果为进位数 
 			
 			//l1 和 l2 的指针进行步进，否则无限循环
