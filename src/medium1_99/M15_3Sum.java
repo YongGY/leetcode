@@ -16,11 +16,13 @@ import java.util.List;
  * 
  * @author William
  *
+ *1.先对数组排序
+ *2.对数组用两个指针分别从前后两端向中间扫描
+ *3.先固定一个数，然后找另外两个数之和为第一个数的相反数就可以了(3数相加为0)
+ *注意，对于 num[i]，寻找另外两个数时，只要从 i+1 开始找就可以了。
+ *这种写法，可以避免结果集中有重复，因为数组时排好序的，所以当一个数被放到结果集中的时候，其后面和它相等的直接被跳过。
  */
 
-
-//http://blog.csdn.net/ljiabin/article/details/40620579
-//https://segmentfault.com/a/1190000003740669
 public class M15_3Sum {
 
 	public static List<List<Integer>> threeSum(int[] nums) {
@@ -35,7 +37,7 @@ public class M15_3Sum {
 			if (i > 0 && nums[i] == nums[i - 1])
 				continue;
 			
-			System.out.println("nums:"+nums+"  (i+1):"+ (i + 1) +"    (len - 1):"+ (len - 1) +"     nums[i]:"+ nums[i]);
+			System.out.println("nums:"+Arrays.toString(nums)+"  (begin):"+ (i + 1) +"    (end):"+ (len - 1) +"     (target):"+ nums[i]);
 			List<List<Integer>> curr = twoSum(nums, i + 1, len - 1, nums[i]); // 寻找两个数与num[i]的和为0
 			res.addAll(curr);
 		}
