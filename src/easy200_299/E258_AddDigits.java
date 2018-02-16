@@ -54,7 +54,6 @@ public class E258_AddDigits {
 	}
     
     public static void main(String[] args) {
-    	String aa = "380";
 		System.out.println(addDigits(380));
 		
 	}
