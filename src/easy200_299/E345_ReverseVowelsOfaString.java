@@ -45,9 +45,7 @@ public class E345_ReverseVowelsOfaString {
 		}
 		
 		return String.valueOf(ch);
-		
  
-		
 	}
 
 	public static void main(String[] args) {

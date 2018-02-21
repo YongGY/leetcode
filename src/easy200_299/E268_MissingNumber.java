@@ -1,7 +1,6 @@
 package easy200_299;
 
 import java.util.Arrays;
-import java.util.Iterator;
 
 /**
  * Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find
