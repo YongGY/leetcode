@@ -14,7 +14,7 @@ package easy1_199;
  * @author William
  *
  */
-public class E58_LengthOfLastWord {
+public class E058_LengthOfLastWord {
 
     public static int lengthOfLastWord(String s) {
     	String[] a = s.split(" ");

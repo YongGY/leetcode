@@ -16,7 +16,7 @@ package easy1_199;
  * @author yongguo
  *
  */
-public class E35_SearchInsertPosition {
+public class E035_SearchInsertPosition {
 
 	public static int searchInsert(int[] nums, int target) {
 

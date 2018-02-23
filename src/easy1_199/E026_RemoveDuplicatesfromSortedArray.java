@@ -16,7 +16,7 @@ package easy1_199;
  * @author yongguo
  *
  */
-public class E26_RemoveDuplicatesfromSortedArray {
+public class E026_RemoveDuplicatesfromSortedArray {
 
 	
     public static int removeDuplicates(int[] nums) {

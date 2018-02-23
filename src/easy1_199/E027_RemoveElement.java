@@ -19,7 +19,7 @@ package easy1_199;
  * @author yongguo
  *
  */
-public class E27_RemoveElement {
+public class E027_RemoveElement {
 
 	public static int removeElement(int[] nums, int val) {
 		int j = 0;

@@ -9,7 +9,7 @@ package easy1_199;
  * @author William
  *
  */
-public class E69_Sqrt_x {
+public class E069_Sqrt_x {
 
 	public static int mySqrt(int x) {
 		long i = 0;

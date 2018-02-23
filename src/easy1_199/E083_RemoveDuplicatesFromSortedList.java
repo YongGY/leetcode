@@ -9,7 +9,7 @@ package easy1_199;
  * @author William
  *
  */
-public class E83_RemoveDuplicatesFromSortedList {
+public class E083_RemoveDuplicatesFromSortedList {
 
 	/**
 	 * Definition for singly-linked list. 
@@ -42,7 +42,7 @@ public class E83_RemoveDuplicatesFromSortedList {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		E83_RemoveDuplicatesFromSortedList e = new E83_RemoveDuplicatesFromSortedList();
+		E083_RemoveDuplicatesFromSortedList e = new E083_RemoveDuplicatesFromSortedList();
 		ListNode l1= e.new ListNode(1);
 		ListNode l2= e.new ListNode(1);
 		ListNode l3= e.new ListNode(2);

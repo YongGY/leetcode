@@ -15,7 +15,7 @@ import java.util.Arrays;
  * @author William
  *
  */
-public class E66_PlusOne {
+public class E066_PlusOne {
 
 	public static int[] plusOne(int[] digits) {
 		

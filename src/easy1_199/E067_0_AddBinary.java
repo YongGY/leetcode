@@ -8,7 +8,7 @@ package easy1_199;
  * @author William
  *
  */
-public class E67_0_AddBinary {
+public class E067_0_AddBinary {
 
 	public static String addBinary(String a, String b) {
 

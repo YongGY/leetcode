@@ -11,7 +11,7 @@ package easy1_199;
  * @author William
  *
  */
-public class E70_ClimbingStairs {
+public class E070_ClimbingStairs {
 
 	public static int climbStairs(int n) {
         int[] f = new int[]{0,1,2};

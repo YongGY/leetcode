@@ -13,7 +13,7 @@ package easy1_199;
  * @author William
  *
  */
-public class E53_MaximumSubarray {
+public class E053_MaximumSubarray {
 	
     public static int maxSubArray(int[] nums) {
         int [] S = new int[nums.length];

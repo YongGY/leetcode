@@ -11,7 +11,7 @@ package easy1_199;
  * @author William
  *
  */
-public class E88_MergeSortedArray {
+public class E088_MergeSortedArray {
 	
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
     	m = m-1;

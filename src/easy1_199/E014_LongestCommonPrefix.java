@@ -7,14 +7,17 @@ package easy1_199;
  * @author yongguo
  *
  */
-public class E14_LongestCommonPrefix {
+public class E014_LongestCommonPrefix {
 
 	public static String longestCommonPrefix(String[] strs) {
 		if (strs == null || strs.length == 0) {
 			return null;
 		}
+		//prefix表示目前发现的共同字首，一开始为strs[0]
 		String prefix = strs[0];
+		//只需要比对prefix跟目前字串共同的字元就好
 		for (int i = 1; i < strs.length; i++) {
+			
 			int j = 0;
 			while (j < strs[i].length() && j < prefix.length() && prefix.charAt(j) == strs[i].charAt(j)) {
 				j++;
@@ -23,6 +26,7 @@ public class E14_LongestCommonPrefix {
 				return "";
 			}
 			prefix = prefix.substring(0, j);
+			System.err.println("-------"+prefix);
 		}
 		return prefix;
 
@@ -30,7 +34,7 @@ public class E14_LongestCommonPrefix {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(longestCommonPrefix(new String[]{"abc"}));
+		System.out.println(longestCommonPrefix(new String[]{"abcdefg", "abcdefghijk", "abcdfghijk", "abcef"}));
 	}
 
 }

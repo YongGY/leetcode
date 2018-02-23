@@ -6,7 +6,7 @@ package easy1_199;
  * @author yongguo
  *
  */
-public class E09_PalindromeNumber {
+public class E009_PalindromeNumber {
 
 	public static boolean isPalindrome(int x) {
 		if (x < 0) {
@@ -19,7 +19,7 @@ public class E09_PalindromeNumber {
 		int newnum = 0;
 		while (x != 0) {
 			newnum = newnum * 10 + x % 10;
-			x = x / 10;
+ 			x = x / 10;
 		}
 		if (temp == newnum) {
 			return true;

@@ -12,7 +12,7 @@ package easy1_199;
  * @author yongguo
  *
  */
-public class E07_ReverseInteger {
+public class E007_ReverseInteger {
 
 	public static int reverse(int x) {
 		int left = 0; long newnum = 0;
@@ -33,7 +33,7 @@ public class E07_ReverseInteger {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(reverse(1534236469));
+		System.out.println(reverse(123));
 	}
 
 }

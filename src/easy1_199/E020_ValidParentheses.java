@@ -12,18 +12,21 @@ import java.util.Stack;
  * @author yongguo
  *
  */
-public class E20_ValidParentheses {
+public class E020_ValidParentheses {
 
 	public static boolean isValid(String s) {
-		Stack<Character> parentheses = new Stack<Character>();
+		if(s == null || s.length() < 2) return false;
+		// 用stack来检查  
+		Stack<Character> stack = new Stack<Character>();
 
 		for (int i = 0; i < s.length(); i++) {
+			// 如果遇到前括号就压入栈  
 			if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[') {
-				parentheses.push(s.charAt(i));
+				stack.push(s.charAt(i));
 			} else {
-				if (parentheses.size() == 0)
+				if (stack.size() == 0)
 					return false;
-				char top = parentheses.pop();
+				char top = stack.pop();
 				if (s.charAt(i) == ')') {
 					if (top != '(')
 						return false;
@@ -36,14 +39,15 @@ public class E20_ValidParentheses {
 				}
 			}
 		}
-		return parentheses.size() == 0;
+		return stack.size() == 0;
 	}
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(isValid("()[]{}"));
 		System.out.println(isValid("([]{})"));
 		System.out.println(isValid("([{}])"));
+		System.out.println(isValid("([)]"));
 	}
 
 }
