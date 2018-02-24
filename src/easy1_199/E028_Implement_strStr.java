@@ -14,7 +14,7 @@ package easy1_199;
  * @author yongguo
  *
  */
-public class E028_0_Implement_strStr {
+public class E028_Implement_strStr {
 
 	public static int strStr(String haystack, String needle) {
 		if (haystack == null || needle == null || needle.length() == 0) {
@@ -66,7 +66,7 @@ public class E028_0_Implement_strStr {
 
 	public static void main(String[] args) {
 		System.out.println(strStr("hello", "ll"));
-		System.out.println(strStr("aaaaa", "bba"));
+		//System.out.println(strStr("aaaaa", "bba"));
 	}
 
 }

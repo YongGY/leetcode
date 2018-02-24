@@ -41,6 +41,29 @@ public class E035_SearchInsertPosition {
 		return low;
 	}
 	
+	
+	
+	public static int searchInsert01(int[] nums, int target) {
+		
+		if(nums == null || nums.length == 0) {
+			return 0;
+		}
+		
+		int low = 0;
+		int hight = nums.length - 1;
+		while(low<=hight) {
+			int mid = (low +hight )/2;
+			if(nums[mid] < target) {
+				low = mid +1;
+			}else if(nums[mid] > target){
+				hight = mid - 1;
+			}else {
+				return mid;
+			}
+		}
+		return low;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(searchInsert(new int[] {1,3,5,6}, 5));
