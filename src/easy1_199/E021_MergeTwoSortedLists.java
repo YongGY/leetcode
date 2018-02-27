@@ -20,23 +20,23 @@ public class E021_MergeTwoSortedLists {
 	
 	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy = new E021_MergeTwoSortedLists().new ListNode (0);
-        ListNode lastNode = dummy;
+        ListNode curr = dummy; //lastNode向了dummy的头
         
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
-                lastNode.next = l1;
+                curr.next = l1; //把小的值留下，留在在lastNode.next，lastNode指向L1(头) 或 lastNode.next 就是l1的头
                 l1 = l1.next;
             } else {
-                lastNode.next = l2;
+                curr.next = l2;
                 l2 = l2.next;
             }
-            lastNode = lastNode.next;
+            curr = curr.next;
         }
         
         if (l1 != null) {
-            lastNode.next = l1;
+            curr.next = l1;
         } else {
-            lastNode.next = l2;
+            curr.next = l2;
         }
         
         return dummy.next;
@@ -70,7 +70,7 @@ public class E021_MergeTwoSortedLists {
 			val = x;
 		}
 	}
-	 
+
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
