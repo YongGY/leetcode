@@ -61,7 +61,7 @@ public class E155_MinStack {
     }
 
 	public static void main(String[] args) {
-		E155_MinStack obj = new E155_MinStack();
+//		E155_MinStack obj = new E155_MinStack();
 //		 obj.push(x);
 //		 obj.pop();
 //		 int param_3 = obj.top();

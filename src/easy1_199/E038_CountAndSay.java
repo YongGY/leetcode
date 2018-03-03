@@ -1,6 +1,5 @@
 package easy1_199;
 
-import javax.net.ssl.SSLContext;
 
 /**
  * The count-and-say sequence is the sequence of integers with the first five

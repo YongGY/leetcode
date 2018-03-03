@@ -26,7 +26,6 @@ public class E014_LongestCommonPrefix {
 				return "";
 			}
 			prefix = prefix.substring(0, j);
-			System.err.println("-------"+prefix);
 		}
 		return prefix;
 

@@ -1,6 +1,5 @@
 package easy1_199;
 
-import java.util.Arrays;
 
 /**
  * Given an array of integers, every element appears twice except for one. Find
