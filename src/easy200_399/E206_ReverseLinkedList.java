@@ -16,6 +16,7 @@ public class E206_ReverseLinkedList {
 		}
 	}
 	
+
 	public static ListNode reverseList(ListNode head)  {
         ListNode prev = null;
         while (head != null) {
