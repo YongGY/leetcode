@@ -8,6 +8,17 @@ package easy1_199;
  * 
  * Note: Given n will be a positive integer.
  * 
+ * 
+ * 这道题就是经典的讲解最简单的DP问题的问题。。
+ * 
+ * 假设梯子有n层，那么如何爬到第n层呢，因为每次只能爬1或2步，
+ * 
+ * 那么爬到第n层的方法要么是从第n-1层一步上来的，要不就是从n-2层2步上来的，
+ * 
+ * 所以递推公式非常容易的就得出了：  dp[n] = dp[n-1] + dp[n-2]
+ * 
+ * 如果梯子有1层或者2层，dp[1] = 1, dp[2] = 2，如果梯子有0层，自然dp[0] = 0
+ * 
  * @author William
  *
  */
@@ -23,7 +34,7 @@ public class E070_ClimbingStairs {
         }
         return f[2];
 	}
-
+	
 	public static int climbStairs1(int n) {
 		if (n == 0) {
 			return 0;

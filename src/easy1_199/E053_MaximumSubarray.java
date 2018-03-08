@@ -32,19 +32,7 @@ public class E053_MaximumSubarray {
         }
         return max;
     }
-	
-	
-    public static int maxSubArray01(int[] nums) {
-        int [] S = new int[nums.length];
-        S[0] = nums[0];
-        int max = nums[0];
-        
-        for (int i = 1; i < S.length; i++) {
-			S[i] = Math.max(nums[i], (S[i-1]+nums[i]));
-			max = Math.max(max,S[i]);
-		}
-		return max;
-    }
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

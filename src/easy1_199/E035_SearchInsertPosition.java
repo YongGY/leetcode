@@ -41,6 +41,7 @@ public class E035_SearchInsertPosition {
 		return low;
 	}
 	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(searchInsert(new int[] {1,3,5,6}, 5));

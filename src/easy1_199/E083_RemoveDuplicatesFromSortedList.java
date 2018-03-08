@@ -28,12 +28,12 @@ public class E083_RemoveDuplicatesFromSortedList {
 		if(head == null || head.next == null) {
 			return head;
 		}
-		ListNode node = head;
-		while(node.next != null) {
-			if(node.val == node.next.val) {
-				node.next = node.next.next;
+		ListNode curr = head;
+		while(curr.next != null) {
+			if(curr.val == curr.next.val) {
+				curr.next = curr.next.next;
 			}else {
-				node = node.next;
+				curr = curr.next;
 			}
 		}
 		return head;

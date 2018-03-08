@@ -16,7 +16,7 @@ package easy1_199;
  */
 public class E058_LengthOfLastWord {
 
-    public static int lengthOfLastWord(String s) {
+    public static int lengthOfLastWord01(String s) {
     	String[] a = s.split(" ");
     	if(a == null || a.length == 0) {
         	return 0;
@@ -24,6 +24,29 @@ public class E058_LengthOfLastWord {
     	return a[a.length-1].length();
     }
 	
+    
+    public static int lengthOfLastWord(String s) {
+        int length = 0;
+        char[] chars = s.toCharArray();
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (length == 0) {
+                if (chars[i] == ' ') {
+                    continue;
+                } else {
+                    length++;
+                }
+            } else {
+                if (chars[i] == ' ') {
+                    break;
+                } else {
+                    length++;
+                }
+            }
+        }
+
+        return length;
+    }
+    
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(lengthOfLastWord("Hello World"));
