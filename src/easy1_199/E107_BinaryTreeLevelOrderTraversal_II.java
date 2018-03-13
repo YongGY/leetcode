@@ -1,6 +1,6 @@
 package easy1_199;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Given a binary tree, return the bottom-up level order traversal of its nodes'
@@ -32,13 +32,30 @@ public class E107_BinaryTreeLevelOrderTraversal_II {
 		}
 	}
 
-	public List<List<Integer>> levelOrderBottom(TreeNode root) {
-		return null;
 
+    //A good implementation problem
+	public ArrayList<ArrayList<Integer>> levelOrderBottom(TreeNode root) {
+		ArrayList<ArrayList<Integer>> results = new ArrayList<ArrayList<Integer>>();
+		levelOrder(root, results, 0);
+		return results;
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+	private void levelOrder(TreeNode root, ArrayList<ArrayList<Integer>> results, int level) {
+		if (root == null) {
+			return;
+		}
+
+		ArrayList<Integer> current = new ArrayList<Integer>();
+		if (results.size() <= level) {
+			current.add(root.val);
+			results.add(0, current);
+		} else {
+			current = results.get(results.size() - level - 1);
+			current.add(root.val);
+		}
+
+		levelOrder(root.left, results, level + 1);
+		levelOrder(root.right, results, level + 1);
 	}
 
 }

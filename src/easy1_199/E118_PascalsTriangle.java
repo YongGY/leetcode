@@ -48,10 +48,10 @@ public class E118_PascalsTriangle {
 		}
 		return res;
 	}
-    
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(generate(5));
+		System.out.println(generate(6));
 	}
 
 }

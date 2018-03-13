@@ -13,8 +13,7 @@ package easy1_199;
  * 所以这道题考的就是二分查找法
  * 
  *         先复习下什么是二叉搜索树（引自Wikipedia）：
- *         二叉查找树（Binary Search Tree），也称有序二叉树（ordered binary tree）,排序二叉树（sorted
- *         binary tree），是指一棵空树或者具有下列性质的二叉树：
+ *         二叉查找树（Binary Search Tree），也称有序二叉树（ordered binary tree）,排序二叉树（sorted binary tree），是指一棵空树或者具有下列性质的二叉树：
  * 
  *         若任意节点的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 
  *         任意节点的右子树不空，则右子树上所有结点的值均大于它的根结点的值；
