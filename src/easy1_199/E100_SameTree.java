@@ -1,5 +1,7 @@
 package easy1_199;
 
+import common.TreeNode;
+
 /**
  * Given two binary trees, write a function to check if they are equal or not.
  * 
@@ -23,19 +25,7 @@ package easy1_199;
  *
  */
 public class E100_SameTree {
-
-	/**
-	 * Definition for a binary tree node.
-	 */
-	class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
+ 
 
 	public boolean isSameTree(TreeNode p, TreeNode q) {
 		if (p == null && q == null) {

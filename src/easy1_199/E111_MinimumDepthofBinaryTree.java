@@ -1,5 +1,7 @@
 package easy1_199;
 
+import common.TreeNode;
+
 /**
  * Given a binary tree, find its minimum depth.
  * 
@@ -13,18 +15,6 @@ package easy1_199;
  */
 public class E111_MinimumDepthofBinaryTree {
 
-	/**
-	 * Definition for a binary tree node.
-	 */
-	class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
 
 	//DFS
 	public static int minDepth(TreeNode root) {

@@ -1,5 +1,6 @@
 package easy1_199;
 
+import common.TreeNode;
 
 /**
  * Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
@@ -21,20 +22,6 @@ package easy1_199;
  *
  */
 public class E101_SymmetricTree {
-
-	/**
-	 * Definition for a binary tree node.
-	 * 
-	 */
-	class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
 	 
 	
     public boolean isSymmetric(TreeNode root) {

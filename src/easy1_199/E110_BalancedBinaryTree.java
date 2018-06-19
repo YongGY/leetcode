@@ -1,5 +1,7 @@
 package easy1_199;
 
+import common.TreeNode;
+
 /**
  * Given a binary tree, determine if it is height-balanced.
  * 
@@ -13,20 +15,7 @@ package easy1_199;
  * 
  */
 public class E110_BalancedBinaryTree {
-
-	/**
-	 * Definition for a binary tree node.
-	 */
-	class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
-
+ 
 	public static boolean isBalanced(TreeNode root) {
 		if (root == null) {
 			return true;

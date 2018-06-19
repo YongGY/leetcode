@@ -2,6 +2,8 @@ package easy1_199;
 
 import java.util.ArrayList;
 
+import common.TreeNode;
+
 /**
  * Given a binary tree, return the bottom-up level order traversal of its nodes'
  * values. (ie, from left to right, level by level from leaf to root).
@@ -18,20 +20,6 @@ import java.util.ArrayList;
  *
  */
 public class E107_BinaryTreeLevelOrderTraversal_II {
-	/**
-	 * Definition for a binary tree node.
-	 */
-
-	class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
-
 
     //A good implementation problem
 	public ArrayList<ArrayList<Integer>> levelOrderBottom(TreeNode root) {

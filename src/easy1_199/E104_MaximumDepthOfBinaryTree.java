@@ -1,5 +1,7 @@
 package easy1_199;
 
+import common.TreeNode;
+
 /**
  * Given a binary tree, find its maximum depth.
  * 
@@ -11,19 +13,6 @@ package easy1_199;
  */
 public class E104_MaximumDepthOfBinaryTree {
 
-	/**
-	 * Definition for a binary tree node.
-	*/
-	class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
-	
 	public int maxDepth(TreeNode root) {
 		if (root == null) {
 			return 0;

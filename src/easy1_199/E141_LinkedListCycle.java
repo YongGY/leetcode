@@ -1,5 +1,6 @@
 package easy1_199;
 
+import common.ListNode;
 
 /**
  * Given a linked list, determine if it has a cycle in it.
@@ -28,16 +29,7 @@ package easy1_199;
  * 
  */
 public class E141_LinkedListCycle {
-
-	class ListNode {
-		int val;
-		ListNode next;
-		ListNode(int x) {
-			val = x;
-			next = null;
-		}
-	}
-
+ 
 	public boolean hasCycle(ListNode head) {
 		if (head == null || head.next == null) {
 			return false;
