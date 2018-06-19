@@ -24,7 +24,21 @@ public class M24_SwapNodesInPairs {
 	}
 
 	public ListNode swapPairs(ListNode head) {
-		return head;
+		if (head == null || head.next == null)
+			return head;
+		ListNode dummy = new ListNode(0);
+		dummy.next = head;
+		ListNode node = dummy;
+
+		while (head != null && head.next != null) {
+			node.next = head.next;
+			head.next = node.next.next;
+			node.next.next = head;
+			node = head;
+			head = head.next;
+		}
+
+		return dummy.next;
 	}
 
 	public static void main(String[] args) {

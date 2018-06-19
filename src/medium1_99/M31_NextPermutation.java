@@ -1,17 +1,25 @@
 package medium1_99;
 
-
 /**
- * Divide two integers without using multiplication, division and mod operator.
+ * Implement next permutation, which rearranges numbers into the
+ * lexicographically next greater permutation of numbers.
  * 
- * If it is overflow, return MAX_INT.
+ * If such arrangement is not possible, it must rearrange it as the lowest
+ * possible order (ie, sorted in ascending order).
+ * 
+ * The replacement must be in-place, do not allocate extra memory.
+ * 
+ * Here are some examples. Inputs are in the left-hand column and its
+ * corresponding outputs are in the right-hand column. 
+ * 1,2,3 → 1,3,2 
+ * 3,2,1 → 1,2,3 
+ * 1,1,5 → 1,5,1
  * 
  * @author William
  *
  */
 public class M31_NextPermutation {
-	public int divide(int dividend, int divisor) {
-		return divisor;
+	public void nextPermutation(int[] nums) {
 
 	}
 
@@ -19,5 +27,4 @@ public class M31_NextPermutation {
 		// TODO Auto-generated method stub
 		System.out.println();
 	}
-
 }

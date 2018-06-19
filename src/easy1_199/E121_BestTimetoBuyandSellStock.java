@@ -30,36 +30,22 @@ package easy1_199;
 public class E121_BestTimetoBuyandSellStock {
 
 	public static int maxProfit(int[] prices) {
-		if (prices == null || prices.length == 0) {
+		if (prices == null || prices.length <= 1) {
 			return 0;
 		}
-		int local = 0;
-		int global = 0;
-		for (int i = 0; i < prices.length - 1; i++) {
-			local = Math.max(local + prices[i + 1] - prices[i], 0);
-			global = Math.max(local, global);
+		int min = prices[0]; // min so far
+		int profit = 0;
+		for (int i = 1; i < prices.length; i++) {
+			profit = Math.max(profit, prices[i] - min);
+			min = Math.min(min, prices[i]);
 		}
-		return global;
+		return profit;
 
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(maxProfit(new int[] { 7, 1, 5, 3, 6, 4 }));
-	}
-
-	public static int maxProfit01(int[] prices) {
-		if (prices == null || prices.length <= 1) {
-			return 0;
-		}
-		int min = prices[0]; // min so far
-		int result = 0;
-		for (int i = 1; i < prices.length; i++) {
-			result = Math.max(result, prices[i] - min);
-			min = Math.min(min, prices[i]);
-		}
-		return result;
-
 	}
 	
 }

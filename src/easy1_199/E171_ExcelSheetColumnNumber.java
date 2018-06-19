@@ -21,21 +21,18 @@ package easy1_199;
 
 public class E171_ExcelSheetColumnNumber {
 
-	public static int titleToNumber(String s) {
-		int num = 0;
-		int pow = 1;
-		for (int i = s.length() - 1; i >= 0; i--) {
-			num += (s.charAt(i) - 'A' + 1) * pow;
-			pow = pow * 26;
-		}
-		return num;
-	}
-
+    public static int titleToNumber(String s) {
+        int result = 0;
+        for (char letter : s.toCharArray()) {
+            result = result * 26 + letter - 'A' + 1;
+        }
+        return result;
+    }
+ 
+	
+	
 	public static void main(String[] args) {
-
-		System.out.println();
-
-		System.out.println(titleToNumber("A"));
+		System.out.println(titleToNumber("ABA"));
 	}
 
 }
