@@ -1,4 +1,4 @@
-package easy1_199;
+package array.basic;
 
 /**
  * Given an array nums and a value val, remove all instances of that value
@@ -28,26 +28,18 @@ package easy1_199;
  * 
  * It doesn't matter what values are set beyond the returned length.
  * 
- * 
- * @author yongguo
+ * @author Willam
  *
  */
-public class E027_RemoveElement {
-
-	public static int removeElement(int[] nums, int val) {
-		if(nums == null || nums.length == 0) return 0;
-		int count = 0;
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] != val) {
-				nums[count++] = nums[i];
-			}
-		}
-		return count;
+public class A01_027RemoveElement {
+	public int removeElement(int[] nums, int val) {
+        if(nums == null || nums.length == 0) return 0;
+        int count = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] != val){
+                nums[count++] = nums[i];
+            }
+        }
+        return count;
 	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(removeElement(new int[] { 3, 2, 2, 3 }, 3));
-	}
-
 }

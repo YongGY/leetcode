@@ -26,7 +26,7 @@ package easy1_199;
  * 		如果他们有交集则会构成一个环，
  * 		题目等价于找链表中的环的起始结点。找到后将链表还原
  */
-public class E160_IntersectionofTwoLinkedLists_____Locked {
+public class E160_IntersectionofTwoLinkedLists{
 	
 	class ListNode {
 		int val;

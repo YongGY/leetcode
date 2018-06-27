@@ -1,6 +1,7 @@
-package easy1_199;
+package array.basic;
 
 /**
+ * 
  * Given a sorted array nums, remove the duplicates in-place such that each
  * element appear only once and return the new length.
  * 
@@ -23,26 +24,18 @@ package easy1_199;
  * 
  * It doesn't matter what values are set beyond the returned length.
  * 
- * @author yongguo
+ * @author Willam
  *
  */
-public class E026_RemoveDuplicatesfromSortedArray {
-
-	public static int removeDuplicates2(int[] nums) {
-		if (nums == null || nums.length == 0)
-			return 0;
+public class A02_026RemoveDuplicatesFromSortedArray {
+	public int removeElement(int[] nums, int val) {
+		if(nums == null || nums.length == 0) return 0;
 		int count = 1;
-		for (int i = 1; i < nums.length; i++) {
-			if (nums[i - 1] != nums[i]) {
+		for(int i=1; i<nums.length; i++){
+			if(nums[i-1] != nums[i]){
 				nums[count++] = nums[i];
 			}
 		}
 		return count;
 	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(removeDuplicates2(new int[] { 1, 1, 2, 2, 2 }));
-	}
-
 }

@@ -6,8 +6,23 @@ import java.util.Stack;
  * Given a string containing just the characters '(', ')', '{', '}', '[' and
  * ']', determine if the input string is valid.
  * 
- * The brackets must close in the correct order, "()" and "()[]{}" are all valid
- * but "(]" and "([)]" are not.
+ * An input string is valid if:
+ * 
+ * Open brackets must be closed by the same type of brackets. Open brackets must
+ * be closed in the correct order. Note that an empty string is also considered
+ * valid.
+ * 
+ * Example 1:
+ * 
+ * Input: "()" Output: true Example 2:
+ * 
+ * Input: "()[]{}" Output: true Example 3:
+ * 
+ * Input: "(]" Output: false Example 4:
+ * 
+ * Input: "([)]" Output: false Example 5:
+ * 
+ * Input: "{[]}" Output: true
  * 
  * @author yongguo
  *
@@ -15,39 +30,32 @@ import java.util.Stack;
 public class E020_ValidParentheses {
 
 	public static boolean isValid(String s) {
-		if(s == null || s.length() < 2) return false;
-		// 用stack来检查  
+		if (s == null || s.length() == 0)
+			return false;
 		Stack<Character> stack = new Stack<Character>();
-
-		for (int i = 0; i < s.length(); i++) {
-			// 如果遇到前括号就压入栈  
-			if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[') {
-				stack.push(s.charAt(i));
+		for (Character c : s.toCharArray()) {
+			if (c == '(') {
+				stack.push(')');
+			} else if (c == '[') {
+				stack.push(']');
+			} else if (c == '{') {
+				stack.push('}');
 			} else {
-				if (stack.size() == 0)
+				if (stack == null || stack.pop() != c) {
 					return false;
-				char top = stack.pop();
-				if (s.charAt(i) == ')') {
-					if (top != '(')
-						return false;
-				} else if (s.charAt(i) == '}') {
-					if (top != '{')
-						return false;
-				} else if (s.charAt(i) == ']') {
-					if (top != '[')
-						return false;
 				}
 			}
 		}
-		return stack.size() == 0;
+		return stack.isEmpty();
 	}
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(isValid("()[]{}"));
 		System.out.println(isValid("([]{})"));
 		System.out.println(isValid("([{}])"));
 		System.out.println(isValid("([)]"));
+		System.out.println(isValid(""));
 	}
 
 }

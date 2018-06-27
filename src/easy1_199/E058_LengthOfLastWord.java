@@ -24,8 +24,21 @@ public class E058_LengthOfLastWord {
     	return a[a.length-1].length();
     }
 	
-    
     public static int lengthOfLastWord(String s) {
+    	int result = 0, i = s.length() - 1;
+    	while(i > 0 && s.charAt(i) == ' '){
+    		i--;
+    	}
+    	System.out.println(i+"=======");
+    	while(i > 0 && s.charAt(i) != ' '){
+    		i--;
+    		result ++ ;
+    	}
+		return result;
+    }
+    
+    
+    public static int lengthOfLastWord2(String s) {
         int length = 0;
         char[] chars = s.toCharArray();
         for (int i = s.length() - 1; i >= 0; i--) {
@@ -49,7 +62,7 @@ public class E058_LengthOfLastWord {
     
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(lengthOfLastWord("Hello World"));
+		System.out.println(lengthOfLastWord("Hello World aeiou"));
 	}
 
 }

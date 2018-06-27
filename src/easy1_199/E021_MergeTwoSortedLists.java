@@ -6,6 +6,10 @@ import common.ListNode;
  * Merge two sorted linked lists and return it as a new list. The new list
  * should be made by splicing together the nodes of the first two lists.
  * 
+ * Example:
+ * 
+ * Input: 1->2->4, 1->3->4 Output: 1->1->2->3->4->4
+ * 
  * @author yongguo
  *
  */
@@ -17,14 +21,15 @@ public class E021_MergeTwoSortedLists {
 		ListNode dummy = new ListNode(0); // 创建一个头结点，最后还要删除掉
 
 		/*
-		 * 新链表的第一个结点问题，由于一般情况下第一个结点都需要特殊处理，比较实用的解决办法是在第一个结点前增加一个虚拟的头结点(本例中的dummy)，
-		 * 讲实际的第一个结点一般化。最后输出的时候输出这个虚拟结点的下一个结点就OK
+		 * 新链表的第一个结点问题，由于一般情况下第一个结点都需要特殊处理，比较实用的解决办法是在第一个结点前增加一个虚拟的头结点(本例中的dummy
+		 * )， 讲实际的第一个结点一般化。最后输出的时候输出这个虚拟结点的下一个结点就OK
 		 */
 		ListNode curr = dummy; // lastNode向了dummy的头 //设一个curr指针，初始指向dummy的头节点
 
 		while (l1 != null && l2 != null) {
 			if (l1.val < l2.val) {
-				curr.next = l1; // 把小的值留下，留在在lastNode.next，lastNode指向L1(头) 或 lastNode.next 就是l1的头
+				curr.next = l1; // 把小的值留下，留在在lastNode.next，lastNode指向L1(头) 或
+								// lastNode.next 就是l1的头
 				l1 = l1.next;
 			} else {
 				curr.next = l2;
