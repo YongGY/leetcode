@@ -46,7 +46,35 @@ public class A12_229MajorityElementII {
 		return list;
     }
     
+    public static List<Integer> majorityElement1(int[] nums) {
+       	List<Integer> list = new ArrayList<>();
+    	if(nums == null || nums.length == 0) {
+    		return list;
+    	}
+    	int num1 = 0, num2 = 0, count1 = 0, count2 = 0;
+    	for(int i = 0; i < nums.length; i++){
+    		if(num1 == nums[i]){
+    			count1++;
+    		}else if(num2 == nums[i]){
+    			count2++;
+    		}else if(count1 == 0){
+    			num1 = nums[i];
+    			count1 = 1;
+    		}else if(count2 == 0){
+    			num2 = nums[i];
+    			count2 = 1;
+    		}else{
+    			count1--;
+    			count2--;
+    		}
+    	}
+    	list.add(num1);
+    	list.add(num2);
+    	return list;
+    }
+    
     public static void main(String[] args) {
 		System.out.println(majorityElement(new int[] {1,1,1,3,3,2,2,2}));
+		System.out.println(majorityElement1(new int[] {1,1,1,3,3,2,2,2}));
 	}
 }

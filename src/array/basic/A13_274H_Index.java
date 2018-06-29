@@ -52,4 +52,19 @@ public class A13_274H_Index {
            }
            return h;
        }
+      
+
+      public int hIndex1(int[] citations) {
+          int n = citations.length;
+          int[] count = new int[n + 1];
+          for(int c : citations)
+              if(c >= n) count[n]++;  //当引用数大于等于 n 时，我们均将其数量计入 count[n]中
+              else count[c]++;
+          for(int i = n; i > 0; i--) {  //从后面开始遍历
+              if(count[i] >= i) return i;
+              count[i-1] += count[i];  //引用数大于 i-1 的数量是i-1及之后的累加
+          }
+          return 0;
+      }
+
 }
