@@ -30,7 +30,7 @@ import java.util.Arrays;
  * 
  * 
  * 翻转前n - k元素，翻转剩下的k个元素，最后翻转全部元素。O(n). Space complexity: O(1)
- * @author Willam
+ * @author William
  *
  */
 public class A05_189RotateArray {

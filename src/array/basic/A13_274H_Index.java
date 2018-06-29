@@ -30,7 +30,7 @@ import java.util.Arrays;
  * 首先对序列排序，然后从大到小遍历数组，h值为从1到n，若元素满足num[i]>h，继续遍历，否则跳出循环，返回h即可。
  * 
  * 
- * @author Willam
+ * @author William
  *
  */
 public class A13_274H_Index {

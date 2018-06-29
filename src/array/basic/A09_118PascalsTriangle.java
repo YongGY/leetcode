@@ -20,7 +20,7 @@ import java.util.List;
  *  [1,4,6,4,1]
  * ]
  * 
- * @author Willam
+ * @author William
  *
  */
 public class A09_118PascalsTriangle {

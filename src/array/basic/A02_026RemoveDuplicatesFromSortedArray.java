@@ -24,7 +24,7 @@ package array.basic;
  * 
  * It doesn't matter what values are set beyond the returned length.
  * 
- * @author Willam
+ * @author William
  *
  */
 public class A02_026RemoveDuplicatesFromSortedArray {

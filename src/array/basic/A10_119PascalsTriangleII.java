@@ -19,7 +19,7 @@ import java.util.List;
  * 
  * Could you optimize your algorithm to use only O(k) extra space?
  * 
- * @author Willam
+ * @author William
  *
  */
 public class A10_119PascalsTriangleII {

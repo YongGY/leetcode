@@ -17,7 +17,7 @@ import java.util.Arrays;
  * 
  * 桶排序思想，每次当A[i] != i的时候，将A[i]与A[A[i]]交换，直到无法交换位置。终止条件是 A[i]== A[A[i]]。
  * 
- * @author Willam
+ * @author William
  *
  */
 public class A06_041FirstMissingPositive {

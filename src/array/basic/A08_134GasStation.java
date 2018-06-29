@@ -83,7 +83,7 @@ package array.basic;
  * 如果totalGas < totalCost，那肯定是走不完一圈了。
  *  
  * 
- * @author Willam
+ * @author William
  *
  */
 public class A08_134GasStation {

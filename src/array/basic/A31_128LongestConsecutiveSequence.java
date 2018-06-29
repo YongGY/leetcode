@@ -42,7 +42,7 @@ package array.basic;
  * 如果有celebrity是不会漏掉的，假如我们最终停在3上。
  * 按大小遍历，假如celebrity的数比3大，那我们会停在3之前，如果比3小，那么因为在3停了，说明3不认识celebrity。
  * 
- * @author Willam
+ * @author William
  *
  */
 public class A31_128LongestConsecutiveSequence {

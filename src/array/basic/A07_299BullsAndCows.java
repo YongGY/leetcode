@@ -42,7 +42,7 @@ import java.util.Arrays;
  * 若是count[s - '0'] 小于0, 说明guess 已经更新过这个位置，此时numCow++. 
  * 若是count[g - '0'] 大于0, 说明secret 已经更新过这个位置， 此时numCow++.
  * 
- * @author Willam
+ * @author William
  *
  */
 public class A07_299BullsAndCows {

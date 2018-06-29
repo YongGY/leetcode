@@ -12,11 +12,32 @@ package array.basic;
  * Note:
  * You may assume that word1 does not equal to word2, and word1 and word2 are both in the list。
  * 
- * @author Willam
+ * @author William
  *
  */
 public class A15_243ShortestWordDistance {
-	public int shortestDistance(String[] words, String word1, String word2) {
-		return 0;
+	public static int shortestDistance(String[] words, String word1, String word2) {
+		if (words == null || words.length == 0)
+			return -1;
+		int idx1 = -1, idx2 = -1, shortest = words.length;
+		for (int i = 0; i < words.length; i++) {
+			if (words[i] == word1) {
+				idx1 = i;
+				if (idx2 != -1) {
+					shortest = Math.min(shortest, idx1 - idx2);
+				}
+			} else if (words[i] == word2) {
+				idx2 = i;
+				if (idx1 != -1) {
+					shortest = Math.min(shortest, idx2 - idx1);
+				}
+			}
+		}
+		return shortest;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(shortestDistance(new String[] {"practice", "makes", "perfect", "coding", "makes"}, "coding", "practice"));
+		System.out.println(shortestDistance(new String[] {"practice", "makes", "perfect", "coding", "makes"}, "makes", "coding"));
 	}
 }
