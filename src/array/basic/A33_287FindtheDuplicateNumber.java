@@ -1,72 +1,48 @@
 package array.basic;
 
 /**
- * Suppose you are at a party with n people (labeled from 0 to n - 1) and among
- * them, there may exist one celebrity.
+ * Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), 
+ * prove that at least one duplicate number must exist. Assume that there is only one duplicate number, 
+ * find the duplicate one.
  * 
- * The definition of a celebrity is that all the other n - 1 people know him/her
- * but he/she does not know any of them. Now you want to find out who the
- * celebrity is or verify that there is not one.
+ * Example 1:
+ * Input: [1,3,4,2,2]
+ * Output: 2
  * 
- * The only thing you are allowed to do is to ask questions like: "Hi, A. Do you
- * know B?" to get information of whether A knows B.
+ * Example 2:
+ * Input: [3,1,3,4,2]
+ * Output: 3
+ * Note:
  * 
- * You need to find out the celebrity (or verify there is not one) by asking as
- * few questions as possible (in the asymptotic sense).
- * 
- * You are given a helper function bool knows(a, b) which tells you whether A
- * knows B.
- * 
- * Implement a function int findCelebrity(n), your function should minimize the
- * number of calls to knows.
- * 
- * Note: There will be exactly one celebrity if he/she is in the party.
- * 
- * Return the celebrity's label if there is a celebrity in the party. If there
- * is no celebrity, return -1.
- * 
- * 
- * 可以用directed-graph的思路来考虑。
- * 
- * 要求的celebrity要满足2个条件: 1所有人都认识他 2他不认识任何人
- * 
- * 另外一个很重要的条件是，只存在一个celebrity,其实一开始做不出来就是这个条件没有利用好。
- * 
- * 假如我们按照 A knows B, then A ===> B 来建立有向图。
- * 
- * 首先看条件2，celebrity doesnt know anyone，图里表示就是他没有到任何其余点的路径。
- * 我们从任何一个点开始，顺着路走，只走没走过的点，比如从0到1了，即便1有到0的路我们也不走，只看2 3 4....是否有路。
- * 
- * 最终会停止在一个没有out edge的点。然后重新遍历，看看是不是所有点都能到它，是不是它不能到之前的任何点就行了。。
- * 
- * 如果有celebrity是不会漏掉的，假如我们最终停在3上。
- * 按大小遍历，假如celebrity的数比3大，那我们会停在3之前，如果比3小，那么因为在3停了，说明3不认识celebrity。
+ * You must not modify the array (assume the array is read only).
+ * You must use only constant, O(1) extra space.
+ * Your runtime complexity should be less than O(n2).
+ * There is only one duplicate number in the array, but it could be repeated more than once.
  * 
  * @author William
  *
  */
 public class A33_287FindtheDuplicateNumber {
-	/* The knows API is defined in the parent class Relation. */
-	boolean knows(int a, int b) {
-		return false;
-	}
-
-	public int findCelebrity(int n) {
-		int candidate = 0;
-		// 每一次比较只有两种情况，
-		// knows(a, b)是true的话，那么a肯定不是candidate; 
-		// knows(a, b)是false的话，那么b肯定不是candidate. 
-		// 所以一直比较到最后会留下一个candidate，然后我们再验证这个是不是正解。
-		for (int i = 1; i < n; i++) {
-			if (knows(candidate, i)) {
-				candidate = i;
+	public int findDuplicate(int[] nums) {
+		int min = 0, max = nums.length - 1;
+		while (min <= max) {
+			// 找到中间那个数
+			int mid = min + (max - min) / 2;
+			int cnt = 0;
+			// 计算总数组中有多少个数小于等于中间数
+			for (int i = 0; i < nums.length; i++) {
+				if (nums[i] <= mid) {
+					cnt++;
+				}
+			}
+			// 如果小于等于中间数的数量大于中间数，说明前半部分必有重复
+			if (cnt > mid) {
+				max = mid - 1;
+				// 否则后半部分必有重复
+			} else {
+				min = mid + 1;
 			}
 		}
-		for (int i = 0; i < n; i++) {
-			if (candidate != i && (knows(candidate, i) || !knows(i, candidate))) {
-				return -1;
-			}
-		}
-		return candidate;
+		return min;
 	}
 }
