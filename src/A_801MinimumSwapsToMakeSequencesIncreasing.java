@@ -45,6 +45,22 @@
  * Note that it is important to use two if statements separately, because both of the above possibilities might be possible.
  * At the end, the optimal solution must leave the last column either natural or swapped, so we take the minimum number of swaps between the two possibilities.
  * http://programmingchangheartbear.blogspot.com/2018/03/801-minimum-swaps-to-make-sequences.html
+ * 
+ * frist we can consider dynamic programming algorithm because the question is the arrays are strictly increasing,this means there is a relationship between A[i] and A[i-1] so we choose dp
+
+
+
+We only need to consider two cases:
+1. A[i] > A[i -1] && B[i] > B[i - 1],
+if we choose to keep, we should keep the previous i - 1 elements. So keep[i] = keep[i - 1]
+If we choose to swap, in order to maintain the sequencing order, we must swap the previous i - 1 th element. So swap[i] = swap[i - 1] + 1;
+
+2. A[i] > B[i - 1] && B[i] > A[i - 1]
+If we choose to keep, keep[i] = Math.min(keep[i], swap[i - 1])
+If we choose to swap, swap[i] = Math.min(swap[i], keep[i - 1] + 1)
+
+3. For other cases such as A[i] < B[i - 1] we don't need to consider since we gurantee there will be a solution
+ * 
  */
 public class A_801MinimumSwapsToMakeSequencesIncreasing {
 	public static int minSwap(int[] A, int[] B) {
