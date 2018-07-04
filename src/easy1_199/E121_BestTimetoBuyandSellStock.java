@@ -33,12 +33,13 @@ public class E121_BestTimetoBuyandSellStock {
 		if (prices == null || prices.length <= 1) {
 			return 0;
 		}
-		int min = prices[0]; // min so far
+		int min = prices[0]; // min so far  //// 之前买入的价格，假设第一天就买入 
 		int profit = 0;
 		for (int i = 1; i < prices.length; i++) {
 			profit = Math.max(profit, prices[i] - min);
 			min = Math.min(min, prices[i]);
 		}
+
 		return profit;
 
 	}
@@ -47,5 +48,18 @@ public class E121_BestTimetoBuyandSellStock {
 		// TODO Auto-generated method stub
 		System.out.println(maxProfit(new int[] { 7, 1, 5, 3, 6, 4 }));
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
