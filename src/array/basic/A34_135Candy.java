@@ -1,72 +1,72 @@
 package array.basic;
 
 /**
- * Suppose you are at a party with n people (labeled from 0 to n - 1) and among
- * them, there may exist one celebrity.
+ * There are N children standing in a line. Each child is assigned a rating value.
  * 
- * The definition of a celebrity is that all the other n - 1 people know him/her
- * but he/she does not know any of them. Now you want to find out who the
- * celebrity is or verify that there is not one.
+ * You are giving candies to these children subjected to the following requirements:
  * 
- * The only thing you are allowed to do is to ask questions like: "Hi, A. Do you
- * know B?" to get information of whether A knows B.
+ * Each child must have at least one candy.
+ * Children with a higher rating get more candies than their neighbors.
+ * What is the minimum candies you must give?
  * 
- * You need to find out the celebrity (or verify there is not one) by asking as
- * few questions as possible (in the asymptotic sense).
+ * Example 1:
+ * Input: [1,0,2]
+ * Output: 5
+ * Explanation: You can allocate to the first, second and third child with 2, 1, 2 candies respectively.
  * 
- * You are given a helper function bool knows(a, b) which tells you whether A
- * knows B.
- * 
- * Implement a function int findCelebrity(n), your function should minimize the
- * number of calls to knows.
- * 
- * Note: There will be exactly one celebrity if he/she is in the party.
- * 
- * Return the celebrity's label if there is a celebrity in the party. If there
- * is no celebrity, return -1.
- * 
- * 
- * 可以用directed-graph的思路来考虑。
- * 
- * 要求的celebrity要满足2个条件: 1所有人都认识他 2他不认识任何人
- * 
- * 另外一个很重要的条件是，只存在一个celebrity,其实一开始做不出来就是这个条件没有利用好。
- * 
- * 假如我们按照 A knows B, then A ===> B 来建立有向图。
- * 
- * 首先看条件2，celebrity doesnt know anyone，图里表示就是他没有到任何其余点的路径。
- * 我们从任何一个点开始，顺着路走，只走没走过的点，比如从0到1了，即便1有到0的路我们也不走，只看2 3 4....是否有路。
- * 
- * 最终会停止在一个没有out edge的点。然后重新遍历，看看是不是所有点都能到它，是不是它不能到之前的任何点就行了。。
- * 
- * 如果有celebrity是不会漏掉的，假如我们最终停在3上。
- * 按大小遍历，假如celebrity的数比3大，那我们会停在3之前，如果比3小，那么因为在3停了，说明3不认识celebrity。
+ * Example 2:
+ * Input: [1,2,2]
+ * Output: 4
+ * Explanation: You can allocate to the first, second and third child with 1, 2, 1 candies respectively.
+ *              The third child gets 1 candy because it satisfies the above two conditions.
  * 
  * @author William
  *
+ * 模拟这个过程，可能会想到： 
+ * 求最少需要多少糖果，先每个人分配一个，再根据等级依次加一个糖果。
+ * 
+ * 但上述思路是会有问题的，那就是对于小孩i来说，假设他的等级既高于小孩i−1又高于小孩i+1，那么他得到的糖果就要比小孩i−1和小孩i+1的糖果中的较多者要多一个，
+ * 
+ * 这样看的话一次循环可能搞不定，因为第一次循环中在计算第i个小孩的糖果时，第i+1个小孩的数据还没出来呢。
+ * 
+ * 因此两次循环，一次从左到右，一次从右往左。
+ * 
+ * 方法一：
+ * 1、假设每个孩子分到的糖果数组为A[N]，初始化为{1}，因为每个人至少分到一颗糖。
+ * 
+ * 2、与前面的邻居比较，前向遍历权重数组ratings，如果ratings[i]>ratings[i-1]，则A[i]=A[i-1]+1；
+ * 
+ * 3、与后面的邻居比较，后向遍历权重数组ratings，如果ratings[i]>ratings[i+1]且A[i]<A[i+1]+1，则更新A，A[i]=A[i+1]+1；
+ * 
+ * 4、对A求和即为最少需要的糖果。
+ *
  */
 public class A34_135Candy {
-	/* The knows API is defined in the parent class Relation. */
-	boolean knows(int a, int b) {
-		return false;
-	}
+	public static int candy(int[] ratings) {
+		int length = ratings.length;
+		if (length <= 0)
+			return 0;
+		int[] nums = new int[length];
+		nums[0] = 1;
 
-	public int findCelebrity(int n) {
-		int candidate = 0;
-		// 每一次比较只有两种情况，
-		// knows(a, b)是true的话，那么a肯定不是candidate; 
-		// knows(a, b)是false的话，那么b肯定不是candidate. 
-		// 所以一直比较到最后会留下一个candidate，然后我们再验证这个是不是正解。
-		for (int i = 1; i < n; i++) {
-			if (knows(candidate, i)) {
-				candidate = i;
-			}
+		for (int i = 1; i < nums.length; i++) {
+			nums[i] = 1;
+			if (ratings[i] > ratings[i - 1])
+				nums[i] = nums[i - 1] + 1;
 		}
-		for (int i = 0; i < n; i++) {
-			if (candidate != i && (knows(candidate, i) || !knows(i, candidate))) {
-				return -1;
-			}
+
+		for (int i = nums.length - 2; i >= 0; i--) {
+			if (ratings[i] > ratings[i + 1])
+				nums[i] = Math.max(nums[i], nums[i + 1] + 1);
 		}
-		return candidate;
+
+		int count = 0;
+		for (int i = 0; i < length; i++)
+			count += nums[i];
+		return count;
+	}
+	public static void main(String[] args) {
+		System.out.println(candy(new int[] {1,0,2}));
+		System.out.println(candy(new int[] {1,2,2}));
 	}
 }

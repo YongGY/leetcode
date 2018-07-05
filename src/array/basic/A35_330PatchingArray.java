@@ -1,72 +1,75 @@
 package array.basic;
 
 /**
- * Suppose you are at a party with n people (labeled from 0 to n - 1) and among
- * them, there may exist one celebrity.
+ * Given a sorted positive integer array nums and an integer n, add/patch elements to the array such that any number in range [1, n] 
+ * inclusive can be formed by the sum of some elements in the array. Return the minimum number of patches required.
  * 
- * The definition of a celebrity is that all the other n - 1 people know him/her
- * but he/she does not know any of them. Now you want to find out who the
- * celebrity is or verify that there is not one.
+ * Example 1:
+ * Input: nums = [1,3], n = 6
+ * Output: 1 
  * 
- * The only thing you are allowed to do is to ask questions like: "Hi, A. Do you
- * know B?" to get information of whether A knows B.
+ * Explanation:
+ * Combinations of nums are [1], [3], [1,3], which form possible sums of: 1, 3, 4.
+ * Now if we add/patch 2 to nums, the combinations are: [1], [2], [3], [1,3], [2,3], [1,2,3].
+ * Possible sums are 1, 2, 3, 4, 5, 6, which now covers the range [1, 6].
+ * So we only need 1 patch.
  * 
- * You need to find out the celebrity (or verify there is not one) by asking as
- * few questions as possible (in the asymptotic sense).
+ * Example 2:
+ * Input: nums = [1,5,10], n = 20
+ * Output: 2
+ * Explanation: The two patches can be [2, 4].
  * 
- * You are given a helper function bool knows(a, b) which tells you whether A
- * knows B.
- * 
- * Implement a function int findCelebrity(n), your function should minimize the
- * number of calls to knows.
- * 
- * Note: There will be exactly one celebrity if he/she is in the party.
- * 
- * Return the celebrity's label if there is a celebrity in the party. If there
- * is no celebrity, return -1.
+ * Example 3:
+ * Input: nums = [1,2,2], n = 5
+ * Output: 0
  * 
  * 
- * 可以用directed-graph的思路来考虑。
+ * 这是贪心算法的一个应用。
  * 
- * 要求的celebrity要满足2个条件: 1所有人都认识他 2他不认识任何人
+ * Analysis
+ * Let miss be the smallest number that can not be formed by the sum of elements in the array. 
+ * All elements in [0, miss) can be formed. The miss value starts with 1. 
+ * If the next number nums[i]<=miss, then the boundary is increased to be [0, miss+nums[i]), because all numbers between the boundaries can be formed; 
+ * if next number nums[i]>miss, that means there is a gap and we need to insert a number, 
+ * inserting miss itself is a the choice because its boundary doubles and cover every number between the boundaries [0, miss+miss).
  * 
- * 另外一个很重要的条件是，只存在一个celebrity,其实一开始做不出来就是这个条件没有利用好。
+ * Here is an example.
+ * Given nums=[1, 4, 10] and n=50.
  * 
- * 假如我们按照 A knows B, then A ===> B 来建立有向图。
- * 
- * 首先看条件2，celebrity doesnt know anyone，图里表示就是他没有到任何其余点的路径。
- * 我们从任何一个点开始，顺着路走，只走没走过的点，比如从0到1了，即便1有到0的路我们也不走，只看2 3 4....是否有路。
- * 
- * 最终会停止在一个没有out edge的点。然后重新遍历，看看是不是所有点都能到它，是不是它不能到之前的任何点就行了。。
- * 
- * 如果有celebrity是不会漏掉的，假如我们最终停在3上。
- * 按大小遍历，假如celebrity的数比3大，那我们会停在3之前，如果比3小，那么因为在3停了，说明3不认识celebrity。
+ * miss=1;
+ * i=0, nums[i]<=miss, then miss=1+1=2
+ * i=1, nums[i]>2, then miss = miss+miss = 4
+ * i=1, nums[i]<=miss, then miss = miss+num[i] = 8
+ * i=2, nums[i]>miss, then miss = miss+miss = 16
+ * i=2, nums[i]<miss, then miss = miss+num[i] = 26
+ * i=2, nums[i]>miss, then miss = miss+miss = 52 
+ * 52 > 50. Done! 4 elements are added!
  * 
  * @author William
  *
  */
 public class A35_330PatchingArray {
-	/* The knows API is defined in the parent class Relation. */
-	boolean knows(int a, int b) {
-		return false;
-	}
+	
+	public static int minPatches(int[] nums, int n) {
+		long miss = 1;
+		int count = 0;
+		int i = 0;
 
-	public int findCelebrity(int n) {
-		int candidate = 0;
-		// 每一次比较只有两种情况，
-		// knows(a, b)是true的话，那么a肯定不是candidate; 
-		// knows(a, b)是false的话，那么b肯定不是candidate. 
-		// 所以一直比较到最后会留下一个candidate，然后我们再验证这个是不是正解。
-		for (int i = 1; i < n; i++) {
-			if (knows(candidate, i)) {
-				candidate = i;
+		while (miss <= n) {
+			if (i < nums.length && nums[i] <= miss) {
+				miss = miss + nums[i];
+				i++;
+			} else {
+				miss += miss;
+				count++;
 			}
 		}
-		for (int i = 0; i < n; i++) {
-			if (candidate != i && (knows(candidate, i) || !knows(i, candidate))) {
-				return -1;
-			}
-		}
-		return candidate;
+		return count;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(minPatches(new int[] {1, 4, 10},100));
+		System.out.println(minPatches(new int[] {1,5,10},20));
+		System.out.println(minPatches(new int[] {1,2,2},5));
 	}
 }
