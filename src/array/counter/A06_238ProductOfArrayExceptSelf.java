@@ -1,4 +1,4 @@
-package array.improve;
+package array.counter;
 
 /**
  * According to the Wikipedia's article: "The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970."
@@ -41,7 +41,7 @@ package array.improve;
  * @author William
  *
  */
-public class A04_289GameOfLife {
+public class A06_238ProductOfArrayExceptSelf {
     public void gameOfLife(int[][] board) {
         
     }
