@@ -18,10 +18,29 @@ package array.basic;
  * return false.
  * 
  * @author William
+ * 
+ * This problem can be converted to be finding if there is a sequence 
+ * such that the_smallest_so_far < the_second_smallest_so_far < current. 
+ * We use x, y and z to denote the 3 number respectively.
+ * 
+ * Iterate through the array, keep track the 2 min(so far) variables, initialize with Integer.MAX_VALUE to overwrite.
+ * If there is any element greater than firstMin and secondMin. We find answer.
+ *
  *
  */
 public class A30_334IncreasingTripletSubsequence {
 	public boolean increasingTriplet(int[] nums) {
+		if (nums == null || nums.length < 3)
+			return false;
+		int min = Integer.MAX_VALUE, mid = Integer.MAX_VALUE;
+		for (int num : nums) {
+			if (num <= min)
+				min = num; // 如果min大于等于当前数字，则将当前数字赋给min
+			else if (num <= mid)
+				mid = num; // 如果min小于当前数字且mid大于等于当前数字，那么将当前数字赋给mid，一旦mid被更新了，说明一定会有一个数小于mid
+			else
+				return true; // 那么我们就成功的组成了一个长度为2的递增子序列，所以我们一旦遍历到比mid还大的数，我们直接返回ture
+		}
 		return false;
 	}
 }
