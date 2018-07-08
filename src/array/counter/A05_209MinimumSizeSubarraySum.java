@@ -1,28 +1,33 @@
 package array.counter;
 
 /**
- * There are two sorted arrays nums1 and nums2 of size m and n respectively.
+ * TGiven an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn't one, return 0 instead.
  * 
- * Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+ * Example: 
  * 
- * Example 1:
- * nums1 = [1, 3]
- * nums2 = [2]
- * The median is 2.0
+ * Input: s = 7, nums = [2,3,1,2,4,3]
+ * Output: 2
+ * Explanation: the subarray [4,3] has the minimal length under the problem constraint.
+ * Follow up:
+ * If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log n). 
  * 
- * 
- * Example 2:
- * nums1 = [1, 2]
- * nums2 = [3, 4]
- * The median is (2 + 3)/2 = 2.5
- * 
- * https://www.programcreek.com/2012/12/leetcode-median-of-two-sorted-arrays-java/
  * @author William
+ * 
+ * https://www.jianshu.com/p/42ec26e2e20a
  *
  */
 public class A05_209MinimumSizeSubarraySum {
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-		return 0;
-        
-    }
+	public int minSubArrayLen(int s, int[] nums) {
+		int sum = 0;
+		int from = 0;
+		int minLen = nums.length;
+		for (int i = 0; i < nums.length; i++) {
+			sum += nums[i];
+			while (sum >= s) {
+				minLen = Math.min(minLen, i - from + 1);
+				sum -= nums[from++];
+			}
+		}
+		return minLen == nums.length ? 0 : minLen;
+	}
 }

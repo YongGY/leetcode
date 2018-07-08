@@ -1,30 +1,41 @@
 package array.counter;
 
 /**
- * Given two arrays of length m and n with digits 0-9 representing two numbers. 
- * Create the maximum number of length k <= m + n from digits of the two. 
- * The relative order of the digits from the same array must be preserved. Return an array of the k digits.
- * 
- * Note: You should try to optimize your time and space complexity.
+ * Given an integer array nums, find the contiguous subarray 
+ * within an array (containing at least one number) which has the largest product.
  * 
  * Example 1:
- * Input: nums1 = [3, 4, 6, 5], nums2 = [9, 1, 2, 5, 8, 3] ,k = 5
- * Output: [9, 8, 6, 5, 3]
+ * Input: [2,3,-2,4]
+ * Output: 6
+ * Explanation: [2,3] has the largest product 6.
  * 
  * Example 2:
- * Input: nums1 = [6, 7], nums2 = [6, 0, 4], k = 5
- * Output: [6, 7, 6, 0, 4]
- * 
- * Example 3:*
- * Input:nums1 = [3, 9],nums2 = [8, 9],k = 3
- * Output:[9, 8, 9]
+ * Input: [-2,0,-1]
+ * Output: 0
+ * Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
  * 
  * @author William
  *
  */
 public class A07_152MaximumProductSubarray {
-    public int[] maxNumber(int[] nums1, int[] nums2, int k) {
-		return nums2;
-        
-    }
+	public static int maxProduct(int[] nums) {
+		if(nums == null || nums.length == 0){
+			return 0;
+		}
+		int max = nums[0];
+		int min = nums[0];
+		int productMax = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			max = Math.max(Math.max(max * nums[i], min * nums[i]), nums[i]);
+			min = Math.min(Math.min(max * nums[i], min * nums[i]), nums[i]);
+			productMax = Math.max(productMax, max);
+		}
+		return productMax;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(maxProduct(new int[]{2,3,-2,4}));
+		System.out.println(maxProduct(new int[]{-2,0,-1}));
+		System.out.println(maxProduct(new int[]{-1,2,-3,2}));
+	}
 }

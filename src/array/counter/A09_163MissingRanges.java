@@ -1,22 +1,58 @@
 package array.counter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Given an integer array nums, return the number of range sums that lie in [lower, upper] inclusive.
- * Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j (i ≤ j), inclusive.
- * 
- * Note:
- * A naive algorithm of O(n2) is trivial. You MUST do better than that.
+ * Given a sorted integer array nums, 
+ * where the range of elements are in the inclusive range [lower, upper], return its missing ranges.
  * 
  * Example:
- * Input: nums = [-2,5,-1], lower = -2, upper = 2,
- * Output: 3 
- * Explanation: The three ranges are : [0,0], [2,2], [0,2] and their respective sums are: -2, -1, 2.
+ * 
+ * Input: nums = [0, 1, 3, 50, 75], lower = 0 and upper = 99,
+ * Output: ["2", "4->49", "51->74", "76->99"]
  * 
  * @author William
  *
  */
 public class A09_163MissingRanges {
-    public int countRangeSum(int[] nums, int lower, int upper) {
-		return upper;
-    }
+	
+	
+
+	private static String range(int lower, int upper) {
+		if (lower == upper){
+			return lower+"";
+		}
+		return lower + "->" + upper;
+	}
+
+	public static List<String> findMissingRanges(int[] nums, int lower, int upper) {
+		List<String> list = new ArrayList<>();
+		if (nums == null || nums.length == 0) {
+			list.add(range(lower, upper));
+			return list;
+		}
+		
+		if (lower < nums[0]){
+			list.add(range(lower, nums[0] - 1));
+		}
+		
+		for (int i = 0; i < nums.length - 1; i++) {
+			if (nums[i] + 1 < nums[i + 1]){
+				list.add(range(nums[i] + 1, nums[i + 1] - 1));
+			}
+		}
+		
+		if (nums[nums.length - 1] < upper){
+			list.add(range(nums[nums.length - 1] + 1, upper));
+		}
+		return list;
+	}
+     
+    public static void main(String[] args) {
+		System.out.println(findMissingRanges(new int[]{0, 1, 3, 50, 75},0,99));
+		System.out.println(findMissingRanges(new int[]{2, 5, 10, 50, 75},0,99));
+	}
 }
+
+
