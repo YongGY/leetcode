@@ -1,9 +1,5 @@
 package array.sort;
 
-import java.util.List;
-
-import common.Interval;
-
 /**
  * Given an unsorted array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
  * 

@@ -1,17 +1,49 @@
 package string.basic;
 
 /**
+ * You are playing the following Flip Game with your friend: 
+ * Given a string that contains only these two characters: + and -, you and your friend take turns to flip two consecutive "++" into "--". 
+ * The game ends when a person can no longer make a move and therefore the other person will be the winner.
  * 
+ * Write a function to determine if the starting player can guarantee a win.
  * 
+ * For example, given s = "++++", return true. 
+ * The starting player can guarantee a win by flipping the middle "++" to become "+--+".
+ * 
+ * Follow up: 
+ * Derive your algorithm’s runtime complexity.
  * 
  * @author William
  *
  */
-public class A01_028ImplementStrStr {
+public class A12_294FlipGameII {
 	
-	
-	
-	
+	public boolean canWin(String s) {
+		if (s == null || s.length() == 0) {
+			return false;
+		}
+		return canWinHelper(s.toCharArray());
+	}
+
+	public boolean canWinHelper(char[] arr) {
+		for (int i = 0; i < arr.length - 1; i++) {
+			if (arr[i] == '+' && arr[i + 1] == '+') {
+				arr[i] = '-';
+				arr[i + 1] = '-';
+
+				boolean win = canWinHelper(arr);
+
+				arr[i] = '+';
+				arr[i + 1] = '+';
+
+				// if there is a flip which makes the other player lose, the first play wins
+				if (!win) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 	
 	
  	public static void main(String[] args) {
