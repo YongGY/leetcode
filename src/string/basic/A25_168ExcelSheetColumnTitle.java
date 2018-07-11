@@ -50,6 +50,6 @@ public class A25_168ExcelSheetColumnTitle {
  		// AA = A( 1 * 26) + A = 27
  		// AB = A( 1 * 26) + B = 28
  		// ZY = Z(26 * 26) + 25 = 701
-		System.out.println(convertToTitle(27));
+		System.out.println(convertToTitle(651));
 	}
 }
