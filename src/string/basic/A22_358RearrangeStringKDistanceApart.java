@@ -7,7 +7,7 @@ package string.basic;
  * @author William
  *
  */
-public class A01_028ImplementStrStr {
+public class A22_358RearrangeStringKDistanceApart {
 	
 	
 	

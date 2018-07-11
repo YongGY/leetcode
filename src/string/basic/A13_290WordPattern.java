@@ -43,10 +43,13 @@ public class A13_290WordPattern {
 		Map<Character, String> map = new HashMap<>();
 		for (int i = 0; i < cstr.length; i++) {
 			if (map.containsKey(cstr[i])) {
-				if (map.get(cstr[i]) != arr[i]) {
+				if (!map.get(cstr[i]).equals(arr[i])) {
 					return false;
 				}
 			} else {
+				if(map.containsValue(arr[i])) {
+					return false;
+				}
 				map.put(cstr[i], arr[i]);
 			}
 		}
