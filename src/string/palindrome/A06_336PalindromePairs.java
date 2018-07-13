@@ -1,15 +1,31 @@
-package common;
+package string.palindrome;
+
+import java.util.List;
 
 /**
+ * Given a list of unique words, find all pairs of distinct indices (i, j) in the given list, 
+ * so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome.
  * 
+ * Example 1:
+ * Given words = ["bat", "tab", "cat"]
+ * Return [[0, 1], [1, 0]]
+ * The palindromes are ["battab", "tabbat"]
+ * 
+ * Example 2:
+ * Given words = ["abcd", "dcba", "lls", "s", "sssll"]
+ * Return [[0, 1], [1, 0], [3, 2], [2, 4]]
+ * The palindromes are ["dcbaabcd", "abcddcba", "slls", "llssssll"]
  * 
  * @author William
+ * 
+ * https://segmentfault.com/a/1190000008917798
  *
  */
-public class ClassExample {
-	
-    
- 	public static void main(String[] args) {
- 		
-	}
+public class A06_336PalindromePairs {
+ 
+
+    public List<List<Integer>> palindromePairs(String[] words) {
+        
+    }
+	 
 }
