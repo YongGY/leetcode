@@ -1,7 +1,5 @@
 package string.palindrome;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 /**
  * Given a string s, you are allowed to convert it to a palindrome by adding characters in front of it. 
  * Find and return the shortest palindrome you can find by performing this transformation.
