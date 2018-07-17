@@ -41,9 +41,9 @@ package string.basic;
  */
 public class A24_271EncodeAndDecodeStrings {
 	
-	
+
 	ssss
-	
+
 	
 	
  	public static void main(String[] args) {

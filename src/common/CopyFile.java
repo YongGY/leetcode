@@ -36,12 +36,30 @@ public class CopyFile {
     public static void main(String[] args) {
     	
     	String [] strings = new String[] {
-    			 "A01_392IsSubsequence"
-    			,"A02_115DistinctSubsequences"
-    			,"A03_187RepeatedDNASequences"
+                 "A01_231PowerOfTwo"
+                ,"A02_326PowerOfThree"
+                ,"A03_342PowerOfFour"
+                ,"A04_372SuperPow"
+                ,"A05_233NumberOfDigitOne"
+                ,"A06_319BulbSwitcher"
+                ,"A07_292NimGame"
+                ,"A08_202HappyNumber"
+                ,"A09_400NthDigit"
+                ,"A10_263UglyNumber"
+                ,"A11_264UglyNumberII"
+                ,"A12_306AdditiveNumber"
+                ,"A13_172FactorialTrailingZeroes"
+                ,"A14_343IntegerBreak"
+                ,"A15_396RotateFunction"
+                ,"A16_390EliminationGame"
+                ,"A17_386LexicographicalNumbers"
+                ,"A18_357CountNumbersWithUniqueDigits"
+                ,"A19_360SortTransformedArray"
+                ,"A20_397IntegerReplacement"
+                ,"A21_368LargestDivisibleSubset"
     	};
     	for (String str : strings) {
-    		copyFunc("string\\subsequence",str);
+    		copyFunc("math\\seldom",str);
 		}
  
     }
