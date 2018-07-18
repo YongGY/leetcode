@@ -31,7 +31,7 @@ import java.util.List;
  */
 public class A06_018_4Sum {
 
-	public List<List<Integer>> fourSum(int[] nums, int target) {
+	public static List<List<Integer>> fourSum(int[] nums, int target) {
 		List<List<Integer>> res = new ArrayList<>();
 		if(nums == null || nums.length == 0){
 			return res;
@@ -40,27 +40,35 @@ public class A06_018_4Sum {
 		int len = nums.length;
 		for(int i = 0; i<len -3; i++){
 			for(int j = i + 1; j<len -2; j++){
-				List<Integer> list = new ArrayList<>();
 				int left = j + 1;
 				int right = len - 1;
-				int temp =  nums[i] + nums[j];
 				while(left < right){
-					int sum = nums[left] + nums[right] + temp;
+					int sum = nums[left] + nums[right] + nums[i] + nums[j];
 					if(sum == target){
-
+						List<Integer> list = new ArrayList<>();
+						list.add(nums[i]);
+						list.add(nums[j]);
+						list.add(nums[left]);
+						list.add(nums[right]);
+						res.add(list);
+						left++;
+						right--;
+						while(left < right && nums[left] == nums[left-1]) left++;
+						while(left < right && nums[right] == nums[right+1]) right--;
+					}else if(sum < target){
+						left++;
+					}else{
+						right--;
 					}
 				}
-
-
+				while(j < len -2 && nums[j] == nums[j+1]) j++;
 			}
-
-
-
+			while(i < len -3 && nums[i] == nums[i+1]) i++;
 		}
-
+		return res;
 	}
     
  	public static void main(String[] args) {
-		System.out.println("aaa");
+		System.out.println(fourSum(new int[]{1, 0, -1, 0, -2, 2}, 0));
 	}
 }
