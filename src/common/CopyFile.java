@@ -36,30 +36,22 @@ public class CopyFile {
     public static void main(String[] args) {
     	
     	String [] strings = new String[] {
-                 "A01_231PowerOfTwo"
-                ,"A02_326PowerOfThree"
-                ,"A03_342PowerOfFour"
-                ,"A04_372SuperPow"
-                ,"A05_233NumberOfDigitOne"
-                ,"A06_319BulbSwitcher"
-                ,"A07_292NimGame"
-                ,"A08_202HappyNumber"
-                ,"A09_400NthDigit"
-                ,"A10_263UglyNumber"
-                ,"A11_264UglyNumberII"
-                ,"A12_306AdditiveNumber"
-                ,"A13_172FactorialTrailingZeroes"
-                ,"A14_343IntegerBreak"
-                ,"A15_396RotateFunction"
-                ,"A16_390EliminationGame"
-                ,"A17_386LexicographicalNumbers"
-                ,"A18_357CountNumbersWithUniqueDigits"
-                ,"A19_360SortTransformedArray"
-                ,"A20_397IntegerReplacement"
-                ,"A21_368LargestDivisibleSubset"
+    			"A01_156BinaryTreeUpsideDown"
+    			,"A02_114FlattenBinaryTreetoLinkedList"
+    			,"A03_255VerifyPreorderSequenceinBinarySearchTree"
+    			,"A04_333LargestBSTSubtree"
+    			,"A05_222CountCompleteTreeNodes"
+    			,"A06_105ConstructBinaryTreefromPreorderandInorderTraversal"
+    			,"A07_106ConstructBinaryTreefromInorderandPostorderTraversal"
+    			,"A08_116PopulatingNextRightPointersinEachNode"
+    			,"A09_117PopulatingNextRightPointersinEachNodeII"
+    			,"A10_314BinaryTreeVerticalOrderTraversal"
+    			,"A11_096UniqueBinarySearchTrees"
+    			,"A12_095UniqueBinarySearchTreesII"
+    			,"A13_331VerifyPreorderSerializationofaBinaryTree"
     	};
     	for (String str : strings) {
-    		copyFunc("math\\seldom",str);
+    		copyFunc("tree\\level",str);
 		}
  
     }
