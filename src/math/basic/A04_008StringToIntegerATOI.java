@@ -52,7 +52,7 @@ package math.basic;
  */
 public class A04_008StringToIntegerATOI {
 
-	public int atoi(String str) {
+		public int atoi(String str) {
 		if (str == null || str.length() < 1)
 			return 0;
 
