@@ -46,7 +46,9 @@ public class A03_145BinaryTreePostorderTraversal {
 	}
 
 	public static void dfs(List<Integer> res, TreeNode root) {
-		if (root == null) return;
+		if (root == null) {
+		    return;
+        }
 		dfs(res, root.left);
 		dfs(res, root.right);
 		res.add(root.val);
@@ -54,14 +56,18 @@ public class A03_145BinaryTreePostorderTraversal {
 
 	public static List<Integer> postorderTraversal1(TreeNode root) {
 		List<Integer> res = new ArrayList<>();
+
 		if(root == null){
 			return res;
 		}
+
 		Stack<TreeNode> stack = new Stack<>();
 		stack.push(root);
+
 		while(!stack.empty()){
 			TreeNode node = stack.pop();
 			res.add(0,node.val);
+
 			if(node.left != null){
 				stack.push(node.left);
 			}

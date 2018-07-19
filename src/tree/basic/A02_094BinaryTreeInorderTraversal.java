@@ -3,7 +3,6 @@ package tree.basic;
 import common.TreeNode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -58,31 +57,8 @@ public class A02_094BinaryTreeInorderTraversal {
 	public static List<Integer> inorderTraversal1(TreeNode root) {
 		List<Integer> res = new ArrayList<>();
 		if (root == null) {
-			return res;
-		}
-		Stack<TreeNode> stack = new Stack<>();
-		stack.push(root);
-
-		while (!stack.isEmpty()) {
-			TreeNode p = stack.peek();
-			if (p.left != null) {
-				stack.push(p.left);
-				p.left = null;
-			} else {
-				res.add(p.val);
-				stack.pop();
-				if (p.right != null) {
-					stack.push(p.right);
-				}
-			}
-		}
-
-		return res;
-	}
-
-	public static List<Integer> inorderTraversal2(TreeNode root) {
-		List<Integer> res = new ArrayList<>();
-		if (root == null) return res;
+		    return res;
+        }
 		Stack<TreeNode> stack = new Stack<>();
 		TreeNode cur = root;
 		while (!stack.isEmpty() || cur != null) {
@@ -115,8 +91,7 @@ public class A02_094BinaryTreeInorderTraversal {
 		t3.right = t6;
 
 		System.out.println(inorderTraversal(t1));
-		//System.out.println(inorderTraversal1(t1));
-		System.out.println(inorderTraversal2(t1));
+		System.out.println(inorderTraversal1(t1));
 
 	}
 }

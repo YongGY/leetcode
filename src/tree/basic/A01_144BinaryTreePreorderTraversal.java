@@ -81,7 +81,6 @@ public class A01_144BinaryTreePreorderTraversal {
 			if(n.left != null){
 				stack.push(n.left);
 			}
-
 		}
 		return res;
 	}
