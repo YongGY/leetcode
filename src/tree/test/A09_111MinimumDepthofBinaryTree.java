@@ -1,4 +1,4 @@
-package tree.preorder;
+package tree.test;
 
 import common.TreeNode;
 
@@ -26,25 +26,9 @@ import common.TreeNode;
 public class A09_111MinimumDepthofBinaryTree {
 
 	public static int minDepth(TreeNode root) {
-		if (root == null) {
-			return 0;
-		}
-		return dfs(root);
+
 	}
 
-	private static int dfs(TreeNode root) {
-		if (root.left == null && root.right == null) {
-			return 1;
-
-		} else if (root.left == null) {
-			return dfs(root.right) + 1;
-
-		} else if (root.right == null) {
-			return dfs(root.left) + 1;
-		}else {
-			return Math.min(dfs(root.left), dfs(root.right)) + 1;
-		}
-	}
  
 
 	public static void main(String[] args) {

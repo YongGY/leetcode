@@ -1,4 +1,4 @@
-package tree.preorder;
+package tree.test;
 
 import common.TreeNode;
 
@@ -35,26 +35,11 @@ import java.util.List;
 public class A06_113PathSumII {
 
 	public static List<List<Integer>> pathSum(TreeNode root, int sum) {
-		List<List<Integer>> res = new ArrayList<>();
-		List<Integer> tmp = new LinkedList<>();
-		dfs(root, sum, tmp, res);
-		return res;
+
 	}
 
-	private static void dfs(TreeNode node, int sum, List<Integer> tmp, List<List<Integer>> res) {
-		if (node == null) {
-			return;
-		}
 
-		tmp.add(node.val);
-		if (node.left == null && node.right == null && sum == node.val) {
-			res.add(new ArrayList<>(tmp));
-		} else {
-			dfs(node.left, sum - node.val, tmp, res);
-			dfs(node.right, sum - node.val, tmp, res);
-		}
-		tmp.remove(tmp.size() - 1);
-	}
+ 
 
 	public static void main(String[] args) {
 		TreeNode root = new TreeNode(5);
