@@ -23,7 +23,7 @@ public class A04_372SuperPow {
 	public int superPow(int a, int[] b) {
 
 	}
-	
+
  	public static void main(String[] args) {
  		
 	}
