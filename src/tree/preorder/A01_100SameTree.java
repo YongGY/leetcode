@@ -50,7 +50,6 @@ public class A01_100SameTree {
 			return false;
 		}
 		return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, p.right);
-
 	}
     
  	public static void main(String[] args) {

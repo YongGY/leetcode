@@ -33,10 +33,10 @@ public class A02_101SymmetricTree {
 		if (root == null) {
 			return true;
 		}
-		return checkNodes(root.left, root.right);
+		return dfs(root.left, root.right);
 	}
 
-	public boolean checkNodes(TreeNode p, TreeNode q) {
+	private boolean dfs(TreeNode p, TreeNode q) {
 		if (p == null && q == null) {
 			return true;
 		}
@@ -46,7 +46,7 @@ public class A02_101SymmetricTree {
 		if (p.val != q.val) {
 			return false;
 		}
-		return checkNodes(p.left, q.right) && checkNodes(p.right, q.left);
+		return dfs(p.left, q.right) && dfs(p.right, q.left);
 	}
     
  	public static void main(String[] args) {
