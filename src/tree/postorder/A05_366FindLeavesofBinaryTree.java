@@ -1,4 +1,4 @@
-package common;
+package tree.postorder;
 
 /**
  * 
@@ -6,7 +6,7 @@ package common;
  * @author William
  *
  */
-public class ClassExample {
+public class A05_366FindLeavesofBinaryTree {
 	
     
  	public static void main(String[] args) {
