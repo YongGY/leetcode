@@ -1,4 +1,4 @@
-package tree.postorder;
+package tree.test.postorder;
 
 import common.TreeNode;
 
@@ -43,26 +43,13 @@ import common.TreeNode;
  */
 public class A02_110BalancedBinaryTree {
 
-	public static boolean isBalanced(TreeNode root) {
-		return dfs(root) >= 0;
+	public static  boolean isBalanced(TreeNode root) {
+
 	}
 
-	private static int dfs(TreeNode node) {
-		if (node == null) {
-			return 0;
-		}
-		int left = dfs(node.left);
-		int right = dfs(node.right);
-		if (Math.abs(left - right) > 1) {
-			return -1;
-		}
-		if (left < 0 || right < 0) {
-			return -1;     //重要！！！
-		}
-		return Math.max(left, right) + 1;
-	}
-    
-	public static void main(String[] args) {
+
+
+ 	public static void main(String[] args) {
 		TreeNode t1 = new TreeNode(3);
 		TreeNode t2 = new TreeNode(9);
 		TreeNode t3 = new TreeNode(20);
@@ -73,7 +60,7 @@ public class A02_110BalancedBinaryTree {
 		t3.left =  t4;
 		t3.right = t5;
 		System.out.println(isBalanced(t1));
-		
+
 		TreeNode t11 = new TreeNode(1);
 		TreeNode t21 = new TreeNode(2);
 		TreeNode t31 = new TreeNode(2);
@@ -81,13 +68,13 @@ public class A02_110BalancedBinaryTree {
 		TreeNode t51 = new TreeNode(3);
 		TreeNode t61 = new TreeNode(4);
 		TreeNode t71 = new TreeNode(4);
-		
+
 		t11.left =  t21;
 		t11.right =  t31;
-		
+
 		t21.left =  t41;
 		t21.right = t51;
-		
+
 		t41.left =  t61;
 		t41.right = t71;
 		System.out.println(isBalanced(t11));

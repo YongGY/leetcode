@@ -36,7 +36,9 @@ import common.TreeNode;
  *         [1,2,1],   [1,1,2]
  *
  * Output: false
- * 
+ *
+ * Time Complexity - O(n)， Space Complexity - O(n)
+ *
  * @author William
  *
  */

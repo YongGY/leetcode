@@ -45,21 +45,24 @@ import java.util.Stack;
  */
 public class A01_144BinaryTreePreorderTraversal {
 
-
 	public static List<Integer> preorderTraversal(TreeNode root) {
 		List<Integer> res = new ArrayList<>();
-		dfs(res,root);
+		dfs(root, res);
 		return res;
 	}
 
-	public static void dfs(List<Integer> res, TreeNode root) {
-		if(root == null){
+	private static void dfs(TreeNode node, List<Integer> res) {
+		if (node == null) {
 			return;
 		}
-		res.add(root.val);
-		dfs(res,root.left);
-		dfs(res,root.right);
+		res.add(node.val);
+		dfs(node.left, res);
+		dfs(node.right, res);
 	}
+
+
+
+
 
 	public static List<Integer> preorderTraversal1(TreeNode root) {
 		List<Integer> res = new ArrayList<>();

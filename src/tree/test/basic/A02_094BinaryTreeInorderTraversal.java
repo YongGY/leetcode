@@ -1,4 +1,4 @@
-package tree.basic;
+package tree.test.basic;
 
 import common.TreeNode;
 
@@ -34,47 +34,8 @@ import java.util.Stack;
 public class A02_094BinaryTreeInorderTraversal {
 
 	public static List<Integer> inorderTraversal(TreeNode root) {
-		List<Integer> res = new ArrayList<>();
-		dfs(root, res);
-		return res;
 	}
 
-	private static void dfs(TreeNode node, List<Integer> res) {
-		if (node == null) {
-			return;
-		}
-
-		if (node.left != null) {
-			dfs(node.left, res);
-		}
-
-		res.add(node.val);
-
-		if (node.right != null) {
-			dfs(node.right, res);
-		}
-	}
-
-
-	public static List<Integer> inorderTraversal1(TreeNode root) {
-		List<Integer> res = new ArrayList<>();
-		if (root == null) {
-		    return res;
-        }
-		Stack<TreeNode> stack = new Stack<>();
-		TreeNode cur = root;
-		while (!stack.isEmpty() || cur != null) {
-			if (cur != null) {
-				stack.push(cur);
-				cur = cur.left;
-			} else {
-				cur = stack.pop();
-				res.add(cur.val);
-				cur = cur.right;
-			}
-		}
-		return res;
-	}
 
 	public static void main(String[] args) {
 		TreeNode t1 = new TreeNode(1);
@@ -92,8 +53,8 @@ public class A02_094BinaryTreeInorderTraversal {
 
 		t3.right = t6;
 
+		//[4, 2, 5, 1, 3, 6]
 		System.out.println(inorderTraversal(t1));
-		System.out.println(inorderTraversal1(t1));
 
 	}
 }

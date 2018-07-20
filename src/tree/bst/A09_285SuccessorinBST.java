@@ -1,4 +1,4 @@
-package common;
+package tree.bst;
 
 /**
  * 
@@ -6,7 +6,7 @@ package common;
  * @author William
  *
  */
-public class ClassExample {
+public class A09_285SuccessorinBST {
 	
     
  	public static void main(String[] args) {

@@ -30,8 +30,30 @@ import java.util.Queue;
 public class A04_102BinaryTreeLevelOrderTraversal {
 
 
-//	Solution 1: BFS
-//	Time: O(n)
+	//	Solution : DFS 	Time: O(n)
+	public static List<List<Integer>> levelOrder1(TreeNode root) {
+		List<List<Integer>> res = new ArrayList<>();
+		dfs(root, 0, res);
+		return res;
+	}
+
+	private static void dfs(TreeNode node, int level, List<List<Integer>> res) {
+		if (node == null) {
+			return;
+		}
+		if (level == res.size()) {
+			res.add(new ArrayList<>());
+		}
+
+		res.get(level).add(node.val);
+		dfs(node.left, level + 1, res);
+		dfs(node.right, level + 1, res);
+	}
+
+
+
+
+	//	Solution : BFS Time: O(n)
 
 	public static List<List<Integer>> levelOrder(TreeNode root) {
 
@@ -45,7 +67,7 @@ public class A04_102BinaryTreeLevelOrderTraversal {
 		while (!queue.isEmpty()) {
 			List<Integer> tmp = new ArrayList<>();
 			int qSize = queue.size();
- 			for (int i = 0; i < qSize; i++) {
+			for (int i = 0; i < qSize; i++) {
 				TreeNode node = queue.poll(); //返回第一个元素，并在队列中删除
 				tmp.add(node.val);
 
@@ -61,26 +83,6 @@ public class A04_102BinaryTreeLevelOrderTraversal {
 		return res;
 	}
 
-//	Solution 2: DFS
-//	Time: O(n)
-
-	public static List<List<Integer>> levelOrder1(TreeNode root) {
-		List<List<Integer>> res = new ArrayList<>();
-		dfs(res, root, 0);
-		return res;
-	}
-
-	private static void dfs(List<List<Integer>> res, TreeNode root, int level) {
-		if (root == null) {
-			return;
-		}
-		if (level == res.size()) {
-			res.add(new ArrayList<>());
-		}
-		res.get(level).add(root.val);
-		dfs(res, root.left, level + 1);
-		dfs(res, root.right, level + 1);
-	}
 
 	public static void main(String[] args) {
 		TreeNode t1 = new TreeNode(3);

@@ -1,4 +1,4 @@
-package tree.basic;
+package tree.test.basic;
 
 import common.TreeNode;
 
@@ -40,44 +40,9 @@ public class A03_145BinaryTreePostorderTraversal {
 
 
 	public static List<Integer> postorderTraversal(TreeNode root) {
-		List<Integer> res = new ArrayList<>();
-		dfs(root, res);
-		return res;
+
 	}
 
-	public static void dfs(TreeNode node, List<Integer> res) {
-		if (node == null) {
-			return;
-		}
-		dfs(node.left, res);
-		dfs(node.right, res);
-		res.add(node.val);
-	}
-
-	public static List<Integer> postorderTraversal1(TreeNode root) {
-		List<Integer> res = new ArrayList<>();
-
-		if(root == null){
-			return res;
-		}
-
-		Stack<TreeNode> stack = new Stack<>();
-		stack.push(root);
-
-		while(!stack.empty()){
-			TreeNode node = stack.pop();
-			res.add(0,node.val);
-
-			if(node.left != null){
-				stack.push(node.left);
-			}
-
-			if(node.right != null){
-				stack.push(node.right);
-			}
-		}
-		return res;
-	}
 
 	public static void main(String[] args) {
 		TreeNode t1 = new TreeNode(1);
@@ -95,8 +60,8 @@ public class A03_145BinaryTreePostorderTraversal {
 
 		t3.right = t6;
 
+		//[4, 5, 2, 6, 3, 1]
 		System.out.println(postorderTraversal(t1));
-//		System.out.println(postorderTraversal1(t1));
  	}
 
 }

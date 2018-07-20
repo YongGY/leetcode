@@ -1,4 +1,4 @@
-package tree.test;
+package tree.test.preorder;
 
 import common.TreeNode;
 

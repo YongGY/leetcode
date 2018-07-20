@@ -32,19 +32,19 @@ public class A04_257BinaryTreePaths {
 
 	public static List<String> binaryTreePaths(TreeNode root) {
 		List<String> res = new ArrayList<>();
-		dfs(res, root, "");
+		dfs(root, "", res);
 		return res;
 	}
 
-	private static void dfs(List<String> res, TreeNode root, String tmp) {
+	private static void dfs(TreeNode root, String tmp, List<String> res) {
 		if (root == null) {
 			return;
 		}
 		if (root.left == null && root.right == null) {
 			res.add(tmp + root.val);
 		}
-		dfs(res, root.left, tmp + root.val + "->");
-		dfs(res, root.right, tmp + root.val + "->");
+		dfs(root.left, tmp + root.val + "->", res);
+		dfs(root.right, tmp + root.val + "->", res);
 	}
 
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package tree.postorder;
+package tree.test.postorder;
 
 import common.TreeNode;
 
@@ -25,34 +25,9 @@ import common.TreeNode;
  */
 public class A01_104MaximumDepthofBinaryTree {
 
+
 	public static int maxDepth(TreeNode root) {
-		if (root == null) {
-			return 0;
-		}
-		int leftDepth = maxDepth(root.left);
-		int rightDepth = maxDepth(root.right);
-		int bigger = Math.max(leftDepth, rightDepth);
-		return bigger + 1;
-	}
 
-
-	public static int maxDepth1(TreeNode root) {
-		if (root == null) {
-			return 0;
-		}
-		return dfs(root);
-	}
-
-	private static int dfs(TreeNode node) {
-		if (node.left == null && node.right == null) {
-			return 1;
-		} else if (node.left == null) {
-			return dfs(node.right) + 1;
-		} else if (node.right == null) {
-			return dfs(node.left) + 1;
-		} else {
-			return Math.max(dfs(node.left), dfs(node.right)) + 1;
-		}
 	}
 
 
@@ -71,6 +46,6 @@ public class A01_104MaximumDepthofBinaryTree {
 		t3.right = t5;
 
 		t4.left = t6;
-		System.out.println(maxDepth1(t1));
+		System.out.println(maxDepth(t1));
 	}
 }
