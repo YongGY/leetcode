@@ -32,13 +32,21 @@ import common.TreeNode;
 public class A08_298BinaryTreeLongestConsecutiveSequence {
 
 
+	static int max = Integer.MIN_VALUE;
  	public static int longestConsecutive(TreeNode root) {
+		if(root == null){
+			return 0;
+		}
+		dfs(root);
+		return max;
+	}
+
+	private static void dfs(TreeNode root) {
 
 	}
 
- 
 
- 	public static void main(String[] args) {
+	public static void main(String[] args) {
  		
 	}
 }
