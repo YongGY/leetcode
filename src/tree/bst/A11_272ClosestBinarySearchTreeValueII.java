@@ -47,7 +47,7 @@ public class A11_272ClosestBinarySearchTreeValueII {
 		if (res.size() < k) {
 			res.add(root.val);
 		} else if (res.size() == k) {
-			if (Math.abs(res.getFirst() - target) > (Math.abs(root.val - target))) {
+			if (Math.abs(res.getFirst() - target) > Math.abs(root.val - target)) {
 				res.removeFirst();
 				res.addLast(root.val);
 			} else {

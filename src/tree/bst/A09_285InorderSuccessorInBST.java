@@ -39,14 +39,25 @@ public class A09_285InorderSuccessorInBST {
 		if (root == null) {
 			return null;
 		}
-		if (root.val > p.val) {
-			TreeNode left = inorderSuccessor1(root.left, p);
-			return left == null ? root : left;
+		if (root.val > p.val) { //利用BST性质
+			TreeNode left = inorderSuccessor1(root.left, p);  //looking for p in the left subtree
+			return left == null ? root : left;  //null case: when leftmost leaf
 		} else {
-			return inorderSuccessor1(root.right, p);
+			return inorderSuccessor1(root.right, p); //successor in the right subtree
 		}
 	}
 
+	// Predecessor
+	public static TreeNode inorderPredecessor(TreeNode root, TreeNode p) {
+		if(root == null){ return root;}
+		if(root.val>=p.val){//利用BST性质
+			TreeNode left = inorderPredecessor(root.left,p);
+			return left;
+		}else{
+			TreeNode right = inorderPredecessor(root.right,p);//右叶，打印中叶或root
+			return right != null?right:root;
+		}
+	}
 
 	/**
 	 *         20

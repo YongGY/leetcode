@@ -1,4 +1,4 @@
-package common;
+package tree.level;
 
 /**
  * 
@@ -6,7 +6,7 @@ package common;
  * @author William
  *
  */
-public class ClassExample {
+public class A12_095UniqueBinarySearchTreesII {
 	
     
  	public static void main(String[] args) {

@@ -42,20 +42,15 @@ import java.util.Stack;
  *
  * @author William
  *
- * 二分查找数(BST)的性质
- * 任何一个节点的值均大于左子树的任意节点值，而小于右子树的任一节点值。
- * 那么这样就可以知道最小值的一个节点在树的最左端，最大值的一个节点在树的最右端。
- * 树从小到大顺序刚好满足树的中序遍历。因而，我们可以用中序遍历来处理。
- *
  */
 public class A07_230KthSmallestElementinaBST {
+
 
 
 
 	public static int kthSmallest(TreeNode root, int k) {
 
 	}
-
 
 
 	/**

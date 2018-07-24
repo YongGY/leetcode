@@ -29,33 +29,7 @@ import common.TreeNode;
  *              is 5 but its right child's value is 4.
  * 
  * @author William
- *
- *
- * 二叉搜索树（Binary Search Tree）
- *
- * 之所以称为二叉搜索树，是因为这种二叉树能大幅度提高搜索效率。
- *
- * 如果一个二叉树满足：对于任意一个节点，其值不小于左子树的任何节点，且不大于右子树的任何节点（反之亦可），则为二叉搜索树。
- *
- * 如果按照中序遍历，其遍历结果是一个有序序列。因此，二叉搜索树又称为二叉排序树。
- *
- * 不同于最大堆（或最小堆），其只要求当前节点与当前节点的左右子节点满足一定关系。
- *
- * 下面以非降序二叉搜索树为例。
 
- *   Asuming each node value is not equal
- *  *  A simple binary search tree
- *  *           6                  6
- *  *          / \                / \
- *  *         /   \              /   \
- *  *        3     8            3     8
- *  *       /     / \          /     / \
- *  *      /     /   \        /     /   \
- *  *     2     7     9      2     4*    9
- *  *
- *  *       (A) BST             (B) Not BST
- *  *
- * 其中（A）为二叉搜索树，（B）不是。因为根节点6小于右子树中的节点4。
  *
  */
 public class A01_098ValidateBinarySearchTree {
@@ -65,8 +39,17 @@ public class A01_098ValidateBinarySearchTree {
 
 	}
 
-
-
+	/**
+	 *  *  *           6                  6
+	 *  *  *          / \                / \
+	 *  *  *         /   \              /   \
+	 *  *  *        3     8            3     8
+	 *  *  *       /     / \          /     / \
+	 *  *  *      /     /   \        /     /   \
+	 *  *  *     2     7     9      2     4*    9
+	 *  *  *
+	 *  *  *       (A) BST             (B) Not BST
+	 */
 
 	public static void main(String[] args) {
 		TreeNode t1 = new TreeNode(6);

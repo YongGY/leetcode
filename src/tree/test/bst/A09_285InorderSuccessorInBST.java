@@ -18,11 +18,13 @@ public class A09_285InorderSuccessorInBST {
 	}
 
 
-	//模板 [BST InOrder Successor / Predecessor]
-	// successor
+	// [BST InOrder Successor]
 	public static TreeNode inorderSuccessor1(TreeNode root, TreeNode p) {
 
+
 	}
+
+
 
 
 	/**
@@ -34,15 +36,6 @@ public class A09_285InorderSuccessorInBST {
 	 *   \   / \
 	 *   7  13  18
 	 */
-
-//	public static void aaa(TreeNode root){
-//		if(root == null){
-//			return;
-//		}
-//		aaa(root.left);
-//		System.out.println(root.val);
-//		aaa(root.right);
-//	}
 
 
 	public static void main(String[] args) {
@@ -59,6 +52,7 @@ public class A09_285InorderSuccessorInBST {
 		root.left.right.right = new TreeNode(18);
 		System.out.println(inorderSuccessor(root, new TreeNode(30)));
 		System.out.println(inorderSuccessor1(root, new TreeNode(30)));
+		System.out.println(inorderSuccessor2(root, new TreeNode(30)));
 
 	}
 }

@@ -47,11 +47,9 @@ import common.TreeNode;
 public class A12_99RecoverBinarySearchTree {
 
 
-
 	public void recoverTree(TreeNode root) {
 
 	}
-
 
  	public static void main(String[] args) {
 		TreeNode root = new TreeNode(1);

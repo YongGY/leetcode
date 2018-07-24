@@ -23,7 +23,6 @@ import java.util.List;
  *   2   3
  *      / \
  *     4   5
- *
  * as "[1,2,3,null,null,4,5]"
  * Clarification: The above format is the same as how LeetCode serializes a binary tree.
  * You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
@@ -46,11 +45,11 @@ public class A08_297SerializeandDeserializeBinaryTree {
 
 
 
+		//1,2,#,#,3,4,#,#,5,#,#,
 		// Decodes your encoded data to tree.
 		public TreeNode deserialize(String data) {
 
 		}
-
  	}
 
 // Your Codec object will be instantiated and called as such:
