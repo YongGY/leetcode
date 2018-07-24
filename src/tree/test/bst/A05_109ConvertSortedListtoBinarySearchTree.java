@@ -1,4 +1,4 @@
-package tree.bst;
+package tree.test.bst;
 
 import common.ListNode;
 import common.TreeNode;
@@ -33,35 +33,10 @@ import common.TreeNode;
 public class A05_109ConvertSortedListtoBinarySearchTree {
 
 	public static TreeNode sortedListToBST(ListNode head) {
-		ListNode tempHead = head;
-		int count = 0;
-		while (tempHead != null) {
-			count++;
-			tempHead = tempHead.next;
-		}
-		int[] nums = new int[count];
-		count = 0;
-		while (head != null) {
-			nums[count++] = head.val;
-			head = head.next;
-		}
-		return buildBST(nums, 0, nums.length - 1);
+
 	}
 
-	private static TreeNode buildBST(int[] nums, int left, int right) {
-		if (left > right) return null;
-		if (left == right) {
-			return new TreeNode(nums[left]);
-		}
-		int mid = (left + right) / 2;
-		TreeNode root = new TreeNode(nums[mid]);
-		root.left = buildBST(nums, left, mid - 1);
-		root.right = buildBST(nums, mid + 1, right);
-		return root;
-	}
-
-
- 	public static void main(String[] args) {
+	public static void main(String[] args) {
 		ListNode l1 = new ListNode(-10);
 		ListNode l2 = new ListNode(-3);
 		ListNode l3 = new ListNode(0);

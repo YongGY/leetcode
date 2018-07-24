@@ -1,4 +1,4 @@
-package tree.bst;
+package tree.test.bst;
 
 import common.TreeNode;
 
@@ -35,64 +35,12 @@ import common.TreeNode;
  * p and q are different and both values will exist in the BST.
  * 
  * @author William
- *
- * 题目大意：
- * 给定一棵二叉搜索树（BST），寻找BST中两个给定节点的最近公共祖先（LCA）。
- *
- * 根据维基百科对LCA的定义：“节点v与w的最近公共祖先是树T上同时拥有v与w作为后继的最低节点（我们允许将一个节点当做其本身的后继）”
- *
- * 例如，题目描述的样例中，节点2和8的最近公共祖先（LCA）是6。另一个例子，节点2和4的LCA是2，因为根据LCA的定义，一个节点可以是其本身的后继。
- *
- *
- * 解题思路：
- * 根据BST的性质，左子树节点的值＜根节点的值，右子树节点的值＞根节点的值
- *
- * 记当前节点为node，从根节点root出发
- *
- * 若p与q分别位于node的两侧，或其中之一的值与node相同，则node为LCA
- *
- * 否则，若p的值＜node的值，则LCA位于node的左子树
- *
- * 否则，LCA位于node的右子树
- *
- * http://shmilyaw-hotmail-com.iteye.com/blog/2276803
  */
 public class A02_235LowestCommonAncestorofaBinarySearchTree {
 
 
 	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-		if (root == null || p == null || q == null) {
-			return root;
-		}
-		if (p.val < root.val && q.val < root.val) {
-			return lowestCommonAncestor(root.left, p, q);
-		} else if (p.val > root.val && q.val > root.val) {
-			return lowestCommonAncestor(root.right, p, q);
-		} else {
-			return root;
-		}
-	}
 
-
-	public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
-		if (p == null) {
-			return q;
-		}
-		if (q == null) {
-			return q;
-		}
-
-		TreeNode node = root;
-		while (node != null) {
-			if (node.val > p.val && node.val > q.val) {
-				node = node.left;
-			} else if (node.val < p.val && node.val < q.val) {
-				node = node.right;
-			} else {
-				return node;
-			}
-		}
-		return root;
 	}
 
 	public static void main(String[] args) {

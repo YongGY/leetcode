@@ -1,4 +1,4 @@
-package tree.bst;
+package tree.test.bst;
 
 import common.TreeNode;
 
@@ -34,28 +34,9 @@ import java.util.List;
 public class A11_272ClosestBinarySearchTreeValueII {
 
 	public static List<Integer> closestKValues(TreeNode root, double target, int k) {
-		LinkedList<Integer> res = new LinkedList<>();
-		inOrderTraversal(root, target, k, res);
-		return res;
+
 	}
 
-	private static void inOrderTraversal(TreeNode root, double target, int k, LinkedList<Integer> res) {
-		if (root == null) {
-			return;
-		}
-		inOrderTraversal(root.left, target, k, res);
-		if (res.size() < k) {
-			res.add(root.val);
-		} else if (res.size() == k) {
-			if (Math.abs(res.getFirst() - target) > (Math.abs(root.val - target))) {
-				res.removeFirst();
-				res.addLast(root.val);
-			} else {
-				return;
-			}
-		}
-		inOrderTraversal(root.right, target, k, res);
-	}
 
 	/**
 	 *         20

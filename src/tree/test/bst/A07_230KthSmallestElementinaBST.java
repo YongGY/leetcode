@@ -1,4 +1,4 @@
-package tree.bst;
+package tree.test.bst;
 
 import common.TreeNode;
 
@@ -50,49 +50,12 @@ import java.util.Stack;
  */
 public class A07_230KthSmallestElementinaBST {
 
-	private static int count = 0;
-	private static int res = 0;
+
 
 	public static int kthSmallest(TreeNode root, int k) {
-		inOrder(root, k);
-		return res;
+
 	}
 
-	private static void inOrder(TreeNode root, int k) {
-		if (root == null || count >= k) {
-			return;
-		}
-		inOrder(root.left, k);
-		count++;
-		if (count == k) {
-			res = root.val;
-		}
-		inOrder(root.right, k);
-	}
-
-
-	public int kthSmallest1(TreeNode root, int k) {
-		Stack<TreeNode> s = new Stack<TreeNode>();
-		while (root != null) {
-			s.push(root);
-			root = root.left;
-		}
-		while (!s.isEmpty()) {
-			TreeNode curr = s.pop();
-			k--;
-			if (k == 0) {
-				return curr.val;
-			}
-			if (curr.right != null) {
-				curr = curr.right;
-				while (curr != null) {
-					s.push(curr);
-					curr = curr.left;
-				}
-			}
-		}
-		return 0;
-	}
 
 
 	/**

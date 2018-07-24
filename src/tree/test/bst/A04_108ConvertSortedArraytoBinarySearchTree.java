@@ -1,4 +1,4 @@
-package tree.bst;
+package tree.test.bst;
 
 import common.TreeNode;
 
@@ -26,24 +26,12 @@ import common.TreeNode;
 public class A04_108ConvertSortedArraytoBinarySearchTree {
 
 	public static TreeNode sortedArrayToBST(int[] num) {
-		if (num.length == 0) {
-			return null;
-		}
-		return buildTree(num, 0, num.length - 1);
+
 	}
 
-	private static TreeNode buildTree(int[] num, int left, int right) {
-		if (left > right) { // Done
-			return null;
-		}
-		int mid = (left + right) / 2;
-		TreeNode node = new TreeNode(num[mid]);
-		node.left = buildTree(num, left, mid - 1);
-		node.right = buildTree(num, mid + 1, right);
-		return node;
-	}
-    
- 	public static void main(String[] args) {
+
+
+	public static void main(String[] args) {
  		System.out.println(sortedArrayToBST(new int[]{-10,-3,0,5,9}));
 	}
 }

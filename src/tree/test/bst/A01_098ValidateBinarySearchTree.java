@@ -1,4 +1,4 @@
-package tree.bst;
+package tree.test.bst;
 
 import common.TreeNode;
 
@@ -60,31 +60,11 @@ import common.TreeNode;
  */
 public class A01_098ValidateBinarySearchTree {
 
-	/**
-	 *  如题, 验证是否是BST.
-	 *
-	 *  DFS
-	 * - 查看每个parent-child关系: leftchild < root < rightChild
-	 * - 方法: 把root.val 传下来作为 max 或者 min, 然后检查children
-	 *
-	 * ##### Note:
-	 * - min/max需要时long type.
-	 * - 如果题目真的给node.val = Integer.MAX_VALUE, 我们需要能够与之比较, long就可以.
-	 */
 
 	public static boolean isValidBST(TreeNode root) {
-		return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+
 	}
 
-	private static boolean isValidBST(TreeNode node, long minVal, long maxVal) {
-		if (node == null) {
-			return true;
-		}
-		if (node.val >= maxVal || node.val <= minVal) {
-			return false;
-		}
-		return isValidBST(node.left, minVal, node.val) && isValidBST(node.right, node.val, maxVal);
-	}
 
 
 
@@ -93,8 +73,8 @@ public class A01_098ValidateBinarySearchTree {
 		TreeNode t2 = new TreeNode(3);
 		TreeNode t3 = new TreeNode(8);
 		TreeNode t4 = new TreeNode(2);
-//		TreeNode t5 = new TreeNode(7);
-		TreeNode t5 = new TreeNode(4);
+		TreeNode t5 = new TreeNode(7);
+//		TreeNode t5 = new TreeNode(4);
 		TreeNode t6 = new TreeNode(9);
 
 		t1.left =  t2;

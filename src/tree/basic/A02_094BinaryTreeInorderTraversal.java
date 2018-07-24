@@ -95,5 +95,18 @@ public class A02_094BinaryTreeInorderTraversal {
 		System.out.println(inorderTraversal(t1));
 		System.out.println(inorderTraversal1(t1));
 
+
+		TreeNode root = new TreeNode(20);
+		root.left = new TreeNode(10);
+		root.right = new TreeNode(30);
+		root.left.left = new TreeNode(5);
+		root.left.left.right = new TreeNode(7);
+		root.left.right = new TreeNode(15);
+		root.right.left = new TreeNode(25);
+		root.right.right = new TreeNode(35);
+		root.left.right.left = new TreeNode(13);
+		root.left.right.right = new TreeNode(18);
+		System.out.println(inorderTraversal(root));
+
 	}
 }

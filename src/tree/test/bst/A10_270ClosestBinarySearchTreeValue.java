@@ -1,4 +1,4 @@
-package tree.bst;
+package tree.test.bst;
 
 import common.TreeNode;
 
@@ -31,25 +31,7 @@ public class A10_270ClosestBinarySearchTreeValue {
 	 */
 
 	public static int closestValue(TreeNode root, double target) {
-		if (root == null) {
-			return 0;
-		}
-		double closest = root.val;
-		while (root != null) {
-			if (root.val == target) {
-				return root.val;
-			} else {
-				if (Math.abs(target - closest) >= Math.abs(target - root.val)) {
-					closest = root.val;
-				}
-				if (root.val > target) {
-					root = root.left;
-				} else {
-					root = root.right;
-				}
-			}
-		}//END while
-		return (int)closest;
+
 	}
 
 	/**
@@ -64,32 +46,10 @@ public class A10_270ClosestBinarySearchTreeValue {
 	 */
 
 	public static int closestValue1(TreeNode root, double target) {
-		if (root == null) {
-			return 0;
-		}
-		if(root.val == target){
-			return root.val;
-		}
-		TreeNode child = target < root.val ? root.left : root.right;
-		if (child == null) {
-			return root.val;
-		}
-		int childClosest = closestValue1(child, target);
-		return Math.abs(root.val - target) < Math.abs(childClosest - target) ? root.val : childClosest;
+
 	}
 
-//
-//	public static int closestValue2(TreeNode root, double target) {
-//		if (root.left != null && target < root.val) {
-//			int leftResult = closestValue2(root.left, target);
-//			return Math.abs(leftResult - target) < Math.abs(root.val - target) ? leftResult : root.val;
-//		}
-//		if (root.right != null && target > root.val) {
-//			int rightResult = closestValue2(root.right, target);
-//			return Math.abs(rightResult - target) < Math.abs(root.val - target) ? rightResult : root.val;
-//		}
-//		return root.val;
-//	}
+
 
 	/**
 	 *         20

@@ -1,4 +1,4 @@
-package tree.bst;
+package tree.test.bst;
 
 import common.TreeNode;
 
@@ -46,31 +46,12 @@ import common.TreeNode;
  */
 public class A12_99RecoverBinarySearchTree {
 
-	TreeNode firstNode;
-	TreeNode secondNode;
-	TreeNode lastNode;
+
 
 	public void recoverTree(TreeNode root) {
-		inorder(root);
-		int tmp = firstNode.val;
-		firstNode.val = secondNode.val;
-		secondNode.val = tmp;
+
 	}
 
-	private void inorder(TreeNode root) {
-		if (root == null) {
-			return;
-		}
-		inorder(root.left);
-		if (lastNode != null && firstNode == null && lastNode.val >= root.val) {
-			firstNode = lastNode;
-		}
-		if (lastNode != null && firstNode != null && lastNode.val >= root.val) {
-			secondNode = root;
-		}
-		lastNode = root;
-		inorder(root.right);
-	}
 
  	public static void main(String[] args) {
 		TreeNode root = new TreeNode(1);

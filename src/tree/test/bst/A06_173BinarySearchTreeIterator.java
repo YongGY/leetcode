@@ -1,4 +1,4 @@
-package tree.bst;
+package tree.test.bst;
 
 import common.TreeNode;
 
@@ -20,45 +20,27 @@ import java.util.Stack;
  */
 public class A06_173BinarySearchTreeIterator {
 
-	private Stack<TreeNode> stk;
 
 	class BSTIterator {
 
 		public BSTIterator(TreeNode root) {
-			stk = new Stack<>();
-			// 先找到第一个节点，并把路径入栈
-			while (root != null) {
-				System.out.println(root.val);
-				stk.push(root);
-				root = root.left;
-			}
+
 		}
 
 		/**
 		 * @return whether we have a next smallest number
 		 */
 		public boolean hasNext() {
-			// 栈为空时不再有下一个
-			return !stk.isEmpty();
-//			return stk.size() != 0;
+
 		}
 
 		/**
 		 * @return the next smallest number
 		 */
 		public int next() {
-			TreeNode curr = stk.pop();
-			TreeNode node = curr.right;   // 如果该元素有右节点，把它的右节点及右节点的所有左边节点都压入栈中
-			while (node != null) {
-				stk.push(node);
-				node = node.left;
-			}
-			return curr.val;
+
 		}
 
-//		public Stack aa() {
-//			return stk;
-//		}
 	}
 
 	 /**
@@ -85,8 +67,6 @@ public class A06_173BinarySearchTreeIterator {
 		root.right.right.left = new TreeNode(6);
 
 		BSTIterator iterator = new A06_173BinarySearchTreeIterator().new BSTIterator(root);
-
-//		System.out.println(iterator.aa());
 
 		while (iterator.hasNext()) {
 			System.out.print(iterator.next() + " ");
