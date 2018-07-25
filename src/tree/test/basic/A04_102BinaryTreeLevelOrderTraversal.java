@@ -32,7 +32,22 @@ public class A04_102BinaryTreeLevelOrderTraversal {
 
 
 	public static List<List<Integer>> levelOrder(TreeNode root) {
+		List<List<Integer>> res = new ArrayList<>();
+		dfs(root,0,res);
+		return res;
+	}
 
+	public static void dfs(TreeNode root,int level ,List<List<Integer>> res){
+		if(root == null){
+			return ;
+		}
+		//if (result.size() < level + 1) {// 说明还需要添加一行
+		if(res.size() == level){
+			res.add(new ArrayList<>());
+		}
+		res.get(level).add(root.val);
+		dfs(root.left,level+1,res);
+		dfs(root.right,level+1,res);
 	}
 
 
@@ -53,4 +68,21 @@ public class A04_102BinaryTreeLevelOrderTraversal {
 		System.out.println(levelOrder(t1));
 
 	}
+
+	/**
+	 * 经常会出现类似如果你看到时钟上面的时间是X：Y，那么其时针和分针之间的角度是多少？
+	 *
+	 * 首先计算X小时Y分是多少小时，即X.（Y/60）小时。例如3:15就等于（3+15除以60）小时即3.25小时。
+	 *
+	 * 然后将结果除以12，得出来所占的比例，然后再乘以360度，得到小时的角度。
+	 *
+	 * 同理，将Y/60得到分钟所占的比例，然后乘以360得到分钟的角度。
+	 *
+	 * 然后两者相减。
+	 *
+	 * 例如
+	 *
+	 * Google面试题 如果你看到时钟上面的时间是3：15，那么其时针和分针之间的角度是多少？
+	 * (（3+15/60）/12)*360-(15/60)*360=7.5度
+	 */
 }
