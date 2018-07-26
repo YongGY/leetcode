@@ -39,6 +39,11 @@ import java.util.Stack;
 public class A03_145BinaryTreePostorderTraversal {
 
 
+	/**
+	 * DFS
+	 * #### Recursive
+	 * trivial, 先加left recursively, 再加right recursively, 然后组成头部.
+	 */
 	public static List<Integer> postorderTraversal(TreeNode root) {
 		List<Integer> res = new ArrayList<>();
 		dfs(root, res);
@@ -54,6 +59,12 @@ public class A03_145BinaryTreePostorderTraversal {
 		res.add(node.val);
 	}
 
+	
+	/**
+	 * ##### 利用stack的特点
+	 * - 每次加element进stack的时候, 想要在 bottom/后process的, 先加
+	 * - 想要下一轮立刻process的, 最后push进stack.
+	 */
 	public static List<Integer> postorderTraversal1(TreeNode root) {
 		List<Integer> res = new ArrayList<>();
 

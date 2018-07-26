@@ -35,17 +35,14 @@ public class A09_111MinimumDepthofBinaryTree {
 	private static int dfs(TreeNode root) {
 		if (root.left == null && root.right == null) {
 			return 1;
-
 		} else if (root.left == null) {
 			return dfs(root.right) + 1;
-
 		} else if (root.right == null) {
 			return dfs(root.left) + 1;
 		}else {
 			return Math.min(dfs(root.left), dfs(root.right)) + 1;
 		}
 	}
- 
 
 	public static void main(String[] args) {
 		TreeNode root = new TreeNode(3);
@@ -58,5 +55,13 @@ public class A09_111MinimumDepthofBinaryTree {
 		right.right = new TreeNode(7);
 
 		System.out.println(minDepth(root));
+		
+		
+		TreeNode root1 = new TreeNode(1);
+		TreeNode left1 = new TreeNode(2);
+		root1.left = left1;
+
+		System.out.println(minDepth(root1));
+
 	}
 }

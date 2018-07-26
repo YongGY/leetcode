@@ -95,34 +95,6 @@ public class A04_102BinaryTreeLevelOrderTraversal {
 		}
 		return res;
 	}
-//	public static List<List<Integer>> levelOrder(TreeNode root) {
-//
-//		List<List<Integer>> res = new ArrayList<>();
-//		if (root == null) {
-//			return res;
-//		}
-//		Queue<TreeNode> queue = new LinkedList<>();
-//		queue.offer(root);
-//
-//		while (!queue.isEmpty()) {
-//			List<Integer> tmp = new ArrayList<>();
-//			int qSize = queue.size();
-//			for (int i = 0; i < qSize; i++) {
-//				TreeNode node = queue.poll(); //返回第一个元素，并在队列中删除
-//				tmp.add(node.val);
-//
-//				if (node.left != null) {
-//					queue.offer(node.left);
-//				}
-//				if (node.right != null) {
-//					queue.offer(node.right);
-//				}
-//			}
-//			res.add(tmp);
-//		}
-//		return res;
-//	}
-
 
 	public static void main(String[] args) {
 		TreeNode t1 = new TreeNode(3);

@@ -24,27 +24,14 @@ import java.util.Stack;
  *
  * The key is using a stack to store left and right children, and push right child first so that it is processed after the left child.
  *
- *
- * 二叉树先序遍历， root -> left -> right。
- * 使用一个栈来维护已经访问过的节点。
- * 当root不为空时，当前节点入栈，输出节点值，继续向左子树遍历。
- * 当root为空，从栈中弹出节点，向右子树进行遍历。
- *
- * https://www.jianshu.com/p/456af5480cee
- *
- * https://blog.csdn.net/soundwave_/article/details/53120766
- *
- * 二叉树的遍历分为以下三种：
- *
- * 先序遍历：遍历顺序规则为【根左右】
- *
- * 中序遍历：遍历顺序规则为【左根右】
- *
- * 后序遍历：遍历顺序规则为【左右根】
- *
  */
 public class A01_144BinaryTreePreorderTraversal {
 
+	/**
+	 * #### Recursive
+	 * - 加root, left, then right. Obvious
+	 * - Divide and conquer
+	 */
 	public static List<Integer> preorderTraversal(TreeNode root) {
 		List<Integer> res = new ArrayList<>();
 		dfs(root, res);
@@ -61,31 +48,27 @@ public class A01_144BinaryTreePreorderTraversal {
 	}
 
 
-
-
-
+	/**
+	 * #### Iterative
+	 */
 	public static List<Integer> preorderTraversal1(TreeNode root) {
-		List<Integer> res = new ArrayList<>();
-
-		if(root == null) {
-			return res;
+		List<Integer> result = new ArrayList<>();
+		if (root == null) {
+			return result;
 		}
-
 		Stack<TreeNode> stack = new Stack<>();
-		stack.push(root);
 
-		while(!stack.empty()){
-			TreeNode n = stack.pop();
-			res.add(n.val);
-
-			if(n.right != null){
-				stack.push(n.right);
-			}
-			if(n.left != null){
-				stack.push(n.left);
+		while (root != null || !stack.isEmpty()) {
+			if (root != null) {
+				stack.push(root);
+				result.add(root.val);
+				root = root.left;
+			} else {
+				root = stack.pop();
+				root = root.right;
 			}
 		}
-		return res;
+		return result;
 	}
 
 	public static void main(String[] args) {
