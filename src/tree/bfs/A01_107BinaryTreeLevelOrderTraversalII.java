@@ -31,119 +31,73 @@ import java.util.Queue;
  */
 public class A01_107BinaryTreeLevelOrderTraversalII {
 
+	/**
+	 * #### DFS
+	 * - 根据level来append每个list
+	 * - rst里面add(0,...)每次都add在list开头
+	 */
 	public static List<List<Integer>> levelOrderBottom(TreeNode root) {
 		List<List<Integer>> res = new ArrayList<>();
-		levelRecursion(root, 0, res);
+		dfs(root, 0, res);
 		return res;
 	}
 
-	private static void levelRecursion(TreeNode node, int level, List<List<Integer>> res) {
+	private static void dfs(TreeNode node, int level, List<List<Integer>> res) {
 		if (node == null) {
 			return;
 		}
-		if (res.size() < level + 1) {// 说明还需要添加一行
+		if (level == res.size()) {
 			res.add(0, new ArrayList<>());
 		}
 		res.get(res.size() - 1 - level).add(node.val);
-
-		levelRecursion(node.left, level + 1, res);
-		levelRecursion(node.right, level + 1, res);
+		dfs(node.left, level + 1, res);
+		dfs(node.right, level + 1, res);
 	}
 
-//
-//	public static  List<List<Integer>> levelOrderBottom(TreeNode root) {
-//		List<List<Integer>> result = new ArrayList<>();
-//
-//		if (root == null) {
-//			return result;
-//		}
-//
-//		LinkedList<TreeNode> current = new LinkedList<>();
-//		LinkedList<TreeNode> next = new LinkedList<>();
-//		current.offer(root);
-//
-//		ArrayList<Integer> numberList = new ArrayList<>();
-//
-//		// need to track when each level starts
-//		while (!current.isEmpty()) {
-//			TreeNode head = current.poll();
-//
-//			numberList.add(head.val);
-//
-//			if (head.left != null) {
-//				next.offer(head.left);
-//			}
-//			if (head.right != null) {
-//				next.offer(head.right);
-//			}
-//
-//			if (current.isEmpty()) {
-//				current = next;
-//				next = new LinkedList<>();
-//				result.add(numberList);
-//				numberList = new ArrayList<>();
-//			}
-//		}
-//
-//		//return Collections.reverse(result);
-//		List<List<Integer>> reversedResult = new ArrayList<>();
-//		for (int i = result.size() - 1; i >= 0; i--) {
-//			reversedResult.add(result.get(i));
-//		}
-//		return reversedResult;
-//	}
-//
-
-	public List<List<Integer>> levelOrderBottom1(TreeNode root) {
-		LinkedList<List<Integer>> result = new LinkedList<>();
-
+	/**
+	 * #### BFS
+	 * - 跟Binary Tree Level Order Traversal一样,只不过存result一直存在存在0位.
+	 */
+	public static List<List<Integer>> levelOrderBottom1(TreeNode root) {
+		List<List<Integer>> res = new ArrayList<>();
 		if (root == null) {
-			return result;
+			return res;
 		}
 		Queue<TreeNode> queue = new LinkedList<>();
-		queue.add(root);
-		int i = queue.size(); // 记录每层的结点个数
-		TreeNode tempNode = null;
-		List<Integer> singleLevel = new ArrayList<>();
+		queue.offer(root);
+
 		while (!queue.isEmpty()) {
-			if (i == 0) {// 一层记录结束
-				//
-				result.addFirst(singleLevel);
-
-				i = queue.size();
-				singleLevel = new ArrayList<>();
+			List<Integer> list = new ArrayList<>();
+			int size = queue.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode node = queue.poll();
+				list.add(node.val);
+				if (node.left != null) {
+					queue.offer(node.left);
+				}
+				if (node.right != null) {
+					queue.offer(node.right);
+				}
 			}
-			tempNode = queue.poll();
-			singleLevel.add(tempNode.val);
-
-			--i;
-
-			if (tempNode.left != null) {
-				queue.add(tempNode.left);
-			}
-			if (tempNode.right != null) {
-				queue.add(tempNode.right);
-			}
-
+			res.add(0, list);
 		}
-		result.addFirst(singleLevel);
-		return result;
+		return res;
 	}
 
-
 	public static void main(String[] args) {
-		TreeNode t1 = new TreeNode(1);
-		TreeNode t2 = new TreeNode(2);
-		TreeNode t3 = new TreeNode(3);
-		TreeNode t4 = new TreeNode(4);
-		TreeNode t5 = new TreeNode(5);
+		TreeNode t1 = new TreeNode(3);
+		TreeNode t2 = new TreeNode(9);
+		TreeNode t3 = new TreeNode(20);
+		TreeNode t4 = new TreeNode(15);
+		TreeNode t5 = new TreeNode(7);
 
-		t1.left =  t2;
-		t1.right =  t3;
+		t1.left = t2;
+		t1.right = t3;
 
-		t2.left =  t4;
-		t2.right = t5;
+		t3.left = t4;
+		t3.right = t5;
 
 		System.out.println(levelOrderBottom(t1));
+		System.out.println(levelOrderBottom1(t1));
 	}
 }

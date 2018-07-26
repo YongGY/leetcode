@@ -39,9 +39,8 @@ public class A04_102BinaryTreeLevelOrderTraversal {
 
 	public static void dfs(TreeNode root,int level ,List<List<Integer>> res){
 		if(root == null){
-			return ;
+			return;
 		}
-		//if (result.size() < level + 1) {// 说明还需要添加一行
 		if(res.size() == level){
 			res.add(new ArrayList<>());
 		}
@@ -49,6 +48,32 @@ public class A04_102BinaryTreeLevelOrderTraversal {
 		dfs(root.left,level+1,res);
 		dfs(root.right,level+1,res);
 	}
+
+	public static List<List<Integer>> levelOrder1(TreeNode root) {
+		List<List<Integer>> res = new ArrayList<>();
+		if(root == null){
+			return res;
+		}
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.offer(root);
+		while(!queue.isEmpty()){
+			int size = queue.size();
+			List<Integer> list = new ArrayList<>();
+			for(int i = 0; i<size;i++){
+				TreeNode node = queue.poll();
+				list.add(node.val);
+				if(node.left != null){
+					queue.offer(node.left);
+				}
+				if(node.right != null){
+					queue.offer(node.right);
+				}
+			}
+			res.add(list);
+		}
+		return res;
+	}
+
 
 
 
@@ -65,7 +90,8 @@ public class A04_102BinaryTreeLevelOrderTraversal {
 		t3.left = t4;
 		t3.right = t5;
 
-		System.out.println(levelOrder(t1));
+//		System.out.println(levelOrder(t1));
+		System.out.println(levelOrder1(t1));
 
 	}
 

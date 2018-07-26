@@ -36,19 +36,19 @@ public class A03_199BinaryTreeRightSideView {
 
 	public static List<Integer> rightSideView(TreeNode root) {
 		List<Integer> res = new ArrayList<>();
-		traverse(root, 0, res);
+		dfs(root, 0, res);
 		return res;
 	}
 
-	private static void traverse(TreeNode root, int level, List<Integer> res) {
+	private static void dfs(TreeNode root, int level, List<Integer> res) {
 		if (root == null) {
 			return;
 		}
 		if (level == res.size()) { // 当等于size的时候说明是最右侧结点，直接加入即可
 			res.add(root.val);
 		}
-		traverse(root.right, level + 1, res);
-		traverse(root.left, level + 1, res);
+		dfs(root.right, level + 1, res);
+		dfs(root.left, level + 1, res);
 	}
 
 
@@ -56,7 +56,6 @@ public class A03_199BinaryTreeRightSideView {
 	 * 思路： BFS
 	 * use level order traverlsal. key is to track each level size, and add the 1ast one to list.
 	 */
-
 
 	public List<Integer> rightSideView1(TreeNode root) {
 		List<Integer> res = new ArrayList<>();

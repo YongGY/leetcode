@@ -36,22 +36,18 @@ public class CopyFile {
     public static void main(String[] args) {
     	
     	String [] strings = new String[] {
-    			"A01_156BinaryTreeUpsideDown"
-    			,"A02_114FlattenBinaryTreetoLinkedList"
-    			,"A03_255VerifyPreorderSequenceinBinarySearchTree"
-    			,"A04_333LargestBSTSubtree"
-    			,"A05_222CountCompleteTreeNodes"
-    			,"A06_105ConstructBinaryTreefromPreorderandInorderTraversal"
-    			,"A07_106ConstructBinaryTreefromInorderandPostorderTraversal"
-    			,"A08_116PopulatingNextRightPointersinEachNode"
-    			,"A09_117PopulatingNextRightPointersinEachNodeII"
-    			,"A10_314BinaryTreeVerticalOrderTraversal"
-    			,"A11_096UniqueBinarySearchTrees"
-    			,"A12_095UniqueBinarySearchTreesII"
-    			,"A13_331VerifyPreorderSerializationofaBinaryTree"
+    			"A01_200NumberOfIslands"
+    			,"A01_286WallsAndGates"	
+    			,"A01_130SurroundedRegions"
+    			,"A01_339NestedListWeightSum"	
+    			,"A01_364NestedListWeightSumII"
+    			,"A01_127WordLadder"	
+    			,"A01_051NQueens"	
+    			,"A01_052NQueensII"	
+    			,"A01_126WordLadderII"
     	};
     	for (String str : strings) {
-    		copyFunc("tree\\level",str);
+    		copyFunc("DFS_BFS\\basic",str);
 		}
  
     }

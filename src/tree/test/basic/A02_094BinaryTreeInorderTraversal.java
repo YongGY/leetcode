@@ -32,8 +32,12 @@ import java.util.Stack;
  *
  */
 public class A02_094BinaryTreeInorderTraversal {
-
+	// left -> root -> right
 	public static List<Integer> inorderTraversal(TreeNode root) {
+
+	}
+	public static List<Integer> inorderTraversal1(TreeNode root) {
+
 	}
 
 

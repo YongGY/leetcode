@@ -2,6 +2,8 @@ package tree.bst;
 
 import common.TreeNode;
 
+import java.util.Stack;
+
 /**
  * Given a binary tree, determine if it is a valid binary search tree (BST).
  *
@@ -86,6 +88,26 @@ public class A01_098ValidateBinarySearchTree {
 		return isValidBST(node.left, minVal, node.val) && isValidBST(node.right, node.val, maxVal);
 	}
 
+
+	// 还没看明白~~
+	public boolean isValidBST1(TreeNode root) {
+		Stack<TreeNode> s = new Stack<TreeNode>();
+		TreeNode p = root;
+		TreeNode pre = null;
+		while (p != null || !s.empty()) {
+			while (p != null) {
+				s.push(p);
+				p = p.left;
+			}
+			TreeNode t = s.pop();
+			if (pre != null && t.val <= pre.val) {
+				return false;
+			}
+			pre = t;
+			p = t.right;
+		}
+		return true;
+	}
 
 
 	public static void main(String[] args) {
