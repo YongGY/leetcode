@@ -2,6 +2,8 @@ package tree.preorder;
 
 import common.TreeNode;
 
+import java.util.Stack;
+
 /**
  *
  * Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
@@ -27,14 +29,44 @@ import common.TreeNode;
  */
 public class A05_112PathSum {
 
+	/**
+	 * DFS
+	 */
 	public static boolean hasPathSum(TreeNode root, int sum) {
-		if(root == null) {
+		if (root == null) {
 			return false;
 		}
-		if(root.left == null && root.right == null) {
+		if (root.left == null && root.right == null) {
 			return sum == root.val;
 		}
 		return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+	}
+
+	/**
+	 * BFS
+	 */
+	public static boolean hasPathSum1(TreeNode root, int sum) {
+		if (root == null) {
+			return false;
+		}
+		Stack<TreeNode> stack = new Stack<>();
+		stack.push(root);
+
+		while (!stack.isEmpty()) {
+			TreeNode node = stack.pop();
+			if (node.left == null && node.right == null && node.val == sum) {
+				return true;
+			}
+			if (node.left != null) {
+				node.left.val += node.val;
+				stack.push(node.left);
+			}
+			if (node.right != null) {
+				node.right.val += node.val;
+				stack.push(node.right);
+			}
+		}
+		return false;
 	}
 
 	public static void main(String[] args) {
@@ -62,5 +94,6 @@ public class A05_112PathSum {
 		t6.right = t9;
 
 		System.out.println(hasPathSum(t1,22));
+		System.out.println(hasPathSum1(t1,22));
 	}
 }

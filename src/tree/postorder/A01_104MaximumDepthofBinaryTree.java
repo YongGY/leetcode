@@ -2,6 +2,9 @@ package tree.postorder;
 
 import common.TreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Given a binary tree, find its maximum depth.
  *
@@ -25,36 +28,59 @@ import common.TreeNode;
  */
 public class A01_104MaximumDepthofBinaryTree {
 
+
 	public static int maxDepth(TreeNode root) {
 		if (root == null) {
 			return 0;
 		}
-		int leftDepth = maxDepth(root.left);
-		int rightDepth = maxDepth(root.right);
-		int bigger = Math.max(leftDepth, rightDepth);
-		return bigger + 1;
+		if (root.left == null && root.right == null) {
+			return 1;
+		}
+		if (root.left == null) {
+			return maxDepth(root.right) + 1;
+		} else if (root.right == null) {
+			return maxDepth(root.left) + 1;
+		} else {
+			return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+		}
 	}
 
 
-	public static int maxDepth1(TreeNode root) {
+	public int maxDepth1(TreeNode root) {
 		if (root == null) {
 			return 0;
 		}
-		return dfs(root);
+		return Math.max(maxDepth1(root.left), maxDepth1(root.right)) + 1;
 	}
 
-	private static int dfs(TreeNode node) {
-		if (node.left == null && node.right == null) {
-			return 1;
-		} else if (node.left == null) {
-			return dfs(node.right) + 1;
-		} else if (node.right == null) {
-			return dfs(node.left) + 1;
-		} else {
-			return Math.max(dfs(node.left), dfs(node.right)) + 1;
+	public int maxDepth2(TreeNode root) {
+		if (root == null) {
+			return 0;
 		}
+		Queue<TreeNode> q = new LinkedList<>();
+		q.offer(root);
+		int curLevel = 1;
+		int nextLevel = 0;
+		int depth = 0;
+		while (!q.isEmpty()) {
+			TreeNode node = q.poll();
+			curLevel--;
+			if (node.left != null) {
+				q.offer(node.left);
+				nextLevel++;
+			}
+			if (node.right != null) {
+				q.offer(node.right);
+				nextLevel++;
+			}
+			if (curLevel == 0) {
+				curLevel = nextLevel;
+				nextLevel = 0;
+				depth++;
+			}
+		}
+		return depth;
 	}
-
 
 	public static void main(String[] args) {
 		TreeNode t1 = new TreeNode(3);

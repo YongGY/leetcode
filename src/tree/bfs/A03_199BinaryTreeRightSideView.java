@@ -44,6 +44,7 @@ public class A03_199BinaryTreeRightSideView {
 		if (root == null) {
 			return;
 		}
+
 		if (level == res.size()) { // 当等于size的时候说明是最右侧结点，直接加入即可
 			res.add(root.val);
 		}
@@ -55,25 +56,29 @@ public class A03_199BinaryTreeRightSideView {
 	/**
 	 * 思路： BFS
 	 * use level order traverlsal. key is to track each level size, and add the 1ast one to list.
+	 *  2. BFS时，先左子树后右子树，每一层对应一个值，保存最后一个Queue里的值。
 	 */
 
-	public List<Integer> rightSideView1(TreeNode root) {
+	public static List<Integer> rightSideView1(TreeNode root) {
 		List<Integer> res = new ArrayList<>();
-		Queue<TreeNode> qu = new LinkedList<>();
-		if (root == null) return res;
-		qu.offer(root);
-		while (!qu.isEmpty()) {
-			int size = qu.size();
+		if (root == null) {
+			return res;
+		}
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.offer(root);
+
+		while (!queue.isEmpty()) {
+			int size = queue.size();
 			for (int i = 0; i < size; i++) {//traveling current level
-				TreeNode curr = qu.remove();
+				TreeNode curr = queue.poll();
 				if (i == size - 1) {
 					res.add(curr.val);
 				}
 				if (curr.left != null) {
-					qu.offer(curr.left);
+					queue.offer(curr.left);
 				}
 				if (curr.right != null) {
-					qu.offer(curr.right);
+					queue.offer(curr.right);
 				}
 			}
 		}
@@ -100,5 +105,6 @@ public class A03_199BinaryTreeRightSideView {
 		t4.left = t7;
 
 		System.out.println(rightSideView(t1));
+		System.out.println(rightSideView1(t1));
 	}
 }

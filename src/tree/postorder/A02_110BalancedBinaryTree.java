@@ -36,31 +36,40 @@ import common.TreeNode;
  *
  * @author William
  *
- * 维护一个值：
- * >=0 : 层数
- * -1  : 不balanced
- *
  */
 public class A02_110BalancedBinaryTree {
 
+	/**
+	 * 题意是判断一棵二叉树是否是高度平衡的，所谓二叉树高度平衡指的是二叉树的每个节点的两棵子树的高度差都不超过 1.
+	 *
+	 * 那么我们只需计算左右子树的高度，判断其高度差是否不超过 1 即可，如果超过 1，就代表其不是高度平衡的，立即返回不是即可.
+	 *
+	 * 我这里用返回 -1 代表不是。
+	 *
+	 * 我们可以使用自底向上的方法，用-1作为false的indicator，将不满足条件的dfs直接剪掉。最后Time Complexity就是O(n)， Space Complexity也是O(n)。
+	 */
 	public static boolean isBalanced(TreeNode root) {
-		return dfs(root) >= 0;
+		return dfs(root) != -1;
 	}
 
-	private static int dfs(TreeNode node) {
-		if (node == null) {
+	private static int dfs(TreeNode root) {
+		if (root == null) {
 			return 0;
 		}
-		int left = dfs(node.left);
-		int right = dfs(node.right);
-		if (Math.abs(left - right) > 1) {
+		int leftDepth = dfs(root.left);
+		if (leftDepth == -1) {
 			return -1;
 		}
-		if (left < 0 || right < 0) {
-			return -1;     //重要！！！
+		int rightDepth = dfs(root.right);
+		if (rightDepth == -1) {
+			return -1;
 		}
-		return Math.max(left, right) + 1;
+		if (Math.abs(leftDepth - rightDepth) > 1) {
+			return -1;
+		}
+		return Math.max(leftDepth, rightDepth) + 1;
 	}
+
     
 	public static void main(String[] args) {
 		TreeNode t1 = new TreeNode(3);

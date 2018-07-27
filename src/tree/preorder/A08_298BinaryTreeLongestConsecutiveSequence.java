@@ -31,33 +31,27 @@ import common.TreeNode;
  */
 public class A08_298BinaryTreeLongestConsecutiveSequence {
 
-	static int max = 1;
-	public static int longestConsecutive(TreeNode root) {
-		if (root == null) {
-			return 0;
+	private int max = 0;
+	public int longestConsecutive(TreeNode root) {
+		if(root == null) {
+			return max;
 		}
-		dfs(root, 1);
+		dfs(root, 0, root.val);
 		return max;
 	}
 
-	private static void dfs(TreeNode node, int c) {
-		if (node.left != null) {
-			if (node.val + 1 == node.left.val) {
-				dfs(node.left, c + 1);
-				max = Math.max(max, c + 1);
-			} else {
-				dfs(node.left, 1);
-			}
+	private void dfs(TreeNode root, int curMax, int target) {
+		if(root == null) {
+			return;
 		}
-
-		if (node.right != null) {
-			if (node.val + 1 == node.right.val) {
-				dfs(node.right, c + 1);
-				max = Math.max(max, c + 1);
-			} else {
-				dfs(node.right, 1);
-			}
+		if(root.val == target) {
+			curMax++;
+		} else {
+			curMax = 1;
 		}
+		max = Math.max(max, curMax);
+		dfs(root.left, curMax, root.val + 1);
+		dfs(root.right, curMax, root.val + 1);
 	}
 
  	public static void main(String[] args) {
