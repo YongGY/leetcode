@@ -1,4 +1,4 @@
-package tree.bst;
+package tree.bfs;
 
 import common.TreeNode;
 
@@ -87,17 +87,6 @@ public class A03_236LowestCommonAncestorofaBinaryTree {
 			return left != null ? left : right;   //说明在 left 分支上找到 p 或 q 节点，返回即可 , 否则返回 right
 		}
 	}
-
-//
-//	public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
-//		if(root.val > p.val && root.val > q.val) {
-//			return lowestCommonAncestor1(root.left, p, q);
-//		}
-//		if(root.val < p.val && root.val < q.val) {
-//			return lowestCommonAncestor1(root.right, p, q);
-//		}
-//		return root;
-//	}
 
 	public static void main(String[] args) {
 		TreeNode t1 = new TreeNode(3);
