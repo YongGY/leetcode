@@ -72,22 +72,22 @@ public class A08_116PopulatingNextRightPointersinEachNode {
 
 
 	public void connect2(TreeLinkNode root) {
-		TreeLinkNode curLevel = new TreeLinkNode(-1);
-		TreeLinkNode newLevel = curLevel;
+		TreeLinkNode dummy = new TreeLinkNode(0);
+		TreeLinkNode pre = dummy;
 		while (root != null) {
 			if (root.left != null) {
-				curLevel.next = root.left;
-				curLevel = curLevel.next;
+				dummy.next = root.left;
+				dummy = dummy.next;
 			}
 			if (root.right != null) {
-				curLevel.next = root.right;
-				curLevel = curLevel.next;
+				dummy.next = root.right;
+				dummy = dummy.next;
 			}
 			root = root.next;
 			if (root == null) {
-				curLevel = newLevel;
-				root = newLevel.next;
-				newLevel.next = null;
+				root = pre.next;
+				dummy = pre;
+				pre.next = null;
 			}
 		}
 	}

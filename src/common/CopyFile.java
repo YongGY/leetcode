@@ -36,18 +36,15 @@ public class CopyFile {
     public static void main(String[] args) {
     	
     	String [] strings = new String[] {
-    			"A01_200NumberOfIslands"
-    			,"A01_286WallsAndGates"	
-    			,"A01_130SurroundedRegions"
-    			,"A01_339NestedListWeightSum"	
-    			,"A01_364NestedListWeightSumII"
-    			,"A01_127WordLadder"	
-    			,"A01_051NQueens"	
-    			,"A01_052NQueensII"	
-    			,"A01_126WordLadderII"
+    			"A01_017LetterCombinationsOfAPhoneNumber"
+    			,"A02_320GeneralizedAbbreviation"
+    			,"A03_093Restore IPAddresses"
+    			,"A04_282ExpressionAddOperators"
+    			,"A05_140Word BreakII"
+    			,"A06_351AndroidUnlockPatterns"
     	};
     	for (String str : strings) {
-    		copyFunc("DFS_BFS\\basic",str);
+    		copyFunc("backtracking\\enumeration",str);
 		}
  
     }
