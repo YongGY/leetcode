@@ -40,19 +40,54 @@ public class A01_078Subsets {
 	 * ② 开始递归，递归中携带加入新元素的 temp，并且下一次循环的起始是 i 元素的下一个，因而递归中更新 i 值为 i + 1
 	 *
 	 * ③ 将这个从中间集合 temp 中移除，使该元素处于不存在状态
+	 *
+	 * [1,2,3]	  1       2		  3
+	 * 		[]   [1]    [12] 	[123]
+	 * 			 []				[12]
+	 * 			 		[1\]	[13]
+	 * 			 				[1]
+	 * 			 []		[2]		[23]
+	 * 			 		[\]		[2]
+	 * 			 				[3]
+	 * 			 				[\]
+	 *
+	 *  (2^N)
 	 */
+//	public List<List<Integer>> subsets(int[] nums) {
+//		List<List<Integer>> res = new ArrayList<>();
+//		dfs(nums, 0, new ArrayList<>(),res);
+//		return res;
+//	}
+//
+//	public void dfs(int[] nums, int index,List<Integer> temp,List<List<Integer>> res) {
+//		if(index == nums.length){
+//			res.add(new ArrayList<>(temp));
+//			return;
+//		}
+//		temp.add(nums[index]);
+//		dfs(nums,index+1,temp,res);
+//
+//		temp.remove(temp.size()-1);
+//		dfs(nums,index+1,temp,res);
+//
+//	}
+//	
+	
 	public List<List<Integer>> subsets(int[] nums) {
 		List<List<Integer>> res = new ArrayList<>();
-		dfs(res, 0, nums, new ArrayList<>());
+		if (nums == null) {
+			return res;
+		}
+		dfs(nums, 0, new ArrayList<>(), res);
 		return res;
 	}
 
-	public void dfs(List<List<Integer>> res, int index, int[] nums, List<Integer> path) {
-		res.add(new ArrayList<>(path));
-		for (int i = index; i < nums.length; i++) {
-			path.add(nums[i]);
-			dfs(res, i + 1, nums, path);
-			path.remove(path.size() - 1);
+	private void dfs(int[] nums, int start, List<Integer> list, List<List<Integer>> res) {
+		res.add(new ArrayList<>(list));
+		for (int i = start; i < nums.length; i++) {
+			list.add(nums[i]);
+			dfs(nums, i + 1, list, res);
+			list.remove(list.size() - 1);
 		}
 	}
 

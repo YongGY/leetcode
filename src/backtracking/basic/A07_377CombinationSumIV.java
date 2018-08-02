@@ -21,6 +21,7 @@ package backtracking.basic;
  * Note that different sequences are counted as different combinations.
  *
  * Therefore the output is 7.
+ *
  * Follow up:
  * What if negative numbers are allowed in the given array?
  * How does it change the problem?
@@ -31,19 +32,33 @@ package backtracking.basic;
  */
 public class A07_377CombinationSumIV {
 
+//	public int combinationSum4(int[] nums, int target) {
+//		int[] dp = new int[target + 1];
+//		dp[0] = 1;
+//		for (int i = 0; i <= target; i++) {
+//			for (int j = 0; j < nums.length; j++) {
+//				if (i >= nums[j]) {
+//					dp[i] += dp[i - nums[j]];
+//				}
+//			}
+//		}
+//		return dp[target];
+//	}
+
 	public int combinationSum4(int[] nums, int target) {
-		int[] dp = new int[target + 1];
-		dp[0] = 1;
-		for (int i = 0; i <= target; i++) {
-			for (int j = 0; j < nums.length; j++) {
-				if (i >= nums[j]) {
-					dp[i] += dp[i - nums[j]];
-				}
+		if (target == 0) {
+			return 1;
+		}
+		int res = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (target >= nums[i]) {
+				res += combinationSum4(nums, target - nums[i]);
 			}
 		}
-		return dp[target];
+		return res;
 	}
-    
+
+
  	public static void main(String[] args) {
  		
 	}

@@ -1,6 +1,7 @@
 package backtracking.basic;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -59,20 +60,21 @@ public class A04_039CombinationSum {
 		if (candidates.length == 0) {
 			return res;
 		}
+		Arrays.sort(candidates);
 		dfs(candidates, target, 0, new ArrayList<>(), res);
 		return res;
 	}
 
 	private static void dfs(int[] candidates, int target, int start, List<Integer> list, List<List<Integer>> res) {
-		if (target < 0) {  // 如果当前和已经大于目标，说明该路径错误
-			return;
-		}
 		if (target == 0) { // 如果当前和等于目标，说明这是一条正确路径，记录该路径
 			res.add(new ArrayList<>(list));
 			return;
 		}
 		// 否则，对剩余所有可能性进行深度优先搜索,   选取之后的每个数字都是一种可能性
 		for (int i = start; i < candidates.length; i++) {
+			if(candidates[i] > target){
+				break;
+			}
 			// 典型的先加入元素，再进行搜索，递归回来再移出元素的DFS解法
 			list.add(candidates[i]);
 			dfs(candidates, target - candidates[i], i, list, res);

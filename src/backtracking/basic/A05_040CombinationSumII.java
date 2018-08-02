@@ -23,9 +23,6 @@ public class A05_040CombinationSumII {
 	}
 
 	void dfs(int[] candidates, int target, int index, List<Integer> list, List<List<Integer>> res) {
-		if (target < 0) {
-			return;
-		}
 		if (target == 0) {
 			res.add(new ArrayList(list));
 			return;

@@ -44,6 +44,9 @@ public class A06_216CombinationSumIII {
 			return;
 		}
 		for (int i = start; i <= 9; i++) {//digits from 1 to 9
+			if (i > n) {
+				return;
+			}
 			list.add(i);
 			dfs(n - i, k, i + 1, list, res);
 			list.remove(list.size() - 1);
