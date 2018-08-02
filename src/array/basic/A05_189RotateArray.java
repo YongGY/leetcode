@@ -34,19 +34,21 @@ import java.util.Arrays;
  *
  */
 public class A05_189RotateArray {
-	public void rotate(int[] nums, int k) {
+	public static void rotate(int[] nums, int k) {
 		k %= nums.length;
 		reverse(nums, 0, nums.length - 1);  // 对整个数组翻转
 		reverse(nums, 0, k - 1);			// 对下标0~k-1的数组翻转
 		reverse(nums, k, nums.length - 1);	// 对下标k~len-1的数组翻转
 	}
 
-	public void reverse(int[] nums, int start, int end) {
+	public static void reverse(int[] nums, int start, int end) {
 		while (start < end) {
 			int temp = nums[start];
 			nums[start++] = nums[end];
 			nums[end--] = temp;
 		}
 	}
-	
+	public static void main(String[] args) {
+	    rotate(new int[]{1,2,3,4,5,6,7},3);
+	}
 }

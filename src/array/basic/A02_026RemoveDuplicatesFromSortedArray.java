@@ -28,11 +28,12 @@ package array.basic;
  *
  */
 public class A02_026RemoveDuplicatesFromSortedArray {
+
 	public int removeElement(int[] nums, int val) {
-		if(nums == null || nums.length == 0) return 0;
+		if (nums == null || nums.length == 0) return 0;
 		int count = 1;
-		for(int i=1; i<nums.length; i++){
-			if(nums[i-1] != nums[i]){
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i - 1] != nums[i]) {
 				nums[count++] = nums[i];
 			}
 		}
