@@ -47,7 +47,7 @@ package array.basic;
  * Therefore, you can't travel around the circuit once no matter where you start.
  * 
  * 
- * 非常经典的一道题。可以转换成求最大连续和做，但是有更简单的方法。基于一个数学定理：
+ * 基于一个数学定理：
  * 
  * 如果一个数组的总和非负，那么一定可以找到一个起始位置，从他开始绕数组一圈，累加和一直都是非负的
  * 
@@ -89,20 +89,45 @@ package array.basic;
  *
  */
 public class A08_134GasStation {
+//	public static int canCompleteCircuit(int[] gas, int[] cost) {
+//		int total = 0;
+//		int tank = 0;
+//		int begin = 0;
+//
+//		for (int i = 0; i < gas.length; i++) {
+//			total += gas[i] - cost[i];
+//			tank += (gas[i] - cost[i]);
+//			if (tank < 0) {
+//				begin = i + 1;
+//				tank = 0;
+//			}
+//		}
+//		return (total > 0 ? begin : -1);
+//	}
+//
+//	public static void main(String[] args) {
+//		System.out.println(canCompleteCircuit(new int[]{1, 2, 3, 4, 5}, new int[]{3, 4, 5, 1, 2}));
+//	}
+
+
 	public static int canCompleteCircuit(int[] gas, int[] cost) {
-		int total = 0,tank = 0,begin = 0;
+		int start = 0;
+		int curGas = 0;
+		int sum = 0;
 		for (int i = 0; i < gas.length; i++) {
-			total += gas[i]-  cost[i];
-			tank += (gas[i] - cost[i]);
-			if (tank < 0) {
-				begin = i + 1;
-				tank = 0;
+			sum += gas[i] - cost[i];
+			curGas += gas[i] - cost[i];
+			if (curGas < 0) {  //之前的油量不够到达当前加油站
+				start = i + 1;
+				curGas = 0;
 			}
 		}
-		return (total > 0 ? begin : -1);
+		return (sum < 0 ? -1 : start);
 	}
 
 	public static void main(String[] args) {
-		System.out.println(canCompleteCircuit(new int[] { 1, 2, 3, 4, 5 }, new int[] { 3, 4, 5, 1, 2 }));
+		int[] gas = {1, 2, 3, 4, 5};
+		int[] cost = {3, 4, 5, 1, 2};
+		System.out.println(canCompleteCircuit(gas, cost));
 	}
 }

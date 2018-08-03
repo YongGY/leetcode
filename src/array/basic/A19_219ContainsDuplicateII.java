@@ -29,7 +29,6 @@ public class A19_219ContainsDuplicateII {
 		}
 		Map<Integer,Integer> map = new HashMap<>();
 		for(int i= 0;i<nums.length;i++) {
-			System.out.println(map);
 			if(map.get(nums[i]) != null && i - map.get(nums[i]) <= k ) {
 				return true;
 			}

@@ -23,18 +23,32 @@ import java.util.List;
  *
  */
 public class A10_119PascalsTriangleII {
+//    public static List<Integer> getRow(int rowIndex) {
+//        List<Integer> list = new ArrayList<Integer>();
+//        list.add(1);
+//        for (int k = 1; k <= rowIndex; k++) {
+//            for (int i = k - 1; i >= 1; i--) {
+//                list.set(i, list.get(i) + list.get(i - 1));
+//            }
+//            list.add(1);
+//        }
+//        return list;
+//    }
+
     public static List<Integer> getRow(int rowIndex) {
-        List<Integer> list = new ArrayList<Integer>();
-        list.add(1);
-        for (int k = 1; k <= rowIndex; k++) {
-            for (int i = k - 1; i >= 1; i--) {
-                list.set(i, list.get(i) + list.get(i - 1));
-            }
-            list.add(1);
+        List<Integer> ans = new ArrayList<>();
+        if (rowIndex < 0) {
+            return ans;
         }
-        return list;
+        for (int i = 0; i <= rowIndex; i++) {
+            ans.add(0, 1);
+            for (int j = 1; j < ans.size() - 1; j ++) {
+                ans.set(j, ans.get(j) + ans.get(j + 1));
+            }
+        }
+        return ans;
     }
-    
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(getRow(3));

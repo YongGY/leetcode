@@ -18,6 +18,9 @@ package array.basic;
  * 
  * @author William
  *
+ * 问题描述：判断数组中是否存在<nums[i] nums[j]> abs(nums[i] - nums[j]) <= t  && abs(i - j) <=k；
+ *
+ * https://zhengyang2015.gitbooks.io/lintcode/contains-duplicate-iii-leetcode-220.html
  */
 public class A20_220ContainsDuplicateIII {
     public static boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
