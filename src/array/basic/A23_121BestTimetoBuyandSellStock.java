@@ -32,18 +32,43 @@ public class A23_121BestTimetoBuyandSellStock {
 		if (prices == null || prices.length <= 1) {
 			return 0;
 		}
-		int min = prices[0]; // min so far
-		int profit = 0;
+		int min = prices[0]; // // min代表目前股票出現的最低價
+		int profit = 0;  // 目前獲利
 		for (int i = 1; i < prices.length; i++) {
+
+			// ( prices[i] - min )計算現在的價錢可以獲利多少
+			// 并计算 現在的價錢賣出是否可以獲得更高的獲利
 			profit = Math.max(profit, prices[i] - min);
+
+			// 找出最低點買進
 			min = Math.min(min, prices[i]);
 		}
 		return profit;
 
 	}
 
+	//先买入才能卖出、卖价一定要比买入价格高才能成交就可以了。
+	public int maxProfit1(int[] prices) {
+		if (prices.length <= 1) {
+			return 0;
+		}
+
+		int maxProfit = 0;
+		int minBuyPrice = prices[0];
+
+		for (int i = 1; i < prices.length; i++) {
+			int curPrice = prices[i];
+			if (curPrice < minBuyPrice) {
+				minBuyPrice = curPrice;
+			} else if (curPrice - minBuyPrice > maxProfit) {
+				maxProfit = curPrice - minBuyPrice;
+			}
+		}
+
+		return maxProfit;
+	}
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println(maxProfit(new int[] { 7, 1, 5, 3, 6, 4 }));
 	}
 	

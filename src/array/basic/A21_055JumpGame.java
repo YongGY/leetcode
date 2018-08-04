@@ -28,8 +28,22 @@ package array.basic;
  *
  */
 public class A21_055JumpGame {
+
     public boolean canJump(int[] nums) {
-		return false;
-        
+        if (nums == null || nums.length == 0) {
+            return true;
+        }
+
+        int max = 0;      //记录到当前点时能到达的最大位置
+        for (int i = 0; i < nums.length - 1; i++) {
+            max = Math.max(max, i + nums[i]);
+            if (max < i + 1) {     //如果到达不了后续点(这里通常情况为 当前点为0，前面的能达到的最大点 为当前点或者当前点前面的点)，返回false
+                return false;
+            }
+            if (max >= (nums.length - 1)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
