@@ -22,6 +22,9 @@ package array.basic;
  * 
  * @author William
  *
+ *
+ * https://blog.csdn.net/yanglingwell/article/details/80865235
+ *
  * 模拟这个过程，可能会想到： 
  * 求最少需要多少糖果，先每个人分配一个，再根据等级依次加一个糖果。
  * 
