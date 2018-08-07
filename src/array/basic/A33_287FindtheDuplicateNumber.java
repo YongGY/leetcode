@@ -64,7 +64,9 @@ public class A33_287FindtheDuplicateNumber {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(123);
+		System.out.println(findDuplicate(new int[]{1,3,4,2,2}));
+		System.out.println(findDuplicate(new int[]{3,1,3,4,2}));
+		System.out.println(12);
 	}
 
 	/**
