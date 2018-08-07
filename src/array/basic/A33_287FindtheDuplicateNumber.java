@@ -64,7 +64,7 @@ public class A33_287FindtheDuplicateNumber {
 	}
 
 	public static void main(String[] args) {
-
+		System.out.println(123);
 	}
 
 	/**
