@@ -47,7 +47,8 @@ public class A33_287FindtheDuplicateNumber {
 		int max = nums.length - 1;
 
 		while (min <= max) {
-			int mid = (max + min) / 2;  // 找到中间那个数
+			int mid = min + (max - min)/2;
+			//int mid = (max + min) / 2;  // 找到中间那个数
 			int count = 0;
 			for (int i = 0; i < nums.length; i++) {  // 计算总数组中有多少个数小于等于中间数
 				if (nums[i] <= mid) {
@@ -64,9 +65,10 @@ public class A33_287FindtheDuplicateNumber {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(findDuplicate(new int[]{1,3,4,2,2}));
-		System.out.println(findDuplicate(new int[]{3,1,3,4,2}));
-		System.out.println(12);
+//		System.out.println(findDuplicate(new int[]{1,3,4,2,2}));
+//		System.out.println(findDuplicate(new int[]{3,1,3,4,2}));
+		System.out.println(findDuplicate1(new int[]{1,3,4,2,2}));
+//		System.out.println(findDuplicate1(new int[]{3,1,3,4,2}));
 	}
 
 	/**
@@ -95,7 +97,7 @@ public class A33_287FindtheDuplicateNumber {
 	 * 第一次找快慢指针相遇用do-while循环
 	 */
 
-	public int findDuplicate1(int[] nums) {
+	public static int findDuplicate1(int[] nums) {
 		if (nums == null || nums.length < 2) {
 			return -1;
 		}
