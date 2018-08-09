@@ -42,26 +42,26 @@ public class A06_041FirstMissingPositive {
 	 * 最后再判断数组中的一个A[i]不等于i+1的，返回i+1。
 	 *
 	 */
-	public static int firstMissingPositive(int[] nums) {
-		if (nums == null || nums.length == 0) {
-			return 1;
-		}
 
-		for (int i = 0; i < nums.length; i++) {
-			//将正整数 a放到第a-1的位置上
-			while (nums[i] > 0 && nums[i] <= nums.length && nums[nums[i] - 1] != nums[i]) {
+	public static int firstMissingPositive(int[] nums) {
+		int n = nums.length;
+		int i = 0;
+		while (i < n) {
+			if (nums[i] > 0 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
 				int temp = nums[nums[i] - 1];
 				nums[nums[i] - 1] = nums[i];
-				nums[i] = temp;
+				nums[i]= temp;
+			} else {
+				i++;
 			}
 		}
 
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] != i + 1) {
-				return i + 1;
+		for (int j = 0; j < n; j++) {
+			if (nums[j] != j + 1) {
+				return j + 1;
 			}
 		}
-		return nums.length + 1;
+		return n + 1;
 	}
 
 	public static void main(String[] args) {

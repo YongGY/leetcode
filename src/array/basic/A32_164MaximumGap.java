@@ -26,11 +26,6 @@ import java.util.Arrays;
  */
 public class A32_164MaximumGap {
 
-
-
-
-
-
     public static int maximumGap(int[] nums) {
         if (nums == null || nums.length < 2) {
             return 0;
@@ -51,9 +46,7 @@ public class A32_164MaximumGap {
 
         // 每个桶的长度len,向上取整所以加+
         int gap = (max - min) / (len - 1);
-        if (gap == 0) {
-            gap += 1;
-        }
+        gap = gap == 0 ? 1 : gap;
 
         //桶的个数:(maxNum - minNum) / len + 1,每个桶里面存储属于该桶的最大值和最小值即可，注意这里的最大最小值是局部的
         int leng = (max - min) / gap + 1;
@@ -83,7 +76,8 @@ public class A32_164MaximumGap {
         return myMax;
     }
     public static void main(String[] args) {
-//        System.out.println(maximumGap(new int[]{73, 22, 93, 43, 55, 14, 28, 65, 39, 81}));
-        System.out.println(maximumGap(new int[]{3,6,9,1}));
-    }
+        System.out.println(maximumGap(new int[]{73, 22, 93, 43, 55, 14, 28, 65, 39, 81}));
+//        System.out.println(maximumGap(new int[]{3,6,9,1}));
+     }
+
 }

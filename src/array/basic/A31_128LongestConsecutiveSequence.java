@@ -19,25 +19,29 @@ import java.util.Set;
  *
  */
 public class A31_128LongestConsecutiveSequence {
-	public int longestConsecutive(int[] nums) {
+
+	public static int longestConsecutive(int[] nums) {
 		if (nums == null || nums.length == 0) {
 			return 0;
 		}
 		Set<Integer> set = new HashSet<>();
-		for (int num : nums) {
-			set.add(num);
+		for (int n : nums) {
+			set.add(n);
 		}
-		int count = 0;
-		for (int num : nums) {
-			if (!set.contains(num - 1)) {
-				int c = 0;
-				while (set.contains(num + 1)) {
-					c++;
+		int longest = 0;
+		for (int n : set) {
+			if (!set.contains(n - 1)) {
+				int m = n + 1;
+				while (set.contains(m)) {
+					m++;
 				}
-				count = Math.max(count, c);
+				longest = Math.max(longest, m - n);
 			}
 		}
-		return count;
+		return longest;
+	}
 
+	public static void main(String[] args) {
+		System.out.println(longestConsecutive(new int[]{100, 4, 200, 1, 3, 2}));
 	}
 }

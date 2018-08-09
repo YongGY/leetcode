@@ -14,44 +14,71 @@ package array.basic;
  * Output: 6
  * 
  * http://www.bubuko.com/infodetail-843085.html
+ *
+ * https://www.cnblogs.com/zhxshseu/p/1500af07ede3bc9b59c7a22bbf616726.html
  * @author William
  *
  */
 public class A29_042TrappingRainWater {
-    
-	public static int trap(int[] height) {
 
+	public static int trap(int[] height) {
 		int left = 0;
 		int right = height.length - 1;
-
-		int leftBarrier = 0;
-		int rightBarrier = 0;
 		int result = 0;
-
+		int leftMax = 0;
+		int rightMax = 0;
 		while (left <= right) {
-			// left小
-			if (leftBarrier <= rightBarrier) {
-				// there could be a basin between leftBarrier and rightBarrier and left side is lower one
-				if (height[left] > leftBarrier) {
-					leftBarrier = height[left]; // update left barrier
-				} else {
-					result += leftBarrier - height[left];  // trap water (leftBarrier - height[left]) * 1
-				}
+			if (height[left] <= height[right]) {
+				leftMax = Math.max(height[left], leftMax);
+				result += leftMax - height[left];
 				left++;
-			} else {//right小
-				if (height[right] > rightBarrier) {
-					rightBarrier = height[right]; // update right barrier
-				} else {
-					result += rightBarrier - height[right]; // trap water (rightBarrier - height[right]) * 1
-				}
+			} else {
+				rightMax = Math.max(height[right], rightMax);
+				result += rightMax - height[right];
 				right--;
 			}
 		}
 		return result;
 	}
-    
+
+//	public int trap1(int[] height) {
+//
+//		int left = 0;
+//		int right = height.length - 1;
+//
+//		int leftBarrier = 0;
+//		int rightBarrier = 0;
+//		int result = 0;
+//
+//		while (left <= right) {
+//			if (leftBarrier <= rightBarrier) {
+//				// there could be a basin between leftBarrier and rightBarrier
+//				// and left side is lower one
+//				if (height[left] > leftBarrier) {
+//					// update left barrier
+//					leftBarrier = height[left];
+//				} else {
+//					// trap water (leftBarrier - height[left]) * 1
+//					result += leftBarrier - height[left];
+//				}
+//				left++;
+//			} else {
+//				if (height[right] > rightBarrier) {
+//					// update right barrier
+//					rightBarrier = height[right];
+//				} else {
+//					// trap water (rightBarrier - height[right]) * 1
+//					result += rightBarrier - height[right];
+//				}
+//				right--;
+//			}
+//		}
+//		return result;
+//	}
+
     public static void main(String[] args) {
-        int[] height = {0,1,0,2,1,0,1,3,2,1,2,1};
+        int[] height = {4,2,1,4,2,1,2,3};
+//        int[] height = {0,1,0,2,1,0,1,3,2,1,2,1};
         System.out.println(trap(height));
     }
 }

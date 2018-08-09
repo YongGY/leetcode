@@ -29,7 +29,7 @@ package array.basic;
  */
 public class A21_055JumpGame {
 
-    public boolean canJump(int[] nums) {
+    public static boolean canJump(int[] nums) {
         if (nums == null || nums.length == 0) {
             return true;
         }
@@ -45,5 +45,26 @@ public class A21_055JumpGame {
             }
         }
         return false;
+    }
+
+    public boolean canJump1(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
+        int reach = 0;
+        for (int i = 0; i <= reach; i++) {//只计算在能跳到的范围内的
+            reach = Math.max(reach, i + nums[i]);
+            if (reach >= nums.length - 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+
+    public static void main(String[] args) {
+        System.out.println(canJump(new int[]{0}));
     }
 }

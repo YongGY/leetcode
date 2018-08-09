@@ -15,6 +15,10 @@ package array.basic;
  * If leftHeight < rightHeight, move right and find a value that is greater than leftHeight. 
  * Similarily, if leftHeight > rightHeight, move left and find a value that is greater than rightHeight. 
  * Additionally, keep tracking the max value.
+ *
+ * https://segmentfault.com/a/1190000008824222
+ *
+ * https://www.cnblogs.com/zxqstrong/p/5274938.html
  */
 public class A28_011ContainerWithMostWater {
 
@@ -28,7 +32,8 @@ public class A28_011ContainerWithMostWater {
 		int right = height.length - 1;
 
 		while (left < right) {
-			max = Math.max(max, (right - left) * Math.min(height[left], height[right]));
+			int area = Math.min(height[left], height[right])  *  (right - left);
+			max = Math.max(max, area);
 			if (height[left] < height[right])
 				left++;
 			else

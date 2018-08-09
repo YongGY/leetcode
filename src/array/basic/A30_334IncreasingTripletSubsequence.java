@@ -32,7 +32,8 @@ public class A30_334IncreasingTripletSubsequence {
 	public boolean increasingTriplet(int[] nums) {
 		if (nums == null || nums.length < 3)
 			return false;
-		int min = Integer.MAX_VALUE, mid = Integer.MAX_VALUE;
+		int min = Integer.MAX_VALUE;
+		int mid = Integer.MAX_VALUE;
 		for (int num : nums) {
 			if (num <= min)
 				min = num; // 如果min大于等于当前数字，则将当前数字赋给min
