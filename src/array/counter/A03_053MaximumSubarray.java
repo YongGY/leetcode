@@ -17,14 +17,14 @@ package array.counter;
  *
  */
 public class A03_053MaximumSubarray {
-	public int maxSubArray(int[] nums) {
+
+	public int maxSubArray1(int[] nums) {
 		int max = nums[0];
-		int sum = nums[0];
+		int sub = nums[0];
 		for (int i = 1; i < nums.length; i++) {
-			sum = sum < 0 ? nums[i] : sum + nums[i];
-			max = Math.max(sum, max);
+			sub = (sub + nums[i] > nums[i]) ? sub + nums[i] : nums[i];
+			max = Math.max(max, sub);
 		}
 		return max;
-
 	}
 }

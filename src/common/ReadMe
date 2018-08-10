@@ -3,7 +3,7 @@ locked
 243 Shortest Word Distance
 244 Shortest Word Distance II
 245 Shortest Word Distance III
-
+325 Maximum Size Subarray Sum Equals k
 
 
 
@@ -16,3 +16,6 @@ review
 309 Best Time to Buy and Sell Stock with Cooldown
 164 Maximum Gap
 287 Find the Duplicate Number
+330 Patching Array
+239 Sliding Window Maximum
+295 Find Median from Data Stream

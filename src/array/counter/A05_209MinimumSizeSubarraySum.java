@@ -20,7 +20,7 @@ public class A05_209MinimumSizeSubarraySum {
 	public int minSubArrayLen(int s, int[] nums) {
 		int sum = 0;
 		int from = 0;
-		int minLen = nums.length;
+		int minLen = Integer.MAX_VALUE;
 		for (int i = 0; i < nums.length; i++) {
 			sum += nums[i];
 			while (sum >= s) {
@@ -28,6 +28,6 @@ public class A05_209MinimumSizeSubarraySum {
 				sum -= nums[from++];
 			}
 		}
-		return minLen == nums.length ? 0 : minLen;
+		return minLen == Integer.MAX_VALUE ? 0 : minLen;
 	}
 }
