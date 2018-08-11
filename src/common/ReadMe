@@ -4,9 +4,9 @@ locked
 244 Shortest Word Distance II
 245 Shortest Word Distance III
 325 Maximum Size Subarray Sum Equals k
-
-
-
+252 Meeting Rooms
+253 Meeting Rooms II
+280 Wiggle Sort
 
 review
 274	H-Index
@@ -19,3 +19,7 @@ review
 330 Patching Array
 239 Sliding Window Maximum
 295 Find Median from Data Stream
+321. Create Maximum Number
+327. Count of Range Sum
+289. Game of Life
+324. Wiggle Sort II

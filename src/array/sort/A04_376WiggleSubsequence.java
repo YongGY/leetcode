@@ -32,8 +32,51 @@ package array.sort;
  *
  */
 public class A04_376WiggleSubsequence {
-    public int wiggleMaxLength(int[] nums) {
-		return 0;
-        
+
+    /**
+     * https://blog.csdn.net/Johnsonjjj/article/details/78389482
+     *
+     */
+    public static int wiggleMaxLength(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+        int posTemp = 1;
+        int negTemp = 1;
+        for(int i = 1; i < nums.length; i++){
+            if(nums[i] > nums[i - 1]){
+                posTemp = negTemp + 1;
+            }else if(nums[i] < nums[i - 1]){
+                negTemp = posTemp + 1;
+            }
+        }
+		return Math.max(posTemp, negTemp);
+    }
+
+    public static int wiggleMaxLength1(int[] nums) {
+        if(nums == null){
+            return 0;
+        }
+        if(nums.length < 2){
+            return nums.length;
+        }
+        int pdiff = nums[1] - nums[0];
+        int count = pdiff == 0 ? 1 : 2;
+        for(int i = 2; i < nums.length; i++){
+            int diff = nums[i] - nums[i-1];
+            if( (diff < 0 && pdiff >= 0 ) || (diff > 0 && pdiff <=0 )){
+                count++;
+                pdiff = diff;
+            }
+        }
+        return count;
+    }
+
+
+
+
+        public static void main(String[] args) {
+        System.out.println(wiggleMaxLength(new int[]{1,17,5,10,13,15,10,5,16,8}));
+        System.out.println(wiggleMaxLength1(new int[]{1,17,5,10,13,15,10,5,16,8}));
     }
 }

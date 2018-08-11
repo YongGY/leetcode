@@ -25,23 +25,41 @@ package string.basic;
 public class A02_014LongestCommonPrefix {
 	
 	public static String longestCommonPrefix(String[] strs) {
-		if (strs == null || strs.length == 0) {
-			return null;
+
+		if (strs.length == 0) {
+			return "";
 		}
 		String prefix = strs[0];
 		for (int i = 1; i < strs.length; i++) {
-			int j = 0;
-			while (j < strs[i].length() && j < prefix.length() && prefix.charAt(j) == strs[i].charAt(j)) {
-				j++;
+			while (strs[i].indexOf(prefix) != 0) {
+				prefix = prefix.substring(0, prefix.length() - 1);
+				if (prefix.isEmpty()) {
+					return "";
+				}
 			}
-			if (j == 0) {
-				return "";
-			}
-			prefix = prefix.substring(0, j);
 		}
 		return prefix;
+
+
+//		if (strs == null || strs.length == 0) {
+//			return null;
+//		}
+//		String prefix = strs[0];
+//		for (int i = 1; i < strs.length; i++) {
+//			int j = 0;
+//			while (j < strs[i].length() && j < prefix.length() && prefix.charAt(j) == strs[i].charAt(j)) {
+//				j++;
+//			}
+//			if (j == 0) {
+//				return "";
+//			}
+//			prefix = prefix.substring(0, j);
+//		}
+//		return prefix;
 	}
-	
+
+
+
 	
  	public static void main(String[] args) {
 		System.out.println(longestCommonPrefix(new String[] {"flower","flow","flight"}));

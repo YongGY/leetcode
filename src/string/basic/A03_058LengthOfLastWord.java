@@ -34,8 +34,20 @@ public class A03_058LengthOfLastWord {
 		return count;
 	}
 
+	public static int lengthOfLastWord1(String s) {
+		if(s == null || s.length() == 0){
+			return 0;
+		}
+		String[] ss = s.split(" ");
+		if(ss.length == 1){
+			return 0;
+		}else{
+			return ss[ss.length - 1].length();
+		}
+
+	}
 	
  	public static void main(String[] args) {
-		System.out.println(lengthOfLastWord("a b"));
+		System.out.println(lengthOfLastWord1("a b"));
 	}
 }
