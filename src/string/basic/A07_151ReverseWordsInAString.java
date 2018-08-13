@@ -28,19 +28,23 @@ public class A07_151ReverseWordsInAString {
 		if (s == null || s.length() == 0) {
 			return "";
 		}
-		String[] words = s.split(" ");
-		StringBuilder res = new StringBuilder();
 
-		for (int i = words.length - 1; i >= 0; i--) {
-			res.append(words[i]);
-			if (i != 0)
-				res.append(" ");
+		String[] arr = s.split(" ");
+		StringBuilder sb = new StringBuilder();
+		for (int i = arr.length - 1; i >= 0; --i) {
+			if (!arr[i].equals("")) {
+				sb.append(" "+arr[i]);
+			}
 		}
-		return res.toString();
+		return sb.length() == 0 ? "" : sb.substring(1);
 	}
 
+
+
+
+
 	public static void main(String[] args) {
-		System.out.println(reverseWords("the sky is blue"));
+		System.out.println(reverseWords(" 1"));
 	}
 
 }

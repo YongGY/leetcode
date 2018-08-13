@@ -58,8 +58,44 @@ public class A01_125ValidPalindrome {
 		return c;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+
+
+	public static boolean isPalindrome2(String s) {
+		if(s == null || s.length() == 0){
+			return true;
+		}
+		s = s.toLowerCase();
+		int left = 0;
+		int right = s.length() - 1;
+		while(left < right){
+			char l = s.charAt(left);
+			char r = s.charAt(right);
+			if(!isNC(l)){
+				left++;
+				continue;
+			}
+			if(!isNC(r)){
+				right--;
+				continue;
+			}
+			if(s.charAt(left) != s.charAt(right)){
+				return false;
+			}
+			left++;
+			right--;
+		}
+		return true;
 	}
- 
+	static boolean isNC(char c){
+		if(c >= 0 && c <= 9 || c >= 'a' && c <= 'z'){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public static void main(String[] args) {
+
+		System.out.println(isPalindrome2("0P"));
+	}
+
 }

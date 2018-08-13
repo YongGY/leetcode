@@ -69,6 +69,7 @@ public class A29_273IntegerToEnglishWords {
 	}
  
  	public static void main(String[] args) {
+		System.out.println(1 % 3);
 		System.out.println(numberToWords(1001));
 	}
 }

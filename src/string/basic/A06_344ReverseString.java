@@ -21,10 +21,16 @@ public class A06_344ReverseString {
 		}
 		return sb.toString();
 	}
-	
-	
+
+	public static String reverseString1(String s) {
+		String res = "";
+		for(int i = s.length() - 1; i >= 0; i--) {
+			res += s.charAt(i);
+		}
+		return res;
+	}
 	
  	public static void main(String[] args) {
-		System.out.println(reverseString("hello"));
+		System.out.println(reverseString1(null));
 	}
 }

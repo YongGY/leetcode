@@ -30,6 +30,7 @@ public class A04_387FirstUniqueCharacterInAString {
 		for (int i = 0; i < s.length(); i++) {
 			temp[s.charAt(i) - 'a']++;
 		}
+		System.out.println(Arrays.toString(temp));
 		for (int j = 0; j < s.length(); j++) {
 			if (temp[s.charAt(j) - 'a'] == 1) {
 				return j;

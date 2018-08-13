@@ -18,7 +18,11 @@ import java.util.Arrays;
  * (The output array does not count as extra space for the purpose of space complexity analysis.)
  * 
  * @author William
- * 
+ *
+ * http://fisherlei.blogspot.com/2015/10/leetcode-product-of-array-except-self.html
+ *
+ * https://github.com/nekocode/leetcode-solutions/blob/master/solutions/238.%20Product%20of%20Array%20Except%20Self.md
+ *
  * 我们以一个4个元素的数组为例，nums=[a1, a2, a3, a4]。 
  * 想在O(n)时间复杂度完成最终的数组输出，res=[a2*a3*a4, a1*a3*a4, a1*a2*a4, a2*a3*a4]。
  * 
@@ -31,44 +35,30 @@ import java.util.Arrays;
  */
 public class A06_238ProductOfArrayExceptSelf {
     public static int[] productExceptSelf(int[] nums) {
-    	int len = nums.length;
-    	int [] pSep = new int[nums.length]; 
-    	int [] nSep = new int[nums.length]; 
-    	pSep[0] = 1;
-    	for(int i=1;i<len;i++){
-    		pSep[i] = pSep[i-1] * nums[i-1];
-    	}
-    	nSep[len - 1] = 1;
-    	for(int i= len -2; i>=0; i--){
-    		nSep[i] = nSep[i+1] * nums[i+1];
-    	}
-    	for(int i=0;i<len;i++){
-    		pSep[i] = pSep[i] * nSep[i];
-    	}
-		return pSep;
-    }
-  
-    
-	public static  int[] productExceptSelf1(int[] nums) {
-		int[] result = new int[nums.length];
+		if(nums == null || nums.length == 0){
+			return new int[]{};
+		}
+		int len = nums.length;
+		int [] res = new int[len];
+		res[0] = 1;
 
-		result[nums.length - 1] = 1;
-		for (int i = nums.length - 2; i >= 0; i--) {
-			result[i] = result[i + 1] * nums[i + 1];
+		int l = 1;
+		for(int i = 0; i < len - 1; i++){
+			l *= nums[i];
+			res[i + 1] = l;
 		}
 
-		int left = 1;
-		for (int i = 0; i < nums.length; i++) {
-			result[i] = result[i] * left;
-			left = left * nums[i];
+		int r = 1;
+		for(int i = len - 1; i > 0; i--){
+			r *= nums[i];
+			res[i - 1] *= r;
 		}
-		return result;
+		return res;
 	}
 	
 	
 	
     public static void main(String[] args) {
     	System.out.println(Arrays.toString(productExceptSelf(new int[]{1,2,3,4})));
-    	System.out.println(Arrays.toString(productExceptSelf1(new int[]{1,2,3,4})));
  	}
 }

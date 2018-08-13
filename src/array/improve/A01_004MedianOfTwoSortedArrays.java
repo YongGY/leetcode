@@ -20,7 +20,8 @@ package array.improve;
  * @author William
  *
  */
-public class A01_044MedianOfTwoSortedArrays {
+public class A01_004MedianOfTwoSortedArrays {
+
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 		return 0;
         

@@ -28,17 +28,17 @@ public class A02_065ValidNumber {
 		for (int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
 			if (c == 'e' || c == 'E') {
-				if (!isNumber || isExponent) {
+				if (!isNumber || isExponent) { // 当 不是 数字 或 已存在 'e'  返回 false
 					return false;
 				}
 				isNumber = false; // Should be: 2e2 , so there should be number follow "e"
 				isExponent = true;
 			} else if (c == '.') {
-				if (isPoint || isExponent) { // can't be: e0.2 can't be: ..
+				if (isPoint || isExponent) { // 当已存在 '.' 或 有存在 'e' (e后不可再有点) 返回 false。 can't be: e0.2 can't be: ..
 					return false;
 				}
 				isPoint = true;
-			} else if (c >= '0' && c <= '9') {
+			} else if (c >= '0' && c <= '9') { //
 				isNumber = true;
 			} else if (c == '+' || c == '-') {
 				if (i != 0 && s.charAt(i - 1) != 'e') { // filter : " 005047e+6", this is true.

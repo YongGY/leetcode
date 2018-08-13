@@ -34,6 +34,7 @@ public class A08_186ReverseWordsInAStringII {
 			reverse(s, pos, i - 1);
 			pos = i + 1;
 		}
+		System.out.println(Arrays.toString(s));
 		reverse(s, 0, s.length - 1);
 	}
 

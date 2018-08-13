@@ -22,17 +22,20 @@ public class A07_152MaximumProductSubarray {
 		if(nums == null || nums.length == 0){
 			return 0;
 		}
-		int max = nums[0];
+
 		int min = nums[0];
-		int productMax = nums[0];
-		for (int i = 1; i < nums.length; i++) {
-			max = Math.max(Math.max(max * nums[i], min * nums[i]), nums[i]);
-			min = Math.min(Math.min(max * nums[i], min * nums[i]), nums[i]);
-			productMax = Math.max(productMax, max);
+		int max = nums[0];
+		int res = nums[0];
+
+		for(int i = 1; i < nums.length; i++){
+			int nextMin = min * nums[i];
+			int nextMax = max * nums[i];
+			min = Math.min(nums[i], Math.min(nextMin, nextMax));
+			max = Math.max(nums[i], Math.max(nextMin, nextMax));
+			res = Math.max(res, max);
 		}
-		return productMax;
+		return res;
 	}
-	
 	public static void main(String[] args) {
 		System.out.println(maxProduct(new int[]{2,3,-2,4}));
 		System.out.println(maxProduct(new int[]{-2,0,-1}));

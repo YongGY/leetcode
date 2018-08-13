@@ -7,6 +7,19 @@ locked
 252 Meeting Rooms
 253 Meeting Rooms II
 280 Wiggle Sort
+163 Missing Ranges
+186 Reverse Words in a String II
+293	Flip Game
+294	Flip Game II
+249	Group Shifted Strings
+161	One Edit Distance
+358	Rearrange String k Distance Apart
+361	Bomb Enemy
+271	Encode and Decode Strings
+246	Strobogrammatic Number
+247	Strobogrammatic Number II
+248	Strobogrammatic Number III
+
 
 review
 274	H-Index
@@ -23,3 +36,6 @@ review
 327. Count of Range Sum
 289. Game of Life
 324. Wiggle Sort II
+38. Count and Say
+6. ZigZag Conversion
+68. Text Justification
