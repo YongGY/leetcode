@@ -19,7 +19,8 @@ locked
 246	Strobogrammatic Number
 247	Strobogrammatic Number II
 248	Strobogrammatic Number III
-
+266	Palindrome Permutation
+267	Palindrome Permutation II
 
 review
 274	H-Index
@@ -39,3 +40,7 @@ review
 38. Count and Say
 6. ZigZag Conversion
 68. Text Justification
+
+
+214. Shortest Palindrome
+132. Palindrome Partitioning II

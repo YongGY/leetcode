@@ -40,12 +40,48 @@ public class A05_214ShortestPalindrome {
 
 //http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html
 //http://massivealgorithms.blogspot.com/2015/09/leetcode-214-shortest-palindrome-iteye.html
+
     public String shortestPalindrome(String s) {
-        
+        int j = 0;
+        for (int i = s.length() - 1; i >= 0; i--)
+            if (s.charAt(i) == s.charAt(j)) {
+                j += 1;
+            }
+        if (j == s.length()) {
+            return s;
+        }
+        String suffix = s.substring(j);
+        return new StringBuffer(suffix).reverse().toString() + shortestPalindrome(s.substring(0, j)) + suffix;
     }
-    
- 
+
+    /**
+     * https://ithelp.ithome.com.tw/articles/10185126
+     * (反轉字串 - 最長匹配字串 ) + 正常字串 = 最短回文字串
+     * (dcba - a ) + abcd = dcbabcd
+     */
+
+    //KMP算法
+    public String shortestPalindrome1(String s) {
+        String s_reverse = new StringBuilder(s).reverse().toString();
+        String str = s + "#" + s_reverse;
+        int[] size = new int[str.length()];
+        for (int i = 1; i < str.length(); i++) {
+            int temp = size[i - 1];
+            while (temp != 0 && str.charAt(temp) != str.charAt(i)) {
+                temp = size[temp - 1];
+            }
+            if (str.charAt(temp) == str.charAt(i)) {
+                temp++;
+            }
+            size[i] = temp;
+        }
+        return s_reverse.substring(0, s.length() - size[str.length() - 1]) + s;
+    }
+
+
+
+
  	public static void main(String[] args) {
- 		
+ 		System.out.println();
 	}
 }
