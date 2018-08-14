@@ -20,7 +20,7 @@ import java.util.List;
  * @author William
  *
  */
-public class A07_131PalindromePartitioning {
+public class A131_PalindromePartitioning {
 
 	
     public List<List<String>> partition(String s) {

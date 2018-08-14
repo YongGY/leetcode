@@ -16,7 +16,7 @@ package string.palindrome;
  * @author William
  *
  */
-public class A01_125ValidPalindrome {
+public class A125_ValidPalindrome {
 	
     public static boolean isPalindrome(String s) {
  

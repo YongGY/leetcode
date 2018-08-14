@@ -35,7 +35,7 @@ import java.util.Stack;
  * @author William
  *
  */
-public class A01_020ValidParentheses {
+public class A020_ValidParentheses {
 	
 	public static boolean isValid(String s) {
 		if (s == null || s.length() == 0)
@@ -49,7 +49,7 @@ public class A01_020ValidParentheses {
 			} else if (c == '{') {
 				stack.push('}');
 			} else {
-				if (stack == null || stack.pop() != c) {
+				if (stack.isEmpty() || stack.pop() != c) {
 					return false;
 				}
 			}
@@ -60,10 +60,10 @@ public class A01_020ValidParentheses {
     
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(isValid("()[]{}"));
-		System.out.println(isValid("([]{})"));
-		System.out.println(isValid("([{}])"));
-		System.out.println(isValid("([)]"));
-		System.out.println(isValid(""));
+//		System.out.println(isValid("()[]{}"));
+//		System.out.println(isValid("([]{})"));
+//		System.out.println(isValid("([{}])"));
+//		System.out.println(isValid("([)]"));
+		System.out.println(isValid("]"));
 	}
 }

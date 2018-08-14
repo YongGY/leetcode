@@ -14,7 +14,7 @@ package string.palindrome;
  * @author William
  *
  */
-public class A08_132PalindromePartitioningII {
+public class A132_PalindromePartitioningII {
 
 	/**
 	 * 题解：

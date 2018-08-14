@@ -14,7 +14,7 @@ import java.util.Map;
  * @author William
  *
  */
-public class A04_340LongestSubstringWithAtMostKDistinctCharacters {
+public class A340_LongestSubstringWithAtMostKDistinctCharacters {
 	
 	public int lengthOfLongestSubstringKDistinct(String s, int k) {
 		if (s == null)

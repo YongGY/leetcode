@@ -22,7 +22,7 @@ import java.util.Set;
  * @author William
  *
  */
-public class A02_266PalindromePermutation {
+public class A266_PalindromePermutation {
 	
 	public static boolean canPermutePalindrome(String s) {
 		Set<Character> set = new HashSet<>();

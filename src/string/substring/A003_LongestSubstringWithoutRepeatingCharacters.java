@@ -20,7 +20,7 @@ import java.util.Map;
  * @author William
  *
  */
-public class A03_003LongestSubstringWithoutRepeatingCharacters {
+public class A003_LongestSubstringWithoutRepeatingCharacters {
 	
     public int lengthOfLongestSubstring(String s) {
         if(s == null || s.length() == 0){

@@ -1,7 +1,9 @@
 package string.parentheses;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Given a string of numbers and operators, 
@@ -28,13 +30,16 @@ import java.util.List;
  * @author William
  *
  */
-public class A04_241DifferentWaysToAddParentheses {
-	
+public class A241_DifferentWaysToAddParentheses {
+
+	//可加 可不加  加去重复 效率高
+	Map<String, List<Integer>> map = new HashMap<>();
+
 	public List<Integer> diffWaysToCompute(String input) {
 		List<Integer> res = new ArrayList<>();
 		if (input == null || input.length() == 0)
 			return res;
-		
+
 		for (int i = 0; i < input.length(); i++) {
 			char c = input.charAt(i);
 			if (c == '+' || c == '-' || c == '*') {
@@ -52,17 +57,15 @@ public class A04_241DifferentWaysToAddParentheses {
 				}
 			}
 		}
-		if (res.size() == 0)
+		if (res.size() == 0) {
 			res.add(Integer.parseInt(input));
+		}
+		map.put(input, res);
 		return res;
 	}
-	
-	
-	
-	
 
  	public static void main(String[] args) {
- 		
+ 		System.out.println(new A241_DifferentWaysToAddParentheses().diffWaysToCompute("2-1-1"));
 	}
 }
 

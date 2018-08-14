@@ -1,5 +1,7 @@
 package common;
 
+import java.util.List;
+
 /**
  * 
  * 
@@ -18,7 +20,7 @@ package common;
  * @author William
  *
  */
-public class A03_187RepeatedDNASequences {
+public class A187_RepeatedDNASequences {
 	
     public List<String> findRepeatedDnaSequences(String s) {
         

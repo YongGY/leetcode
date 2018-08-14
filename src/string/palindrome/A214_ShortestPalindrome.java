@@ -15,7 +15,7 @@ package string.palindrome;
  * @author William
  *
  */
-public class A05_214ShortestPalindrome {
+public class A214_ShortestPalindrome {
 	
 //	题解：
 //

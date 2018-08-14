@@ -20,7 +20,7 @@ import java.util.List;
  *
  *
  */
-public class A02_022GenerateParentheses {
+public class A022_GenerateParentheses {
 	public static List<String> generateParenthesis(int n) {
 		List<String> result = new ArrayList<String>();
 		dfs(result, 0, 0, "", n);

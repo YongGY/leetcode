@@ -25,7 +25,7 @@ package string.palindrome;
  * @author William
  *
  */
-public class A04_009PalindromeNumber {
+public class A009_PalindromeNumber {
 	
 	public static boolean isPalindrome(int x) {
 		if (x < 0) {

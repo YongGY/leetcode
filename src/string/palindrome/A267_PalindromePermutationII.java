@@ -16,7 +16,7 @@ package string.palindrome;
  * @author William
  *
  */
-public class A09_267PalindromePermutationII {
+public class A267_PalindromePermutationII {
 	
     
  	public static void main(String[] args) {

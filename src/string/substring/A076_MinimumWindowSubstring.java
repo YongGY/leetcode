@@ -18,7 +18,7 @@ import java.util.Map;
  * @author William
  *
  */
-public class A01_076MinimumWindowSubstring {
+public class A076_MinimumWindowSubstring {
 	
 	public String minWindow(String s, String t) {
 		if (t.length() > s.length()) {

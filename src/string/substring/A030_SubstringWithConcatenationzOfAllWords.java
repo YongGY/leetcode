@@ -1,4 +1,4 @@
-package common;
+package string.substring;
 
 /**
  * 
@@ -6,7 +6,7 @@ package common;
  * @author William
  *
  */
-public class ClassExample {
+public class A030_SubstringWithConcatenationzOfAllWords {
 	
     
  	public static void main(String[] args) {

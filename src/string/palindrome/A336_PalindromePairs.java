@@ -24,7 +24,7 @@ import java.util.Map;
  * https://segmentfault.com/a/1190000008917798
  *
  */
-public class A06_336PalindromePairs {
+public class A336_PalindromePairs {
 
 
     /**
@@ -102,6 +102,6 @@ public class A06_336PalindromePairs {
     }
 
     public static void main(String[] args) {
-        System.out.println(new A06_336PalindromePairs().palindromePairs(new String[]{"a",""}));
+        System.out.println(new A336_PalindromePairs().palindromePairs(new String[]{"a",""}));
     }
 }
