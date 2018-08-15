@@ -21,6 +21,9 @@ locked
 248	Strobogrammatic Number III
 266	Palindrome Permutation
 267	Palindrome Permutation II
+159	Longest Substring with At Most Two Distinct Characters
+340 Longest Substring with At Most K Distinct Characters
+
 
 review
 274	H-Index
@@ -45,3 +48,4 @@ review
 214. Shortest Palindrome
 132. Palindrome Partitioning II
 301. Remove Invalid Parentheses
+76. Minimum Window Substring

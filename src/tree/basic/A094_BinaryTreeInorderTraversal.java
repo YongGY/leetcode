@@ -31,7 +31,7 @@ import java.util.Stack;
  * Understand when to push node into the stack and when to pop node out of the stack
  *
  */
-public class A02_094BinaryTreeInorderTraversal {
+public class A094_BinaryTreeInorderTraversal {
 
 	/**
 	 * DFS
@@ -42,16 +42,16 @@ public class A02_094BinaryTreeInorderTraversal {
 		return res;
 	}
 
-	private static void dfs(TreeNode node, List<Integer> res) {
-		if (node == null) {
+	private static void dfs(TreeNode root, List<Integer> res) {
+		if (root == null) {
 			return;
 		}
-		if (node.left != null) {
-			dfs(node.left, res);
+		if (root.left != null) {
+			dfs(root.left, res);
 		}
-		res.add(node.val);
-		if (node.right != null) {
-			dfs(node.right, res);
+		res.add(root.val);
+		if (root.right != null) {
+			dfs(root.right, res);
 		}
 	}
 
@@ -60,9 +60,10 @@ public class A02_094BinaryTreeInorderTraversal {
 	 * Iterative
 	 */
 	public static List<Integer> inorderTraversal1(TreeNode root) {
-		ArrayList<Integer> result = new ArrayList<>();
-		if (root == null)
-			return result;
+		List<Integer> res = new ArrayList<>();
+		if (root == null) {
+			return res;
+		}
 		Stack<TreeNode> stack = new Stack<>();
 
 		while (root != null || !stack.isEmpty()) {
@@ -71,11 +72,11 @@ public class A02_094BinaryTreeInorderTraversal {
 				root = root.left;
 			} else {
 				root = stack.pop();
-				result.add(root.val);
+				res.add(root.val);
 				root = root.right;
 			}
 		}
-		return result;
+		return res;
 	}
 
 

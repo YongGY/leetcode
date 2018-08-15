@@ -10,7 +10,7 @@ import java.io.IOException;
  */
 public class FileRename {  
     public static void main(String[] args) throws IOException {  
-        java.io.File file = new java.io.File("C:\\eclipse-workspace\\leetcode\\src\\string\\substring");  
+        java.io.File file = new java.io.File("C:\\eclipse-workspace\\leetcode\\src\\tree\\bfs");  
         String dirPath = file.getAbsolutePath();//目录路径  
         if (file.isDirectory()) {  
             File[] files = file.listFiles();//获取此目录下的文件列表  

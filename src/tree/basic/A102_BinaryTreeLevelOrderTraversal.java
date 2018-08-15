@@ -27,7 +27,7 @@ import java.util.Queue;
  * @author William
  *
  */
-public class A04_102BinaryTreeLevelOrderTraversal {
+public class A102_BinaryTreeLevelOrderTraversal {
 
 
 	/**

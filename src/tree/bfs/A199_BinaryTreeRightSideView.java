@@ -25,7 +25,7 @@ import java.util.Queue;
  * @author William
  *
  */
-public class A03_199BinaryTreeRightSideView {
+public class A199_BinaryTreeRightSideView {
 
 	/**
 	 * 	思路: DFS

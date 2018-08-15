@@ -30,7 +30,7 @@ import java.util.Queue;
  * http://www.voidcn.com/article/p-zllboida-brm.html
  *
  */
-public class A02_103BinaryTreeZigzagLevelOrderTraversal {
+public class A103_BinaryTreeZigzagLevelOrderTraversal {
 
 	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
 		List<List<Integer>> res = new ArrayList<>();

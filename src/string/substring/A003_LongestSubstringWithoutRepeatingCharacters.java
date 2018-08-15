@@ -21,24 +21,24 @@ import java.util.Map;
  *
  */
 public class A003_LongestSubstringWithoutRepeatingCharacters {
-	
-    public int lengthOfLongestSubstring(String s) {
-        if(s == null || s.length() == 0){
-        	return 0;
-        }
-        int max = 0;
-        Map<Character,Integer> map = new HashMap<>();
-        for(int i=0,j = 0; i<s.length();i++){
-        	char c = s.charAt(i);
-        	Integer index = map.get(c);
-        	if(index != null){
-        		j = Math.max(j, map.get(c)+1);
-        	}
-        	map.put(c, i);//更新重复出现数的index值
-        	max = Math.max(max, i - j + 1);
-        }
+
+	public int lengthOfLongestSubstring(String s) {
+		if (s == null || s.length() == 0) {
+			return 0;
+		}
+		int max = 0;
+		int start = 0;
+		Map<Character, Integer> map = new HashMap<>();
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (map.get(c) != null) {
+				start = Math.max(start, map.get(c) + 1);
+			}
+			map.put(c, i);//更新重复出现数的index值
+			max = Math.max(max, i - start + 1);
+		}
 		return max;
-    }
+	}
     
 	public int lengthOfLongestSubstring2(String s) {
 		int result = 0;

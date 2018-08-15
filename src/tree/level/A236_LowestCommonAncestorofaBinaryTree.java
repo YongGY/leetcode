@@ -1,4 +1,4 @@
-package tree.bfs;
+package tree.level;
 
 import common.TreeNode;
 
@@ -64,7 +64,7 @@ import common.TreeNode;
  * 	如果left,right都不为空，就返回root自己；
  * 	left,right哪一个不为空就返回哪个，整个recursion做完就可以得到LCA。
  */
-public class A03_236LowestCommonAncestorofaBinaryTree {
+public class A236_LowestCommonAncestorofaBinaryTree {
 
 	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 

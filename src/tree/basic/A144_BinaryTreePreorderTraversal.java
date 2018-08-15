@@ -25,7 +25,7 @@ import java.util.Stack;
  * The key is using a stack to store left and right children, and push right child first so that it is processed after the left child.
  *
  */
-public class A01_144BinaryTreePreorderTraversal {
+public class A144_BinaryTreePreorderTraversal {
 
 	/**
 	 * #### Recursive

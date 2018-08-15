@@ -36,7 +36,7 @@ import java.util.Stack;
  * You can using an example to walk through the code.
  *
  */
-public class A03_145BinaryTreePostorderTraversal {
+public class A145_BinaryTreePostorderTraversal {
 
 
 	/**
