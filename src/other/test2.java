@@ -1,3 +1,4 @@
+package other;
 //
 ///**
 // * https://leetcode.com/discuss/interview-question/125204/Design-Connection-Pool./
