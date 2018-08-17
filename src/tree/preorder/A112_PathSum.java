@@ -1,8 +1,8 @@
 package tree.preorder;
 
-import common.TreeNode;
-
 import java.util.Stack;
+
+import a0_common.TreeNode;
 
 /**
  *

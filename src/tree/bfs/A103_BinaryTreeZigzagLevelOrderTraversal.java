@@ -1,11 +1,11 @@
 package tree.bfs;
 
-import common.TreeNode;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
+import a0_common.TreeNode;
 
 /**
  * Given a binary tree, return the zigzag level order traversal of its nodes' values.

@@ -1,6 +1,6 @@
 package difficulty.easy1_199;
 
-import common.ListNode;
+import a0_common.ListNode;
 
 /**
  * Given a sorted linked list, delete all duplicates such that each element

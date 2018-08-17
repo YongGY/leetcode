@@ -1,9 +1,9 @@
 package tree.postorder;
 
-import common.TreeNode;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import a0_common.TreeNode;
 
 /**
  * Given a binary tree, collect a tree's nodes as if you were doing this:

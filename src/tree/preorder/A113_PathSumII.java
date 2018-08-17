@@ -1,10 +1,10 @@
 package tree.preorder;
 
-import common.TreeNode;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import a0_common.TreeNode;
 
 /**
  * Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.

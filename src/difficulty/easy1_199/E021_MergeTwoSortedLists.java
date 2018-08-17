@@ -1,6 +1,6 @@
 package difficulty.easy1_199;
 
-import common.ListNode;
+import a0_common.ListNode;
 
 /**
  * Merge two sorted linked lists and return it as a new list. The new list

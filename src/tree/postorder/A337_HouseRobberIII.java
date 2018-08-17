@@ -1,6 +1,6 @@
 package tree.postorder;
 
-import common.TreeNode;
+import a0_common.TreeNode;
 
 /**
  * The thief has found himself a new place for his thievery again.

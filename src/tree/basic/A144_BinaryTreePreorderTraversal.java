@@ -1,10 +1,10 @@
 package tree.basic;
 
-import common.TreeNode;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+
+import a0_common.TreeNode;
 
 /**
  * Given a binary tree, return the preorder traversal of its nodes' values.

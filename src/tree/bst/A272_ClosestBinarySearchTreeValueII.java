@@ -1,9 +1,9 @@
 package tree.bst;
 
-import common.TreeNode;
-
 import java.util.LinkedList;
 import java.util.List;
+
+import a0_common.TreeNode;
 
 /**
  *

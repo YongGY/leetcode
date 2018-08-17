@@ -1,6 +1,6 @@
 package tree.bst;
 
-import common.TreeNode;
+import a0_common.TreeNode;
 
 /**
  * Two elements of a binary search tree (BST) are swapped by mistake.

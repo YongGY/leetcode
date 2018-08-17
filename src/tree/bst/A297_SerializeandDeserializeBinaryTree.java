@@ -1,10 +1,10 @@
 package tree.bst;
 
-import common.TreeNode;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import a0_common.TreeNode;
 
 /**
  * Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer,

@@ -1,6 +1,6 @@
 package tree.preorder;
 
-import common.TreeNode;
+import a0_common.TreeNode;
 
 /**
  * Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.

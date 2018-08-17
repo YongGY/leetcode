@@ -1,6 +1,6 @@
 package difficulty.easy1_199;
 
-import common.TreeNode;
+import a0_common.TreeNode;
 
 /**
  * Given a binary tree and a sum, determine if the tree has a root-to-leaf path

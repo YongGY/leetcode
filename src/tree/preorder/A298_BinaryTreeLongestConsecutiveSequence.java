@@ -1,6 +1,6 @@
 package tree.preorder;
 
-import common.TreeNode;
+import a0_common.TreeNode;
 
 /**
  * Given a binary tree, find the length of the longest consecutive sequence path.

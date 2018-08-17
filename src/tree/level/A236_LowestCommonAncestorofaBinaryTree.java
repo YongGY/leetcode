@@ -1,6 +1,6 @@
 package tree.level;
 
-import common.TreeNode;
+import a0_common.TreeNode;
 
 /**
  *

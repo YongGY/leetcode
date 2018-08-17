@@ -1,7 +1,7 @@
 package tree.bst;
 
-import common.ListNode;
-import common.TreeNode;
+import a0_common.ListNode;
+import a0_common.TreeNode;
 
 /**
  * 

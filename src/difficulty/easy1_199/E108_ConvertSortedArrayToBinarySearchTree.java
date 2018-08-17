@@ -1,6 +1,6 @@
 package difficulty.easy1_199;
 
-import common.TreeNode;
+import a0_common.TreeNode;
 
 /**
  * Given an array where elements are sorted in ascending order, convert it to a

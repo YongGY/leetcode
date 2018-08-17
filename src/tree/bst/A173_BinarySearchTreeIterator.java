@@ -1,8 +1,8 @@
 package tree.bst;
 
-import common.TreeNode;
-
 import java.util.Stack;
+
+import a0_common.TreeNode;
 
 /**
  * 

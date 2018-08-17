@@ -1,6 +1,6 @@
 package tree.preorder;
 
-import common.TreeNode;
+import a0_common.TreeNode;
 
 /**
  * Given two binary trees, write a function to check if they are the same or not.

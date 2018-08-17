@@ -1,6 +1,6 @@
 package difficulty.easy1_199;
 
-import common.TreeNode;
+import a0_common.TreeNode;
 
 /**
  * Given a binary tree, find its maximum depth.

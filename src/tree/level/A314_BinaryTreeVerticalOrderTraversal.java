@@ -1,8 +1,8 @@
 package tree.level;
 
-import common.TreeNode;
-
 import java.util.*;
+
+import a0_common.TreeNode;
 
 /**
  * Given a binary tree, return the vertical order traversal of its nodes' values. (ie, from top to bottom, column by column).

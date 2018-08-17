@@ -1,6 +1,6 @@
 package difficulty.easy1_199;
 
-import common.ListNode;
+import a0_common.ListNode;
 
 /**
  * Given a linked list, determine if it has a cycle in it.

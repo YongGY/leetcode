@@ -1,6 +1,6 @@
 package tree.level;
 
-import common.TreeLinkNode;
+import a0_common.TreeLinkNode;
 
 /**
  * Given a binary tree

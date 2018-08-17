@@ -1,6 +1,6 @@
 package tree.level;
 
-import common.TreeNode;
+import a0_common.TreeNode;
 
 /**
  * Given a binary tree where all the right nodes are either leaf nodes with a sibling

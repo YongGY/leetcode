@@ -1,6 +1,6 @@
 package tree.level;
 
-import common.TreeNode;
+import a0_common.TreeNode;
 
 /**
  * Given inorder and postorder traversal of a tree, construct the binary tree.

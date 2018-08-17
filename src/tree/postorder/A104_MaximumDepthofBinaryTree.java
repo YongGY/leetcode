@@ -1,9 +1,9 @@
 package tree.postorder;
 
-import common.TreeNode;
-
 import java.util.LinkedList;
 import java.util.Queue;
+
+import a0_common.TreeNode;
 
 /**
  * Given a binary tree, find its maximum depth.
