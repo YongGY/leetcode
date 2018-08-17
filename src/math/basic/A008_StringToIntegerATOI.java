@@ -52,42 +52,36 @@ package math.basic;
  */
 public class A008_StringToIntegerATOI {
 
-		public int atoi(String str) {
-		if (str == null || str.length() < 1)
-			return 0;
 
-		// trim white spaces
+	public int atoi(String str) {
 		str = str.trim();
+		int len = str.length();
+		if (len < 1) {
+			return 0;
+		}
 
 		char flag = '+';
-
-		// check negative or positive
-		int i = 0;
+		int count = 0;
 		if (str.charAt(0) == '-') {
 			flag = '-';
-			i++;
+			count++;
 		} else if (str.charAt(0) == '+') {
-			i++;
+			count++;
 		}
-		// use double to store result
+
 		double result = 0;
-
-		// calculate value
-		while (i < str.length() && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
-			result = result * 10 + (str.charAt(i) - '0');
-			i++;
+		for (int i = count; i < len; i++) {
+			if (str.charAt(i) >= '0' && str.charAt(i) <= '9') {
+				result = result * 10 + (str.charAt(i) - '0');
+			} else {
+				break;
+			}
 		}
-
-		if (flag == '-')
+		if (flag == '-') {
 			result = -result;
-
-		// handle max and min
-		if (result > Integer.MAX_VALUE)
-			return Integer.MAX_VALUE;
-
-		if (result < Integer.MIN_VALUE)
-			return Integer.MIN_VALUE;
-
+		}
+		if (result < Integer.MIN_VALUE) return Integer.MIN_VALUE;
+		if (result > Integer.MAX_VALUE) return Integer.MAX_VALUE;
 		return (int) result;
 	}
 
