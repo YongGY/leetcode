@@ -15,6 +15,6 @@ public class A21_038CountAndSay {
 	
 	
  	public static void main(String[] args) {
- 		System.out.println(char(1));
+ 		System.out.println();
 	}
 }

@@ -68,7 +68,7 @@ import java.util.List;
 public class A01_068TextJustification {
 	
     public List<String> fullJustify(String[] words, int maxWidth) {
-        
+		return null;
     }
     
  	public static void main(String[] args) {

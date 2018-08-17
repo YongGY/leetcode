@@ -58,7 +58,7 @@ public class A04_158ReadNCharactersGivenRead4II_CallMultipleTimes {
 	
 
     public int read(char[] buf, int n) {
-    	
+		return n;
     }
     
 	int read4(char[] buf) {

@@ -47,7 +47,7 @@ package string.subsequence;
 public class A115_DistinctSubsequences {
 	
     public int numDistinct(String s, String t) {
-        
+		return 0;
     }
     
  	public static void main(String[] args) {

@@ -18,7 +18,7 @@ package string.basic;
 public class A23_316RemoveDuplicateLetters {
 	
     public String removeDuplicateLetters(String s) {
-        
+		return s;
     }
 	
 	

@@ -1,4 +1,4 @@
-package common;
+package string.subsequence;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ import java.util.List;
 public class A187_RepeatedDNASequences {
 	
     public List<String> findRepeatedDnaSequences(String s) {
-        
+		return null;
     }
     
  	public static void main(String[] args) {

@@ -33,7 +33,7 @@ package string.basic;
 public class A19_006ZigZagConversion {
 	
     public String convert(String s, int numRows) {
-        
+		return s;
     }
 	
 	

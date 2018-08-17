@@ -36,7 +36,7 @@ public class A22_358RearrangeStringKDistanceApart {
 	
 	
     public String rearrangeString(String str, int k) {
-
+		return str;
     }
 	
 	
