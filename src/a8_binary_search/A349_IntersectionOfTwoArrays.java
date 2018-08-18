@@ -6,7 +6,7 @@ package a8_binary_search;
  * @author William
  *
  */
-public class ClassExample {
+public class A349_IntersectionOfTwoArrays {
 	
     
  	public static void main(String[] args) {
