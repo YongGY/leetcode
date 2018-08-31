@@ -21,8 +21,9 @@ import java.util.Queue;
  * operations will be called on an empty stack).
  */
 
+//https://segmentfault.com/a/1190000012685111
 // E219_ImplementTackUsingQueues
-public class E219_ImplementTackUsingQueues {
+public class E225_ImplementStackUsingQueues {
 
 	class MyStack {
 

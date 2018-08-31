@@ -38,7 +38,12 @@ public class M02_AddTwoNumbers {
 		if (l1 == null && l2 == null) { //如果都为空 直接返回不为空的一个参数 如果都未空 则返回空  
 			return dummyHead;
 		}
-
+		if (l1 == null) {
+			return l2;
+		}
+		if (l2 == null) {
+			return l1;
+		}
 		ListNode curr = dummyHead; // 使用一個ListNode来储存相加的结果
 		int sum = 0;
 		int carry = 0; //进位标示
@@ -62,6 +67,35 @@ public class M02_AddTwoNumbers {
 		///第一个节点为假节点，跳过
 		return dummyHead.next;
 	}
+
+
+	public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
+		ListNode p = l1;
+		ListNode q = l2;
+		ListNode head = new ListNode(0);
+		ListNode curr = head;
+		int sum = 0;
+
+		while (p != null || q != null) {
+			sum = sum / 10;
+			if (p != null) {
+				sum += p.val;
+				p = p.next;
+			}
+			if (q != null) {
+				sum += q.val;
+				q = q.next;
+			}
+			curr.next = new ListNode(sum % 10);
+			curr = curr.next;
+		}
+		if (sum >= 10) {
+			curr.next = new ListNode(1);
+		}
+
+		return head.next;
+	}
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

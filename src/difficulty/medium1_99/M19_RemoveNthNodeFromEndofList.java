@@ -26,7 +26,8 @@ import java.util.List;
  * 
  *         注意，一般链表删除节点时候，需要维护一个prev指针，指向需要删除节点的上一个节点。
  * 
- *         为了方便起见，当让slower和faster同时一起跑时，就不让faster跑到null了，让他停在上一步，faster.next==null时候，这样slower就正好指向要删除节点的上一个节点，充当了prev指针。这样一来，就很容易做删除操作了。
+ *         为了方便起见，当让slower和faster同时一起跑时，就不让faster跑到null了，让他停在上一步，faster.next==null时候，这样slower就正好指向要删除节点的上一个节点，充当了prev指针。
+ *         这样一来，就很容易做删除操作了。
  * 
  *         slower.next = slower.next.next(类似于prev.next = prev.next.next)。
  * 
@@ -62,6 +63,33 @@ public class M19_RemoveNthNodeFromEndofList {
 		second.next = second.next.next;
 		return dummy.next;
 	}
+
+
+	public static ListNode removeNthFromEnd1(ListNode head, int n) {
+		if (head == null || head.next == null) {
+			return null;
+		}
+		ListNode faster = head;
+		ListNode slower = head;
+		for (int i = 0; i < n; i++) {
+			faster = faster.next;
+		}
+
+		if (faster == null) {
+			head = head.next;
+			return head;
+		}
+
+		while (faster.next != null) {
+			slower = slower.next;
+			faster = faster.next;
+		}
+
+		slower.next = slower.next.next;
+		return head;
+
+	}
+
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

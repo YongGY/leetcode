@@ -11,7 +11,7 @@ public class CopyFile {
     public static void copyFunc(String folder,String tarName){
         try {
             // 读取文件绝对路径
-            File file = new File("C:\\eclipse-workspace\\leetcode\\src\\common\\ClassExample.java");
+            File file = new File("C:\\eclipse-workspace\\leetcode\\src\\a0_common\\ClassExample.java");
             File tarFile = new File("C:\\eclipse-workspace\\leetcode\\src\\"+folder+"\\"+tarName+".java");
 //            tarFile.isDirectory(); 
             // 文件输入输出流
@@ -36,23 +36,18 @@ public class CopyFile {
     public static void main(String[] args) {
     	
     	String [] strings = new String[] {
-    			"A278_FirstBadVersion"
-    			,"A035_SearchInsertPosition"
-    			,"A033_SearchInRotatedSortedArray"
-    			,"A081_SearchInRotatedSortedArrayII"
-    			,"A153_FindMinimumInRotatedSortedArray"
-    			,"A154_FindMinimumInRotatedSortedArrayII"
-    			,"A162_FindPeakElement"
-    			,"A374_GuessNumberHigherOrLower"
-    			,"A034_SearchForARange"
-    			,"A349_IntersectionOfTwoArrays"
-    			,"A350_IntersectionOfTwoArraysII"
-    			,"A315_CountOf SmallerNumbersAfterSelf"
-    			,"A300_LongestIncreasingSubsequence"
-    			,"A354_RussianDollEnvelopes"
+    			"A234_PalindromeLinkedList"
+    			,"A143_ReorderList"
+    			,"A142_LinkedListCycleII"
+    			,"A148_SortList"
+    			,"A025_ReverseNodesInKGroup"
+    			,"A061_RotateList"
+    			,"A086_PartitionList"
+    			,"A023_MergeKSortedLists"
+    			,"A147_InsertionSortList"
     	};
     	for (String str : strings) {
-    		copyFunc("binary_search",str);
+    		copyFunc("a7_linkedList\\improve",str);
 		}
  
     }
