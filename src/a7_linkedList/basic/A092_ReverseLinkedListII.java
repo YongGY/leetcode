@@ -18,10 +18,31 @@ import a0_common.ListNode;
 public class A092_ReverseLinkedListII {
 
 	public ListNode reverseBetween(ListNode head, int m, int n) {
-		if(head == null || head.next == null){
+		if (head == null || head.next == null || m >= n) {
 			return head;
 		}
 
+		ListNode dummy = new ListNode(0);
+		dummy.next = head;
+		head = dummy;
+
+		ListNode pre = head; // pre node
+
+		for (int i = 1; i < m; i++) {
+			pre = pre.next;
+		}
+
+		ListNode nodeA = pre.next;
+		ListNode nodeB = pre.next.next;
+
+		for (int i = 0; i < n - m; i++) {
+			nodeA.next = nodeB.next;
+			nodeB.next = pre.next;
+			pre.next = nodeB;
+			nodeB = nodeA.next;
+		}
+
+		return dummy.next;
 
 	}
     
