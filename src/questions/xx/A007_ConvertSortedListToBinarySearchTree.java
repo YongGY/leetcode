@@ -66,28 +66,52 @@ public class A007_ConvertSortedListToBinarySearchTree {
     
     
     
+//    
+//	public TreeNode sortedListToBST1(ListNode head) {
+//		return toBST(head, null);
+//	}
+// 
+//	private TreeNode toBST(ListNode head, ListNode tail) {
+//		if (head == tail)
+//			return null;
+//		// 申请两个指针，fast移动速度是low的两倍
+//		ListNode fast = head;
+//		ListNode slow = head;
+//		while (fast != tail && fast.next != tail) {
+//			fast = fast.next.next;
+//			slow = slow.next;
+//		}
+//		TreeNode root = new TreeNode(slow.val);
+//		root.left = toBST(head, slow);
+//		root.right = toBST(slow.next, tail);
+// 
+//		return root;
+//	}
+	
+	
+    public TreeNode sortedListToBST1(ListNode head) {
+        if (head == null) {
+        	return null;
+        }
+        return toBST(head, null);
+    }
     
-	public TreeNode sortedListToBST1(ListNode head) {
-		return toBST(head, null);
-	}
- 
-	private TreeNode toBST(ListNode head, ListNode tail) {
-		if (head == tail)
-			return null;
+    private TreeNode toBST(ListNode head, ListNode tail){
+        if (head == tail) {
+        	return null;
+        }
 		// 申请两个指针，fast移动速度是low的两倍
 		ListNode fast = head;
 		ListNode slow = head;
-		while (fast != tail && fast.next != tail) {
-			fast = fast.next.next;
-			slow = slow.next;
-		}
-		TreeNode root = new TreeNode(slow.val);
-		root.left = toBST(head, slow);
-		root.right = toBST(slow.next, tail);
- 
-		return root;
-	}
-	
+        while(fast != tail && fast.next != tail) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        TreeNode root = new TreeNode(slow.val);
+        root.left = toBST(head, slow);
+        root.right = toBST(slow.next, tail);
+        return root;
+    }
 	
 	
 	// Convert Sorted Array to Binary Search Tree

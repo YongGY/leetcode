@@ -8,18 +8,21 @@ public class A018_FindTheIntersectionOfTwoSortedArrays {
 	 *
 	 */
 	int intersectionPoint = -1;
-	int x;
-	int y;
+	int i;
+	int j;
 
 	public int intersection(int[] arrA, int[] arrB) {
-		while (x < arrA.length && y < arrB.length) {
-			if (arrA[x] > arrB[y])
-				y++;
-			else if (arrA[x] < arrB[y])
-				x++;
+		while (i < arrA.length && j < arrB.length) {
+			if (arrA[i] > arrB[j])
+				j++;
+			else if (arrA[i] < arrB[j])
+				i++;
 			else {
-				intersectionPoint = arrA[x];
-				return intersectionPoint;
+				System.out.println(arrA[i]);
+				intersectionPoint = arrA[i];
+				i++;
+				j++;
+				//return intersectionPoint;
 			}
 		}
 		return intersectionPoint;
@@ -27,7 +30,7 @@ public class A018_FindTheIntersectionOfTwoSortedArrays {
 
 	public static void main(String[] args) throws java.lang.Exception {
 		int[] a = { 1, 2, 3, 6, 8, 10 };
-		int[] b = { 4, 5, 6, 11, 15, 20 };
+		int[] b = { 4, 5, 6, 8, 15, 20 };
 		A018_FindTheIntersectionOfTwoSortedArrays i = new A018_FindTheIntersectionOfTwoSortedArrays();
 		System.out.println("Intersection point is : " + i.intersection(a, b));
 

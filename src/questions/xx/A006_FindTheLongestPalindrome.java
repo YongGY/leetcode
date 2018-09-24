@@ -1,6 +1,6 @@
 package questions.xx;
 
-public class A006_FindLongestPalindromeFormedByRemovingOrShufflingCharsFromString {
+public class A006_FindTheLongestPalindrome {
 
 	public String findTheLongestPalindrome(String str) {
 		if (str == null) {
@@ -32,9 +32,10 @@ public class A006_FindLongestPalindromeFormedByRemovingOrShufflingCharsFromStrin
 	}
 
 	public static void main(String[] args) {
-		A006_FindLongestPalindromeFormedByRemovingOrShufflingCharsFromString longestPalindrome = new A006_FindLongestPalindromeFormedByRemovingOrShufflingCharsFromString();
-		System.out.println("Longest palindrome in abcmadamcbamadam is "
-				+ longestPalindrome.findTheLongestPalindrome("abcmadamcbamadam"));
-		System.out.println("Longest palindrome in abcba is " + longestPalindrome.findTheLongestPalindrome("abcba"));
+		A006_FindTheLongestPalindrome longestPalindrome = new A006_FindTheLongestPalindrome();
+		System.out.println("Longest palindrome in abcmadamcbamadam is " + longestPalindrome.findTheLongestPalindrome("abc"));
+		System.out.println("Longest palindrome in abcba is " + longestPalindrome.findTheLongestPalindrome("aabbcc"));
+		System.out.println("Longest palindrome in abcba is " + longestPalindrome.findTheLongestPalindrome("abbaccd"));
+		System.out.println("Longest palindrome in abcba is " + longestPalindrome.findTheLongestPalindrome("aba"));
 	}
 }

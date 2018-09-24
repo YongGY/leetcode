@@ -1,4 +1,4 @@
-package questions.xx;
+package test;
 
 /**
  * Given an integer (signed 32 bits), write a function to check whether it is a
@@ -10,7 +10,7 @@ package questions.xx;
  * @author William
  *
  */
-public class A015_PowerOfFour {
+public class W015_PowerOfFour {
 
 	public boolean isPowerOfFour(int num) {
 		while (num > 0) {

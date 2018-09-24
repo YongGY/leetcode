@@ -1,8 +1,8 @@
-package questions.xx;
+package test;
 
 import a0_common.ListNode;
 
-public class A016_DetectAndRemoveLoopLinkedList {
+public class W016_DetectAndRemoveLoopLinkedList {
 
 	
 	/**
@@ -86,20 +86,20 @@ public class A016_DetectAndRemoveLoopLinkedList {
 	
     // Driver program to test above functions 
     public static void main(String[] args) { 
-    	A016_DetectAndRemoveLoopLinkedList list = new A016_DetectAndRemoveLoopLinkedList(); 
-    	Node head = new Node(50); 
-        head.next = new Node(20); 
-        head.next.next = new Node(15); 
-        head.next.next.next = new Node(4); 
-        head.next.next.next.next = new Node(10); 
-  
-        // Creating a loop for testing  
-        head.next.next.next.next.next = head.next.next; 
-        list.detectAndRemoveLoop(head); 
-        while (head != null) { 
-            System.out.print(head.data + " "); 
-            head = head.next; 
-        }
+//    	A016_DetectAndRemoveLoopLinkedList list = new A016_DetectAndRemoveLoopLinkedList(); 
+//    	Node head = new Node(50); 
+//        head.next = new Node(20); 
+//        head.next.next = new Node(15); 
+//        head.next.next.next = new Node(4); 
+//        head.next.next.next.next = new Node(10); 
+//  
+//        // Creating a loop for testing  
+//        head.next.next.next.next.next = head.next.next; 
+//        list.detectAndRemoveLoop(head); 
+//        while (head != null) { 
+//            System.out.print(head.data + " "); 
+//            head = head.next; 
+//        }
         
 //        
 //        ListNode head1 = new ListNode(50); 
